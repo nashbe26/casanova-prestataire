@@ -1,0 +1,26 @@
+.paddingTop {
+    margin-top: 0; /* Reset margin-top */
+    padding: 20px; /* Adjust padding as needed */
+    z-index: 1; /* Ensure the component is above other elements */
+  }
+  #cssportal-grid {
+    margin-top: 10%;
+    display: grid;
+    margin-bottom: 0%;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 10% 10%;
+    grid-template-columns: 50% 50%; 
+    grid-column-gap: 10px;
+    }
+  #div1 {
+    grid-area: 1 / 1 / 3 / 2;
+  }
+  #div2 {
+    grid-area: 1/2/2/3;
+  }
+  #div3 {
+    grid-area: 2 / 1 / 2 / 2;
+  }
+  #div4 {
+    grid-area: 2/2/3/3;
+  }

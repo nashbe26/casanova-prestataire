@@ -1,0 +1,17 @@
+@media (width <= 480px){
+    .responsiveIm{
+        display: none;
+
+    }
+    .responsiveButton > div {
+        margin-left: -50%;
+        width: 100%;
+        gap: 5;
+        justify-content: center;
+      }
+}
+
+
+.w-70{
+    width: 70%;
+}

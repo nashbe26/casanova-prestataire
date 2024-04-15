@@ -1,0 +1,13 @@
+/* CSS */
+.custom-date-input::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+  .custom-date-input {
+    /* Optional: Define custom styles for the appearance */
+    /* For example, add padding to make the input visually appealing */
+    padding: 0.5rem;
+    /* Set background to transparent to remove the default icon */
+    background-color: transparent;
+    /* Add other custom styles as needed */
+  }
+  

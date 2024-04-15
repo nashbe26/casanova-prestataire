@@ -1,0 +1,64 @@
+.rotate {
+    transform: rotate(45deg);
+  }
+  .textCercle{
+    max-width:500% !important;
+    position: absolute;
+    left: -35%;
+    top: -45%;
+    height:700px;
+    width:700px;
+
+  }
+
+.colorOfthiPage{
+  background-color:  #EAD9C9;
+  
+}
+.custom-swiper-container {
+  height: 25%; /* Set the height to 25% of the parent's height */
+  right: 28%; /* Adjust the right position */
+}
+.absolute{
+  position: absolute !important;
+}
+.overrideHeight{
+  height: 100% !important;
+}
+.navbar-position-top{
+    position: absolute;
+    top: 1% !important;
+    width: 100%;
+    z-index: 999;
+}
+  .fullScreen{
+    width:100vw;
+  }
+  .position2 {
+    transform: translateX(100%);
+}
+.noScroll{
+    overflow: hidden;
+
+}
+.rotation-position{
+    transform: rotate(190);
+
+}
+.fixedd {
+  overflow: fixed;
+  top: 0;
+  
+  
+}
+.transitioned {
+  transform: translateY(-85%);
+  transition: transform 5s ease;
+}
+.transformToY{
+  transform: translateY(-200%);
+}
+.swiper-container-vertical {
+  transform: rotate(-90deg);
+  transform-origin: right top;
+}

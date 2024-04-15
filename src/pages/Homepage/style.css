@@ -1,0 +1,37 @@
+@media (width <= 480px){
+    .hiddenPhone{
+      display: none;
+    }
+    .responsiveCat{
+        display: none;
+
+    }
+    .textAlignCenterPhone{
+      text-align: center;
+
+    }
+    .fullWidthPhone{
+      width: 100%;
+    }
+    .responsive {
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+        text-align: center; 
+      }
+      .responsiveAd2 {
+        display: none;
+        }
+    
+}
+
+.removeMargin{
+  margin :0px 0px 0px 0px !important;
+}
+.flowerStyle {
+  margin-left: 92px;
+  transform: rotate(90deg) translateX(30px);
+}
+.styleHeader{
+  z-index: 999;
+}

@@ -1,0 +1,21 @@
+.toast-container {
+    position: fixed;
+    z-index: 9999;
+  }
+  
+  .top-right {
+    top: 20px;
+    right: 20px;
+  }
+  
+  .toast {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  
+  .toast-content {
+    font-size: 16px;
+  }
+  

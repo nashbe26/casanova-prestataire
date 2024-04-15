@@ -1,0 +1,26 @@
+.rotate {
+    transform: rotate(45deg);
+  }
+  .textCercle{
+    max-width:500% !important;
+    position: absolute;
+    left: -35%;
+    top: -45%;
+    height:700px;
+    width:700px;
+
+  }
+
+
+
+  .fullScreen{
+    width:100vw;
+  }
+  .position2 {
+    transform: translateX(100%);
+}
+.navbar-position-top{
+  position: absolute;
+  top: 5%;
+  width: 100%;
+}
