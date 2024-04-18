@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ReactComponent as Shab } from "../../assets/images/shabbbb.svg";
+import   Shab  from "../../assets/images/cloud.png";
 import { Text, Img } from "components";
 import "./style.css";
 import NavBar from "./navBar";
@@ -44,10 +44,10 @@ const ScreenZero = () => {
       <NavBar  />
 
       </div>
-      <div className="flex panel flex-col items-start justify-start  fullScreen" style={{backgroundImage: 'url("images/aaaaaaaaaaaaaaaa.png")',backgroundRepeat: 'no-repeat',backgroundSize: 'cover'}}>
-        <div className="md:h-[846px] mt-0.5 relative fullScreen">
-          <div className="absolute flex flex-col h-[747px] md:h-auto inset-x-[0] items-center justify-center mx-auto pt-[5%] w-[100%]">
-          <div  ref={(el) => elementsRef.current.push(el)} className="flex-col pt-[8%] item-center z-[999]  justify-center ">
+      <div className="flex panel flex-col items-start justify-start relative fullScreen" style={{backgroundImage: 'url("images/aaaaaaaaaaaaaaaa.png")',backgroundRepeat: 'no-repeat',backgroundSize: 'cover'}}>
+        <div className="flex items-center justify-center fullScreen" >
+          <div style={{height:"80%",display:"flex",flexDirection:"column"}}>
+          <div  ref={(el) => elementsRef.current.push(el)} className="flex-col h-[40%] item-center z-[999]  justify-center pt-[14%] ">
           <Text
             className="sm:text-[32px] text-center md:text-[38px] text-[42px] z-[999] text-red-300 uppercase w-full"
             size="txtCormorantRegular42Red300"
@@ -65,28 +65,35 @@ const ScreenZero = () => {
           </Text>
       
         </div>  
-            <div className=" h-[100%] sm:h-[319px] md:h-[343px] sm:mt-0 mt-6 relative w-[100%]  sm:w-full">
-              <Text                 className=" absolute bottom-[8%] left-[49%] z-[999] w-[100%]"
->Scroll</Text>
-              <ScrollVector   ref={(el) => elementsRef.current.push(el)}
-                className=" absolute bottom-[-60%] right-[-0%] z-[999] w-[100%]"/>
-              <Tiktok
-                ref={(el) => elementsRef.current.push(el)}
-                className=" absolute bottom-[-50%] left-[-48%] z-[999] w-[100%]"
-              />
-              <Facebook
-                ref={(el) => elementsRef.current.push(el)}
-                className=" absolute bottom-[-50%] left-[-46%] z-[999] w-[100%]"
-              />
-              <Instagram
-                ref={(el) => elementsRef.current.push(el)}
-                className=" absolute bottom-[-51%] left-[-44%] z-[999] w-[100%]"
-              />
+            <div className=" h-[60%] sm:mt-0 mt-[19.5rem] relative w-[100%]  sm:w-full">
+              
+              <Text className="text-center mt-3 mb-5 w-[100%]">Scroll</Text>
+   
             </div>
 
           </div>
         </div>
-        <Shab className="absolute z-[-1] h-[100%] w-[100%]" ref={divRef} />
+        <div className=" flex gap-x-2 absolute bottom-[2%]  left-[1%] z-[999] ">
+
+                <Tiktok
+                  ref={(el) => elementsRef.current.push(el)}
+                  className="  w-[100%]"
+                />
+                <Facebook
+                  ref={(el) => elementsRef.current.push(el)}
+                  className="  w-[100%]"
+                />
+                <Instagram
+                  ref={(el) => elementsRef.current.push(el)}
+                  className=" w-[100%]"
+                />
+        </div>
+        <div className="absolute bottom-[0%] right-[50%]">
+        <ScrollVector   ref={(el) => elementsRef.current.push(el)} />
+        </div>
+        <div className="absolute z-[-1] h-[100%] w-[100%]" ref={divRef} > 
+          <img style={{width:"100%",height:"100%"}} src={Shab} />
+        </div>
       </div>
 
     </>
