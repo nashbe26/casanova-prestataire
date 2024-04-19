@@ -211,7 +211,7 @@ const ProductDetails = () => {
                 onClick={increaseCount}
               />
             </div>
-            <div className="bg-black-900 md:h-[50px] h-[52px] md:px-10 sm:px-5 px-[54px] py-4 relative rounded-[26px] w-[100%] sm:w-full">
+            <div className="md:h-[50px] h-[52px] md:px-10 sm:px-5 px-[54px] py-4 relative rounded-[26px] w-[100%] sm:w-full">
             
               <div className="absolute bg-gray-100 flex flex-col h-full inset-[0] items-center justify-center m-auto p-[15px] rounded-[5px] w-full">
               <Button 

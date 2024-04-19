@@ -47,12 +47,12 @@ const PresSignIn = () => {
 
   return (
     <>
-      <div className=" flex flex-col font-cormorant sm:gap-10 md:gap-10 gap-[69px] items-center justify-end mx-auto pt-[55px] w-full">
+      <div className=" flex flex-col font-cormorant sm:gap-10 md:gap-10 gap-[69px] items-center justify-end mx-auto md:pt-[0%] pt-[55px] w-full">
         <div className="md:h-[1530px] h-[976px] md:px-5 relative w-full">
         <div className="absolute bg-red-300 md:h-[1530px] h-[890px] inset-x-[0] mx-auto rounded-[2px] shadow-bs3 top-[0%] w-[81%] md:w-full">
             <div className="flex flex-col h-full items-center justify-start m-auto w-full">
               <div className="flex md:flex-col flex-row md:gap-5 items-center justify-evenly w-full">
-              <div className="h-[940px] relative w-[37%] md:w-full">
+              <div className="h-[940px] md:h-[56vw] relative w-[37%] md:w-full">
                 
                   <div className="absolute flex flex-col md:gap-10 gap-[116px] inset-x-[0] items-start justify-start mx-auto top-[5%] w-3/4">
                     <Img
@@ -68,7 +68,7 @@ const PresSignIn = () => {
                     </Text>
                   </div>
                 </div>
-                <div className="bg-white-A700 h-[100%] flex md:flex-1 flex-col items-start justify-start p-[190px] md:px-10 sm:px-5 rounded-sm w-[64%] md:w-full">
+                <div className="bg-white-A700 h-[100%] flex md:flex-1 flex-col md:p-[3%] items-start justify-start p-[190px] md:px-10 sm:px-5 rounded-sm w-[64%] md:w-full">
                   <Text
                     className="md:ml-[0] ml-[62px] sm:text-3xl md:text-[32px] text-[34px] text-red-300 tracking-[2.72px]"
                     size="txtCormorantBold34"
@@ -106,7 +106,7 @@ const PresSignIn = () => {
                     variant="underline"
                   ></Input>
 
-                  <div className="flex sm:flex-col flex-row font-montserrat gap-[18px] items-start justify-center md:ml-[0] ml-[69px] mt-[27px] w-[81%] md:w-full">
+                  <div className="flex md:flex-row flex-row font-montserrat gap-[18px] items-start justify-center md:flex-row md:ml-[0] ml-[69px] mt-[27px] w-[81%] md:w-full">
                     <div className="border border-gray-400_01 border-solid h-5 sm:mt-0 mt-1 w-5"></div>
                     <Text
                       className="leading-[19.00px] text-[13px] text-black-900_54 tracking-[1.04px] w-[93%] sm:w-full"

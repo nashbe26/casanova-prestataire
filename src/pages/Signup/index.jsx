@@ -77,12 +77,12 @@ const Signup = () => {
   return (
     <>
       <div className="">
-        <br></br>
+        <br className="md:hidden" ></br>
         <div className="md:h-[1530px] h-[890px] md:px-5 relative w-full">
           <div className="absolute bg-red-300 md:h-[1530px] h-[890px] inset-x-[0] mx-auto rounded-[2px] shadow-bs3 top-[0%] w-[81%] md:w-full">
             <div className="flex flex-col h-full items-center justify-start m-auto w-full">
               <div className="flex md:flex-col flex-row md:gap-5 items-center justify-evenly w-full">
-                <div className="h-[940px] relative w-[37%] md:w-full">
+                <div className="h-[940px] md:h-[56vw] relative w-[37%] md:w-full">
                   <div className="absolute flex flex-col md:gap-10 gap-[116px] inset-x-[0] items-start justify-start mx-auto top-[5%] w-3/4">
                     <Img
                       className="h-[100px] md:h-auto object-cover w-[36%]"
