@@ -8,16 +8,16 @@ const Footer = (props) => {
        <div className="font-cormorant sm:h-[427px] h-[599px] md:h-[659px] mt-[54px] md:px-5 relative w-full">
             <div className="sm:h-[373px] h-[599px] md:h-[605px] m-auto w-full">
               <div className="absolute bg-gray-100 bottom-[0] flex flex-col inset-x-[0] items-center justify-end mx-auto p-[34px] sm:px-5 w-[100%]">
-                <div className="flex flex-col items-start justify-start mt-[103px] w-[91%] md:w-full">
+                <div className="flex flex-col items-start justify-start md:mt-[9%] mt-[103px] w-[91%] md:w-full">
                   <div className="flex flex-row sm:gap-10 items-start justify-between w-[59%] md:w-full">
                     <Img
-                      className="h-8 md:h-auto object-cover"
+                      className="h-8 md:h-auto object-cover md:ml-[14%] md:w-[75%]"
                       src="../images/img_logo23.png"
                       alt="logoTwentyThree"
                     />
                    
                   </div>
-                  <div className="flex md:flex-row flex-row font-montserrat md:gap-5 md:items-center md:justify-center items-start justify-start mt-[13px] w-[68%] md:w-full">
+                  <div className="flex md:flex-row flex-row font-montserrat md:mt-[10%] md:gap-5 md:items-center md:justify-center items-start justify-start mt-[13px] w-[68%] md:w-full">
                     <Button
                       className="flex h-[25px] items-center justify-center md:mt-0 mt-2.5 rounded-[5px] w-[25px]"
                       color="red_300"
@@ -78,7 +78,7 @@ const Footer = (props) => {
                   <Line className="bg-black-900_19 h-px mt-9 w-full" />
                   <div className="flex md:flex-col flex-row font-montserrat md:gap-10 items-end justify-between ml-1.5 md:ml-[0] mt-[19px] w-full">
                     <Text
-                      className="md:mt-0 mt-3.5 text-black-900_99 text-right text-sm"
+                      className="md:mt-0 md:text-center mt-3.5 text-black-900_99 text-right text-sm"
                       size="txtMontserratRegular14Black90099"
                     >
                       Cazanova © 2023 All Rights Reserved | Released with

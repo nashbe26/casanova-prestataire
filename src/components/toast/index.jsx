@@ -11,7 +11,7 @@ const CustomToast = ({ data , message,title}) => {
     <div
       className={`${
         data.visible ? 'animate-enter' : 'animate-leave'
-      } max-w-md w-full shadow-lg rounded-lg pointer-events-auto flex flex-row-reverse ring-black mr-[-75%] `}
+      } max-w-md w-full shadow-lg rounded-lg pointer-events-auto flex flex-row-reverse ring-black mr-[-75%] md:mr-[0%] `}
       style={{ backgroundColor: 'white', boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)' }} // Set background color to white and adjust margins
     >
           <div className="flex-1 w-0 p-4 mt-[0%]">

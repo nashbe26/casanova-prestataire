@@ -139,7 +139,7 @@ const CartPage = () => {
                     </Text>
                   </div>
                   <Line className="bg-black-900_19 h-px ml-1 md:ml-[0] mt-[17px] w-[99%]" />
-                  <div className="flex sm:flex-col flex-row sm:gap-5 items-start justify-start ml-2 md:ml-[0] mt-3.5 w-[99%] md:w-full">
+                  <div className="flex sm:flex-col flex-row sm:gap-5 items-center justify-start ml-2 md:ml-[0] mt-3.5 w-[99%] md:w-full">
                   <input checked  type="radio" id="prestatire" name="deliveryOption"  value="Prestatire" onChange={handleDeliveryOptionChange} />
 
                     <label htmlFor="customRadio" className="radioButton">
