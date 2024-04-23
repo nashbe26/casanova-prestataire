@@ -28,7 +28,7 @@ const WeDoTheBest = () => {
                 className="absolute left-[9%] text-4xl sm:text-[32px] md:text-[34px] text-white-A700 top-[9%]"
                 size="txtCormorantBold36"
               >
-                Lorem
+                
               </Text>
             </div>
             <div className="sm:hidden absolute bg-white-A700 bottom-[0] h-[289px] right-[0] rounded-[20px] w-[61%] md:w-full">
@@ -41,7 +41,7 @@ const WeDoTheBest = () => {
                 className="absolute left-[5%] text-4xl sm:text-[32px] md:text-[34px] text-white-A700 top-[9%]"
                 size="txtCormorantBold36"
               >
-                Lorem
+                
               </Text>
             </div>
           </div>
@@ -56,7 +56,7 @@ const WeDoTheBest = () => {
                 className="absolute left-[5%] text-4xl sm:text-[32px] md:text-[34px] text-white-A700 top-[9%]"
                 size="txtCormorantBold36"
               >
-                Lorm
+                
               </Text>
             </div>
             <div className="md:h-[289px] h-[350px] relative w-[41%] md:w-full">
@@ -70,11 +70,11 @@ const WeDoTheBest = () => {
                   className="absolute left-[9%] text-4xl sm:text-[32px] md:text-[34px] text-white-A700 top-[9%]"
                   size="txtCormorantBold36"
                 >
-                  Lorem
+                  
                 </Text>
               </div>
               <Img
-                className="absolute bottom-[0] h-[166px] right-[0]"
+                className="absolute md:hidden bottom-[0] h-[166px] right-[0]"
                 src="images/img_vector_black_900_166x181.svg"
                 alt="vector_Five"
               />

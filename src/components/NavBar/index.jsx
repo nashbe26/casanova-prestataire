@@ -95,13 +95,13 @@ const NavBar = () => {
         <div className="flex gap-[11%]  ">
            
                <Img
-              className="h-6 w-6 md:ml-0 ml-3"
+              className="h-[40px] md:h-auto md:ml-[0]  rounded-[50%] w-[40px]"
               src="../images/box.svg"
               alt="bag"
               onClick={() => navigate(`/category`)}
             />
               <Img
-              className="h-6 w-6 md:ml-0 ml-3"
+              className="h-[40px] md:h-auto md:ml-[0]  rounded-[50%] w-[40px]"
               src="../images/cart.svg"
               alt="bag"
               onClick={() => navigate(`/cart`)}

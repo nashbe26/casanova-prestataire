@@ -114,7 +114,7 @@ const PresPortfolio = ({ user }) => {
                          </Text>
                        </div>
                        <div className="flex flex-col font-montserrat items-center justify-start w-full">
-                         <div className="flex flex-row items-start justify-evenly w-full">
+                         <div className="flex flex-row items-start  w-full">
                            <Text
                              className="text-black-900 text-xs tracking-[0.60px]"
                              size="txtMontserratRegular12"

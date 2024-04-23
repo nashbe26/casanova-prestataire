@@ -15,7 +15,7 @@ const HappyClients = () => {
 
   return (
     <>
-      <div className="flex flex-col font-cormorant gap-12 items-center sm:justify-center justify-start max-w-[1241px] sm:mt-[15%] sm:mb-[45%] sm:ml-[0%] ml-[8%] mt-[137px]  md:px-5 w-full">
+      <div className="flex flex-col font-cormorant gap-12 items-center sm:justify-center md:mb-[0%] justify-start max-w-[1241px] sm:mt-[15%]  sm:ml-[0%] ml-[8%] mt-[137px]  md:px-5 w-full">
         <div className="flex sm:flex-col flex-row md:gap-10 items-center  justify-between w-full">
           <Text
             className="text-5xl sm:text-[200%] sm:text-center md:text-[44px] text-red-300"
