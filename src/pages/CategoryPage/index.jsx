@@ -117,7 +117,7 @@ const CategoryPagePage = () => {
                 src="images/img_rectangle273.png"
                 alt="rectangle273"
               />
-              <div className="flex sm:flex-row flex-row sm:gap-5 relative   items-center justify-start max-w-[1242px] mt-12 mx-auto md:px-5 w-full">
+              <div className="flex sm:flex-row flex-row sm:gap-5 relative   items-center justify-start w-[80%] md:w-[100%] mt-12 mx-auto md:px-5 w-full">
                 <Text
                   className="md:text-3xl sm:text-[28px] text-[32px] text-red-300"
                   size="txtCormorantBold32"
@@ -133,7 +133,7 @@ const CategoryPagePage = () => {
                 />
                 )}
               </div>
-              <div className="flex md:flex-col flex-row gap-5 relative  items-start justify-start max-w-[1241px] mt-7 mx-auto md:px-5 w-full">
+              <div className="flex md:flex-col flex-row gap-5 relative  items-start justify-start w-[80%] mt-7 mx-auto md:px-5 w-full">
                 {!isTabletOrMobile ? (
                   <>
                     <div className="border border-red-300 border-solid flex flex-col gap-6 md:h-auto items-start justify-start pt-5 sm:px-5 px-6 rounded-[7px] w-[295px]">
@@ -175,9 +175,7 @@ const CategoryPagePage = () => {
                           </div>
                         </div>
                       </div>
-                      <br></br>
-                      <br></br>
-                      <br></br>
+         
                       <div className="flex flex-col font-montserrat gap-5 items-start justify-start w-full">
                         <Text
                           className="text-red-300 text-xl w-auto"
@@ -425,7 +423,7 @@ const CategoryPagePage = () => {
                               <div className="flex flex-col items-start justify-start w-full">
                                 <SeekBar
                                   min={50}
-                                  max={200}
+                                  max={9999}
                                   inputValue={priceRange}
                                   onChange={handlePriceChange}
                                   trackColors={[
@@ -442,13 +440,13 @@ const CategoryPagePage = () => {
                                     className="text-red-300 text-sm"
                                     size="txtCalistogaRegular14Red300"
                                   >
-                                    $50
+                                    50TND
                                   </Text>
                                   <Text
                                     className="text-center text-red-300 text-sm"
                                     size="txtCalistogaRegular14Red300"
                                   >
-                                    $200
+                                    9999TND
                                   </Text>
                                 </div>
                               </div>

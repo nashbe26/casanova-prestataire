@@ -85,7 +85,7 @@ const Footer = (props) => {
                       xsustain.
                     </Text>
                     <Img
-                      className="h-[30px] mb-0.5 w-[281px]"
+                      className="h-[30px] mb-0.5 w-[100%] object-cover"
                       src="../images/img_frame53.svg"
                       alt="frameFiftyThree"
                     />

@@ -6,7 +6,11 @@ import WeDoTheBest from "./whatWeDoTheBest";
 import HappyClients from "./happyClients";
 import Footer from "components/Footer";
 import './style.css'
+import { useMediaQuery } from "react-responsive";
 const HomepagePage = () => {
+
+
+
   return (
     <>
               <NavBar></NavBar>

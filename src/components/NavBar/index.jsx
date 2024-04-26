@@ -84,7 +84,7 @@ const NavBar = () => {
   if(isTabletOrMobile ){
     return (
     <> 
-      <div className="flex justify-around mt-[14%]">
+      <div className={isTabletOrMobile ? "flex justify-between items-center mt-5 mx-3" : "flex justify-around mt-[14%]"}>
         <div >
         <Img
               src="../images/img_sanstitre11.svg"
@@ -95,19 +95,19 @@ const NavBar = () => {
         <div className="flex gap-[11%]  ">
            
                <Img
-              className="h-[40px] md:h-auto md:ml-[0]  rounded-[50%] w-[40px]"
+              className="h-[30px] md:h-auto md:ml-[0]  rounded-[50%] w-[30px]"
               src="../images/box.svg"
               alt="bag"
               onClick={() => navigate(`/category`)}
             />
               <Img
-              className="h-[40px] md:h-auto md:ml-[0]  rounded-[50%] w-[40px]"
+              className="h-[30px] md:h-auto md:ml-[0]  rounded-[50%] w-[30px]"
               src="../images/cart.svg"
               alt="bag"
               onClick={() => navigate(`/cart`)}
             />
               <Img
-              className="h-[40px] md:h-auto md:ml-[0]  rounded-[50%] w-[40px]"
+              className="h-[30px] md:h-auto md:ml-[0]  rounded-[50%] w-[30px]"
               onClick={handleImageClick}
               src={
                 userData?.user?.picture

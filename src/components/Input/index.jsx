@@ -41,6 +41,7 @@ const Input = React.forwardRef(
       variant = "fill",
       color = "white_A700",
       register,
+      width='100%',
       ...restProps
       
     },
@@ -56,7 +57,10 @@ const Input = React.forwardRef(
           className={`${wrapClassName} 
               ${shapes[shape] || ""} 
               ${variants[variant]?.[color] || ""} 
-              ${sizes[size] || ""}`}
+              ${sizes[size] || ""}
+              ${"w-["+width+"]" || ""}
+              `}
+              
         >
           {!!label && label}
           {!!prefix && prefix}

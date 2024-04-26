@@ -143,15 +143,15 @@ const PresSettingsPage = ({ userData }) => {
               color="gray_50"
               size="lg"
             ></Input>
-            <div className="flex flex-row items-start justify-between mt-[33px] w-[68%] md:w-full">
+            <div className="flex flex-row items-start justify-between mt-[33px] w-[100%] md:w-full">
               <Text
-                className="text-gray-600_03 text-xs"
+                className="text-gray-600_03 text-xs w-[45%]"
                 size="txtInterSemiBold12"
               >
                 Email
               </Text>
               <Text
-                className="text-gray-600_03 text-xs"
+                className="text-gray-600_03 text-xs w-[45%]"
                 size="txtInterSemiBold12"
               >
                 Numéro de téléphone
@@ -161,11 +161,11 @@ const PresSettingsPage = ({ userData }) => {
               <Input
                 name="email.primary"
                 placeholder="Goure@gmail.com"
-                className="!placeholder:text-blue_gray-300 !text-blue_gray-300 p-0 text-left text-sm w-full"
+                className="!placeholder:text-blue_gray-300 !text-blue_gray-300 p-0 text-left text-sm w-full w-[100%]"
                 wrapClassName="border border-gray-200_01 border-solid rounded-lg md:w-full"
                 type="email"
                 register={register}
-
+                width={"45%"}    
                 shape="round"
                 color="gray_50"
                 size="lg"
@@ -173,13 +173,13 @@ const PresSettingsPage = ({ userData }) => {
               <Input
                 name="phone.primary"
                 register={register}
-
+                width={"45%"} 
                 placeholder="+21635358"
-                className="!placeholder:text-blue_gray-300 !text-blue_gray-300 p-0 text-left text-sm w-full"
+                className="!placeholder:text-blue_gray-300 !text-blue_gray-300 p-0 text-left text-sm w-full w-[100%]"
                 wrapClassName="border border-gray-200_01 border-solid flex rounded-lg md:w-full"
                 suffix={
                   <Img
-                    className="h-4 ml-[35px] my-px"
+                    className="h-4 ml-[0] my-px"
                     src="../images/img_arrowdown_gray_600_03.svg"
                     alt="arrow_down"
                   />

@@ -99,7 +99,35 @@ const ProjectRoutes = () => {
           <Route path="/landingpagesseven" element={<LandingpagesSeven />} />
           <Route path="/landingpagesthree" element={<LandingpagesThree />} />
           <Route path="/preslandingpage" element={<Preslandingpage />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/landingpagesfour" element={<LandingpagesFour />} />
 
+          <Route path="/PresorderPage" element={<PresorderPage />} />
+          <Route path="/Checkout" element={<Checkout />} />
+
+          
+          <Route path="/landingpagesfive" element={<LandingpagesFive />} />
+          <Route path="/landingpagessix" element={<LandingpagesSix />} />
+          <Route path="/landingpagesseven" element={<LandingpagesSeven />} />
+          <Route path="/landingpagesthree" element={<LandingpagesThree />} />
+          <Route path="/cart" element={<Cart />} /> 
+          
+          <Route path="/pres" element={<Pres />} /> 
+         
+          <Route path="/homepage" element={<Homepage />} /> 
+           
+          <Route path="/presphotoone" element={<PresPHOTOOne />} />  
+          <Route path="/presphoto" element={<PresPHOTO />} /> 
+          <Route path="/preslandingpage" element={<Preslandingpage />} /> 
+          <Route path="/PresSignIn" element={<PresSignIn />} /> 
+          
+          <Route path="/prescreatproduit" element={<Prescreatproduit />} /> 
+          <Route path="/preshomepage" element={<Preshomepage />} />
+          <Route path="/preshomepageaviabilty" element={<Preshomepageaviabilty />}/>
+          <Route path="/presproduit" element={<Presproduit />} />
+          <Route path="/pressettings" element={<PresSettings />} />
+          <Route path="/presbalance" element={<Presbalance />} />
+          <Route path="/presmedia" element={<PresMedia />} />
           {/* Private routes */}
           {loggedIn && (
             <>
@@ -134,19 +162,19 @@ const ProjectRoutes = () => {
           <Route path="/landingpagessix" element={<LandingpagesSix />} />
           <Route path="/landingpagesseven" element={<LandingpagesSeven />} />
           <Route path="/landingpagesthree" element={<LandingpagesThree />} />
-          <Route path="/cart" element={<Cart />} /> {"done"}
+          <Route path="/cart" element={<Cart />} /> 
           
-          <Route path="/pres" element={<Pres />} /> {"done"}
+          <Route path="/pres" element={<Pres />} /> 
          
-          <Route path="/homepage" element={<Homepage />} /> {"done"}
-           {"done"}
-          <Route path="/presphotoone" element={<PresPHOTOOne />} />  {"done"}
-          <Route path="/presphoto" element={<PresPHOTO />} /> {"need to be edited"}
-          <Route path="/preslandingpage" element={<Preslandingpage />} /> {"done"}
-          <Route path="/Signup" element={<Signup />} /> {"done"}
-          <Route path="/PresSignIn" element={<PressignIn />} /> {"done"}
+          <Route path="/homepage" element={<Homepage />} /> 
+           
+          <Route path="/presphotoone" element={<PresPHOTOOne />} />  
+          <Route path="/presphoto" element={<PresPHOTO />} /> 
+          <Route path="/preslandingpage" element={<Preslandingpage />} /> 
+          <Route path="/Signup" element={<Signup />} /> 
+          <Route path="/PresSignIn" element={<PressignIn />} /> 
           
-          <Route path="/prescreatproduit" element={<Prescreatproduit />} /> {"need to be edited"}
+          <Route path="/prescreatproduit" element={<Prescreatproduit />} /> 
           <Route path="/preshomepage" element={<Preshomepage />} />
           <Route path="/preshomepageaviabilty" element={<Preshomepageaviabilty />}/>{"not done yet"}
           <Route path="/presproduit" element={<Presproduit />} />

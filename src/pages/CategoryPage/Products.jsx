@@ -82,7 +82,7 @@ const Products = ({ dateRange, priceRange, category, subCategory, searchQuery })
   >
     {product.owner.businessName}
   </Text>
-  <div className="ml-[64%] md:ml-[58%]"> <RatingBar
+  <div className="ml-[50%] md:ml-[0%]"> <RatingBar
     className="flex justify-between my-0.5  rounded-[1px] w-14"
     value={0}
     starCount={5}

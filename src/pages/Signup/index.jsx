@@ -6,6 +6,7 @@ import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
 
 import "./style.css";
+import { useMediaQuery } from "react-responsive";
 const categoryOptionsList = [
   { label: "Option1", value: "option1" },
   { label: "Option2", value: "option2" },
@@ -74,11 +75,15 @@ const Signup = () => {
     }
   };
 
+  const isMobile = useMediaQuery({
+    query: '(min-width: 992px)'
+  })
+
   return (
     <>
       <div className="">
         <br className="md:hidden" ></br>
-        <div className="md:h-[1530px] h-[890px] md:px-5 relative w-full">
+        <div className="md:h-[100%] h-[890px] md:px-5 relative w-full">
           <div className="absolute bg-red-300 md:h-[1530px] h-[890px] inset-x-[0] mx-auto rounded-[2px] shadow-bs3 top-[0%] w-[81%] md:w-full">
             <div className="flex flex-col h-full items-center justify-start m-auto w-full">
               <div className="flex md:flex-col flex-row md:gap-5 items-center justify-evenly w-full">

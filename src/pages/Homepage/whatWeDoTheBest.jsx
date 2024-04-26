@@ -1,10 +1,16 @@
 import React from "react";
 import { Button, Img, Line, Text, RatingBar } from "components";
+import { useMediaQuery } from "react-responsive";
 
 const WeDoTheBest = () => {
+
+  const isMobile = useMediaQuery({
+    query: '(min-width: 992px)'
+  })
+
   return (
     <>
-      <div className="bg-gray-100 flex flex-col font-cormorant items-center justify-start max-w-[100%] mt-[138px] mx-auto pb-3.5 px-3.5 md:px-5 w-full">
+      <div className={isMobile ? "bg-gray-100 flex flex-col font-cormorant items-center justify-start max-w-[100%] mt-[138px] mx-auto pb-3.5 px-3.5 md:px-5 w-full" : "bg-gray-100 flex flex-col font-cormorant items-center justify-start max-w-[100%] mt-[138px] mx-auto pb-3.5 px-3.5 md:px-5 w-full"}>
         <div className="flex flex-col gap-5 justify-start w-[85%] md:w-full">
           <div className="md:h-[420px] h-[481px] relative w-[95%] md:w-full">
             <Img
