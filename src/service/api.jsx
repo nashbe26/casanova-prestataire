@@ -1,12 +1,12 @@
 import customAxios from "../axios/custom";
 
-export async function CreateImage(formData) {
+export async function CreateImage(formData, onUploadProgress) {
   try {
-
     const config = {
       headers: {
         'Content-Type': 'multipart/form-data'
-      }
+      },
+      onUploadProgress: onUploadProgress // Pass the progress callback here
     };
 
     const res = await customAxios.post("multer/upload/", formData, config);

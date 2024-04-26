@@ -50,7 +50,7 @@ const CartItem = ({ item, onRemove, index }) => {
               className="text-black-900 text-xs tracking-[0.60px]"
               size="txtMontserratRegular12"
             >
-              GOURMANDISE
+              {item?.owner?.businessName}
             </Text>
             <div className="flex mt-0.5 relative w-[29%]">
               <div className="flex my-auto w-[81%]">

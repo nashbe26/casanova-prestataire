@@ -7,7 +7,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import CustomToast from "../../components/toast";
 import toast from "react-hot-toast";
-
+import ProgressBar from "@ramonak/react-progress-bar";
+import "./style.css"
 import { Button, Img, Input, Line, Text } from "components";
 import Footer from "components/Footer";
 import NavBar from "components/NavBar";
@@ -39,10 +40,17 @@ const USERSETTINGPage = () => {
   const CreateIamge = useCreateImage();
 
   const fileInputRef = useRef(null);
+  const [imageProgress,setImageProgress] = useState(0)
   const [image, setImage] = useState(userData?.user?.picture || null);
   const [newImage, setImageChanged] = useState(null);
 
   const update = useUpdate();
+  const handleUploadProgress = (progressEvent) => {
+    const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+    setImageProgress(percentCompleted)
+    console.log(`Upload Progress: ${percentCompleted}%`);
+    // You can update progress UI here if needed
+  };
 
   const handleFileChange = async (e) => {
     const formData = new FormData();
@@ -58,7 +66,7 @@ const USERSETTINGPage = () => {
     await formData.append("file", newFiles[0]);
 
     try {
-      const response = await CreateIamge(formData);
+      const response = await CreateIamge(formData,handleUploadProgress);
       setImageChanged(response.file.filename);
       window.location.reload();
     } catch (error) {
@@ -164,6 +172,19 @@ const USERSETTINGPage = () => {
                           <>{userData.user.name}</>
                         )}
                       </Text>
+                      <div className="w-[100%]">
+                      {imageProgress!=0 ? 
+                      (<> <ProgressBar  
+                        bgColor={"#a57761d9"}
+                      completed={imageProgress} />
+                      </>):
+                      (<></>)
+
+                      }
+
+                      </div>
+                     
+                     
                     </div>
                     <div className="flex flex-col items-center justify-start w-full">
                       <Button

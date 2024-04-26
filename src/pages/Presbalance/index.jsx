@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import { Button, Img, Input, Line, List, Text } from "components";
-import { useGet, useGetUser } from "utils/functions";
+import { useGet, useGetUser,useGetById } from "utils/functions";
 import { useRecoilState } from "recoil";
 import { User } from "utils/recoil/atoms";
 
@@ -10,6 +10,8 @@ const PresbalancePage = () => {
   const Get = useGet();
   const GetUser = useGetUser();
   const [user] = useRecoilState(User);
+  const getById = useGetById();
+
   const [totalPrice, setTotalePrice] = useState(0);
   const billingHistoryData = [
     {

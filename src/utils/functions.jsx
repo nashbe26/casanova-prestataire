@@ -82,9 +82,9 @@ export function useUpdate() {
 
 
 export function useCreateImage() {
-  async function useCreateImage(formData) {
+  async function useCreateImage(formData, onUploadProgress) {
     try {
-      const response = await CreateImage(formData);
+      const response = await CreateImage(formData, onUploadProgress);
       return response; 
     } catch (error) {
       console.error("Error :", error.response.data.error);
