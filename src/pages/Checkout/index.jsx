@@ -70,7 +70,7 @@ export default function ChekoutsurplacePage() {
 
   useEffect(() => {
     const x = cart.some((product) => product.type === "gift");
-
+    
     setHasGift(x);
   }, []);
 
@@ -215,7 +215,10 @@ export default function ChekoutsurplacePage() {
                       as="p"
                       className="!text-black-900 !font-calistoga text-right"
                     >
-                      5 DT
+                      {
+                        //to make the price dynamic 
+                      }
+                      {"5"} DT
                     </Text>
                   </div>
                   <div className="flex justify-center gap-[2em] pb-[2%] ">
