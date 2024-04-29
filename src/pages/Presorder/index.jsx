@@ -7,6 +7,37 @@ import { ReactTable, Text } from "components";
 import { useGet } from "utils/functions";
 import { format } from "date-fns";
 import md5 from "md5";
+import Modal from "react-responsive-modal";
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    zIndex:"999999999"
+  },
+};
+const Modals = ({ modalIsOpen }) => {
+  return (
+    <Modal
+      isOpen={modalIsOpen}
+      style={customStyles}
+      contentLabel="Example Modal"
+    >
+      <div>I am a modal</div>
+      <form>
+        <input />
+        <button>tab navigation</button>
+        <button>stays</button>
+        <button>inside</button>
+        <button>the modal</button>
+      </form>
+    </Modal>
+  )
+}
 
 const PresorderPage = () => {
   const GetUser = useGetUser();
@@ -14,6 +45,11 @@ const PresorderPage = () => {
   const getById = useGetById();
   const [user] = useRecoilState(User);
   const [orders, setOrders] = useState([]);
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+  const [selectedOrderId, setSelectedOrderId] = useState(null);
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -52,125 +88,54 @@ const PresorderPage = () => {
     return hashedId.substring(0, 8);
   };
 
-  const table2Columns = React.useMemo(() => {
-    const orders = createColumnHelper();
-    return [
-      orders.accessor("_id", {
-        cell: (info) => (
-          <Text
-            className="pb-4 pt-8 text-[13px] text-gray-900_02"
-            size="txtInterRegular13"
-          >
-            #{shortenOrderId(info?.getValue())}
-          </Text>
-        ),
-        header: (info) => (
-          <Text
-            className="min-w-[132px] text-[13px] text-gray-600_03"
-            size="txtInterMedium13Gray60003"
-          >
-            Order
-          </Text>
-        ),
-      }),
-      orders.accessor("date", {
-        cell: (info) => (
-          <Text
-            className="pb-4 pt-[33px] text-gray-600_03 text-xs"
-            size="txtInterRegular12"
-          >
-            {format(new Date(info?.getValue()), "MMM dd, yyyy HH:mm a")}
-          </Text>
-        ),
-        header: (info) => (
-          <Text
-            className="min-w-[232px] text-[13px] text-gray-600_03"
-            size="txtInterMedium13Gray60003"
-          >
-            Date / Time
-          </Text>
-        ),
-      }),
-      orders.accessor("customerName", {
-        cell: (info) => (
-          <Text
-            className="pb-3.5 pt-[33px] text-[13px] text-gray-900_02"
-            size="txtInterRegular13"
-          >
-            {info?.getValue()?.phone.primary}
-          </Text>
-        ),
-        header: (info) => (
-          <Text
-            className="min-w-[182px] text-[13px] text-gray-600_03"
-            size="txtInterMedium13Gray60003"
-          >
-            Customer
-          </Text>
-        ),
-      }),
-      orders.accessor("livraision", {
-        cell: (info) => (
-          <Text
-            className="pb-3.5 pt-[33px] text-[13px] text-gray-900_02"
-            size="txtInterRegular13"
-          >
-            {info?.getValue()}
-          </Text>
-        ),
-        header: (info) => (
-          <Text
-            className="min-w-[182px] text-[13px] text-gray-600_03"
-            size="txtInterMedium13Gray60003"
-          >
-            livraision
-          </Text>
-        ),
-      }),
-
-      orders.accessor("totalPrice", {
-        cell: (info) => (
-          <Text
-            className="pb-3.5 pt-[33px] text-[13px] text-gray-900_02"
-            size="txtInterRegular13"
-          >
-            {info?.getValue()}$
-          </Text>
-        ),
-        header: (info) => (
-          <Text
-            className="min-w-[182px] text-[13px] text-gray-600_03"
-            size="txtInterMedium13Gray60003"
-          >
-            Total Price
-          </Text>
-        ),
-      }),
-    ];
-  }, []);
 
   return (
     <div className="flex m-auto w-full">
-      <div className="absolute top-0 left-[15%] flex m-auto w-full justify-center">
-        <div className="bg-white-A700   border-solid flex flex-col items-start justify-end my-auto p-7 sm:px-5 z-[1]">
+      <div className="w-[100%] flex m-auto w-full justify-end">
+        <div className="bg-white-A700 w-[100%]  border-solid flex flex-col items-start justify-end ">
           <Text
-            className="text-2xl md:text-[22px] sm:text-xl text-gray-900_02"
+            className="text-2xl md:text-[22px] mb-5 pb-5 sm:text-xl text-gray-900_02"
             style={{ textAlign: "center", justifyContent: "center" }}
             size="txtInterSemiBold24"
           >
             Orders
           </Text>
 
-          <ReactTable
-            columns={table2Columns}
-            data={orders}
-            rowClass=""
-            headerClass=""
-          />
+          <table>
+            <thead>
+              <tr>
+                <th style={{ width: "20%", height: "50px" }} className="text-center  text-[13px] text-gray-900_02">Order</th>
+                <th style={{ width: "30%", height: "50px" }} className="text-center  text-[13px] text-gray-900_02">Date / Time</th>
+                <th style={{ width: "15%", height: "50px" }} className="text-center  text-[13px] text-gray-900_02">Livraision</th>
+                <th style={{ width: "20%", height: "50px" }} className="text-center  text-[13px] text-gray-900_02">Total Price</th>
+                <th style={{ width: "15%", height: "50px" }} className="text-center  text-[13px] text-gray-900_02">More Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              {orders.map(x => (
+                <tr key={x?._id}>
+                  <td style={{ width: "20%", height: "35px", borderBottom: "1px solid black" }} className="text-center  text-[13px] text-gray-900_02">#{x?._id}</td>
+                  <td style={{ width: "30%", height: "35px", borderBottom: "1px solid black" }} className="text-center  text-[13px] text-gray-900_02">{x?.date}</td>
+                  <td style={{ width: "15%", height: "35px", borderBottom: "1px solid black" }} className="text-center  text-[13px] text-gray-900_02">{x?.livraision}</td>
+                  <td style={{ width: "20%", height: "35px", borderBottom: "1px solid black" }} className="text-center  text-[13px] text-gray-900_02">{x?.totalPrice}$</td>
+                  <td style={{ width: "15%", height: "35px", borderBottom: "1px solid black" }} className="text-center  text-[13px] text-gray-900_02">
+                    <span className="more-details" onClick={() => onOpenModal(x)}>More</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          <div>
+    <Modal open={open} onClose={onCloseModal} center>
+      <h2>Simple centered modal</h2>
+    </Modal>
+  </div>
         </div>
       </div>
     </div>
   );
 };
+
 
 export default PresorderPage;

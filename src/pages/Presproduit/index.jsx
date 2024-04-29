@@ -97,82 +97,61 @@ const PresproduitPage = ({ onItemClick }) => {
                     </div>
                   </div>
                   <div className="flex flex-col gap-[23px] items-center justify-end p-2.5 w-full">
-                    <div className="flex md:flex-col flex-row md:gap-5 items-start justify-start mt-[7px] w-[96%] md:w-full">
-                      <Text
-                        className="text-[13px] text-gray-600_03"
-                        size="txtMontserratRomanMedium13Gray60003"
-                      >
-                        Item
-                      </Text>
+                    <table border={""}>
+                      <thead>
+                        <tr>
+                          <th className="w-[10%] text-[13px] text-gray-600_03">Item</th>
+                          <th className=" w-[20%] text-gray-600_03 text-xs">Titre</th>
+                          <th className=" w-[20%] text-gray-600_03 text-xs">Description</th>
+                          <th className="w-[20%] text-[13px] text-gray-600_03">Prix</th>
+                          <th className=" w-[10%] text-[13px] text-gray-600_03">Supprimé</th>
+                          <th className=" w-[10%] text-[13px] text-gray-600_03">Modifier</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {products.map((product, index) => (
+                          <React.Fragment key={index}>
+                            <tr style={{ borderBottom: "1px solid black" }}>
+                              <td >
+                                <img
+                                  className="w-[20%] h-10 sm:h-auto object-cover rounded  text-center"
+                                  src={process.env.REACT_APP_API_BACK + "/uploads/" + product.image[0]}
+                                  alt="rectangle1665"
+                                />
+                              </td>
+                              <td className="text-center w-[20%] text-[13px] text-gray-900_02">{product.title}</td>
+                              <td className="text-center w-[20%] text-[13px] text-gray-900_02">{product.description}</td>
+                              <td className="text-center w-[20%]  text-[13px] text-gray-900_02">{product.price}</td>
+                              <td>
+                                <img
+                                  onClick={(e) => {
+                                    Delete("Product", product._id);
+                                    window.location.reload();
+                                  }}
+                                  className="h-6 text-center w-[20%] w-6 mx-auto"
+                                  src="../images/img_thumbsup_red_300_24x24.svg"
+                                  alt="thumbsup"
+                                />
+                              </td>
+                              <td>
+                                <img
+                                  onClick={(e) => {
+                                    Delete("Product", product._id);
+                                    window.location.reload();
+                                  }}
+                                  className="h-6 text-center w-[20%] w-6 mx-auto"
+                                  src="../images/img_thumbsup_red_300_24x24.svg"
+                                  alt="thumbsup"
+                                />
+                              </td>
+                            </tr>
 
-                      <Text
-                        className="md:ml-[0] ml-[129px] text-gray-600_03 text-xs"
-                        size="txtInterSemiBold12"
-                      >
-                        Description
-                      </Text>
-                      <Text
-                        className="mb-0.5 md:ml-[0] ml-[219px] text-[13px] text-gray-600_03"
-                        size="txtInterMedium13Gray60003"
-                      >
-                        Prix
-                      </Text>
-                      <Text
-                        className="md:ml-[0] ml-[117px] text-[13px] text-gray-600_03"
-                        size="txtMontserratRomanMedium13Gray60003"
-                      >
-                        Supprimé
-                      </Text>
-                    </div>
-                    <List
-                      className="flex flex-col gap-[9.5px] items-center w-[94%]"
-                      orientation="vertical"
-                    >
-                      {products.map((product, index) => (
-                        <>
-                          <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start w-full">
-                            <Img
-                              className="md:flex-1 h-10 sm:h-auto object-cover rounded w-[4%] md:w-full"
-                              src={
-                                process.env.REACT_APP_API_BACK + "/uploads/" + product.image[0]
-                              }                              alt="rectangle1665"
-                            />
-                            <div className="ml-4 md:ml-[0] text-[13px] text-gray-900_02">
-                              {product.name}
-                            </div>
-
-                            <div className="md:ml-[0] ml-[116px] text-[13px] text-gray-900_02 text-right">
-                              {product.description}
-                            </div>
-                            <div className="md:ml-[0] ml-[115px]"></div>
-
-                            <div className="md:ml-[0] ml-[124px] text-[13px] text-gray-900_02 text-right">
-                              {product.price}
-                            </div>
-                            <Img
-                            onClick={(e)=>{Delete("Product",product._id) ;window.location.reload();}}
-                              className="h-6 md:ml-[0] ml-[136px] w-6"
-                              src="../images/img_thumbsup_red_300_24x24.svg"
-                              alt="thumbsup"
-                            />
-                          </div>
-                          <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start w-full">
-                            {/* Empty div for spacing */}
-                            <div className="md:w-[4%]"></div>
-                            <div className="md:ml-[0] ml-[93px] text-[13px] text-gray-900_02">
-                              {product.trazsh}
-                            </div>
-
-                            {/* Empty div for spacing */}
-                            <div className="md:ml-[0] ml-[124px]"></div>
-                            {/* Empty div for spacing */}
-                            <div className="md:ml-[0] ml-[136px]"></div>
-                          </div>
-                          <Line className="self-center h-px bg-gray-200_01 w-full" />
-                        </>
-                      ))}
-                    </List>
+                          </React.Fragment>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
+
                 </div>
               </div>
             </div>
