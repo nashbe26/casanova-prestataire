@@ -73,6 +73,13 @@ export default function ChekoutsurplacePage() {
     
     setHasGift(x);
   }, []);
+  const calculateTotalPrice = () => {
+    let totalPrice = 0;
+    cart.forEach((item) => {
+      totalPrice += item.price * item.count;
+    });
+    return totalPrice;
+  };
 
   return (
     <>
@@ -218,7 +225,7 @@ export default function ChekoutsurplacePage() {
                       {
                         //to make the price dynamic 
                       }
-                      {"5"} DT
+                       {calculateTotalPrice()} DT
                     </Text>
                   </div>
                   <div className="flex justify-center gap-[2em] pb-[2%] ">
