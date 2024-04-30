@@ -260,8 +260,8 @@ const PreshomepagePage = ({ userData }) => {
     <>
       <div className="flex m-auto w-full">
         <div className="absolute top-0 left-[20%] flex m-auto w-full justify-center">
-          <div className="bg-white-A700   border-solid flex flex-col items-start justify-end my-auto p-7 sm:px-5 z-[1]">
-            <div className="flex md:flex-col flex-row md:gap-5 items-center justify-evenly w-full">
+          <div className="bg-white-A700   border-solid flex flex-col w-[93%] items-start justify-end my-auto p-7 sm:px-5 z-[1]">
+            <div className="flex md:flex-col flex-row md:gap-5 items-center  w-full">
               <div className="flex md:flex-1 md:flex-col flex-row gap-[17px] items-start justify-between  md:w-full">
                 <div className="bg-white-A700 border border-gray-200_01 border-solid flex flex-col pl-[5%] ml-[2%] mr-[2%] items-center justify-start p-3 rounded-lg">
                   <div className="flex flex-col gap-3 items-center justify-start mb-[22px] w-[98%] md:w-full">
@@ -310,12 +310,7 @@ const PreshomepagePage = ({ userData }) => {
                       className="leading-[24.00px] text-gray-600_04 text-xs w-full"
                       size="txtMontserratRomanRegular12"
                     >
-                      The unisex Classic Bathrobe is designed to elevate the
-                      <br></br>
-                      joy of feeling comfortable at home or when relaxing in
-                      <br></br>
-                      nature. The robes are designed in a traditional and unisex
-                      fit.sqdzvghfreerqsaz
+                      {userData?.user?.description}
                     </Text>
                   </div>
                 </div>
@@ -426,87 +421,8 @@ const PreshomepagePage = ({ userData }) => {
 
               </div>
             </div>
-            <br></br>
-            <br></br>
-            <div className="bg-white-A700 border border-gray-200_01 border-solid flex flex-col items-start justify-start max-w-[925px] pb-5 pl-[19px] sm:pr-5 pr-8 pt-[27px] rounded-lg w-full">
-              <div className="flex flex-col h-[135px] md:h-auto items-start justify-start max-w-[890px] pb-8 sm:px-5 px-8 w-full">
-                <div className="flex flex-col gap-3 items-start justify-start w-full">
-                  <div className="font-montserrat md:h-[187px] h-[89px] relative w-full">
-                    <Text
-                      className="absolute left-[0] text-gray-900_02 text-lg top-[6%]"
-                      size="txtMontserratRomanSemiBold18"
-                    >
-                      Availibity
-                    </Text>
-                    <div className="absolute flex md:flex-col flex-row md:gap-5 h-full inset-[0] pt-[4%] pl-[60%] items-center justify-center m-auto w-full">
-                      <div className="border border-gray-200_01 border-solid flex flex-col h-10 items-center justify-start md:mt-0 mt-[20px] p-1 rounded-lg w-10">
-                        <Button
-                          className="flex h-8 items-center justify-center rounded w-8"
-                          color="gray_100_02"
-                          size="xs"
-                          variant="fill"
-                        >
-                          <Img
-                            className="h-6"
-                            src="../images/img_calendarcalendardays.svg"
-                            alt="calendarcalenda"
-                          />
-                        </Button>
-                      </div>
-                      <div className="flex mt-[11%] flex-col items-start justify-start ml-4 md:ml-[0] w-auto">
-                        <Text
-                          className="text-gray-900_02 text-sm w-auto"
-                          size="txtMontserratRomanRegular14Gray90002"
-                        >
-                          Date of availibilty
-                        </Text>
-                      </div>
-                      <div className="position-absolute pr-[150%]">
-                        <Button
-                          className="border border-gray-200_01 border-solid cursor-pointer font-medium mb-[57px] min-w-[150px] md:ml-[0] ml-[400px] rounded-lg text-[13px] text-center"
-                          color="white_A700"
-                          size="sm"
-                          variant="fill"
-                          onClick={handleChangeAvailability} 
-                        >
-                          Change availability
-                        </Button>
-                      </div>
-                      
-                    </div>
-                  </div>
-                  {isDatePickerVisible && (
-              <div className="position-absolute top-20 right-20 z-[1]">
-                <DateRangePicker
-          ranges={dateRange}
-          onChange={(ranges) => setDateRange([ranges.selection])}
-        />
-              </div>
-            )}
-                  <Text
-        className="text-gray-600_03 text-sm"
-        size="txtInterRegular14"
-      >
-        <span className="text-gray-600_03 font-montserrat text-left font-normal">
-          Available from{" "}
-        </span>
-        <span className="text-gray-900_02 font-montserrat text-left font-medium">
-          {dateRange[0].startDate.toLocaleDateString()}
-        </span>
-        <span className="text-gray-600_03 font-montserrat text-left font-normal">
-          {" "}
-          to{" "}
-        </span>
-        <span className="text-gray-900_02 font-montserrat text-left font-medium">
-          {dateRange[0].endDate.toLocaleDateString()}
-        </span>
-        <span className="text-gray-600_03 font-montserrat text-left font-normal">
-          {" "}
-        </span>
-      </Text>
-                </div>
-              </div>
-            </div>
+           
+           
             <br></br>
             <div className="bg-white-A700 border border-gray-200_01 border-solid flex flex-col gap-4 items-start justify-start max-w-[925px] pb-8 pl-[19px] sm:pr-5 pr-8 pt-6 rounded-lg w-full">
               <div className="flex flex-col items-start justify-end pr-1 py-1">

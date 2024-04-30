@@ -3,8 +3,14 @@ import React, { useState, useRef, useEffect } from "react";
 import { Button, Img, Input, Line, Text, TextArea } from "components";
 import { useForm } from "react-hook-form";
 import { useCreateImage, useUpdate } from "../../utils/functions";
+import CustomToast from "components/toast";
+import toast from "react-hot-toast";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 const PresSettingsPage = ({ userData }) => {
+  const [imageProgress,setImageProgress] = useState(0)
+
+  const [err,setError] = useState(false)
   const fileInputRef = useRef(null);
   const [image, setImage] = useState(null);
   const CreateIamge = useCreateImage();
@@ -15,6 +21,13 @@ const PresSettingsPage = ({ userData }) => {
 
     fileInputRef.current.click();
   };
+  const handleUploadProgress = (progressEvent) => {
+    const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+    setImageProgress(percentCompleted)
+    console.log(`Upload Progress: ${percentCompleted}%`);
+    // You can update progress UI here if needed
+  };
+
   const handleFileChange = async (e) => {
     const formData = new FormData();
     const fileList = e.target.files;
@@ -29,22 +42,88 @@ const PresSettingsPage = ({ userData }) => {
     await formData.append("file", newFiles[0]);
 
     try {
-      const response = await CreateIamge(formData);
+      const response = await CreateIamge(formData ,handleUploadProgress);
       setImage(response.file.filename);
     } catch (error) {
       console.error("Error creating data:", error);
     }
   };
   const onSubmit =async (data) => {
-    if(data.confimr_password!==data.password){
-      alert("Confirm password invalide")
-    }else{
-      const response = await update(userData.user._id,data)
-      if(response.status==200){
-       }else{
-        alert("Error")
+    let hasError = false;
+
+    if(data.email==""){
+      data.email = {
+        primary: userData?.user?.email?.primary,
+      };     
+     }
+     if(data.title==""){
+      data.title =  userData?.user?.title
+     }
+     if(data.phone==""){
+      data.phone = {
+        primary: userData?.user?.email?.phone,
+      };     
+     }
+     if(data.description==""){
+      data.description =  userData?.user?.description
+     }
+     if(data.password!=''){
+      if(data.password.length < 8){
+        hasError = true; 
+        toast.custom(
+          (t) => (
+            
+            <CustomToast
+              data={t}
+              message="password 8 caractères ou plus"
+              title="Error"
+            ></CustomToast>
+          ),
+          {
+            duration: 3000,
+          }
+        );
       }
+      if(data.confimr_password!==data.password){
+        hasError = true; 
+                toast.custom(
+          (t) => (
+            
+            <CustomToast
+              data={t}
+              message="password and confirm password don't match"
+              title="Error"
+            ></CustomToast>
+          ),
+          {
+            duration: 3000,
+          }
+        );
+      }
+   
     }
+    if(!hasError ){
+  const response = await update(userData.user._id,data)
+      console.log(response);
+      toast.custom(
+        (t) => (
+          
+          <CustomToast
+            data={t}
+            message="Account updated"
+            title="Success"
+          ></CustomToast>
+        ),
+        {
+          duration: 3000,
+        }
+      );
+      setTimeout(() => {
+        window.location.reload();
+    }, 2000);
+
+    }
+
   };
   return (
     <>
@@ -76,7 +155,9 @@ const PresSettingsPage = ({ userData }) => {
                       />
                     )
                   )}
+                                     
                 </div>
+                
                 <Button
                   className="absolute bottom-[0] flex items-center justify-center right-[0] rounded shadow-bs6 w-[21px]"
                   color="white_A700"
@@ -100,14 +181,29 @@ const PresSettingsPage = ({ userData }) => {
                     handleFileChange(e);
                   }}
                 ></input>
+                
               </div>
+              
               <Text
                 className="text-gray-900_02 text-xl"
                 size="txtInterMedium20"
               >
                 {userData.user.titel}
               </Text>
+            
             </div>
+
+            <div className="w-[10%] pt-[5%]">
+                      {imageProgress!=0 &&  imageProgress!=100 ? 
+                      (<> <ProgressBar  
+                        bgColor={"#a57761d9"}
+                      completed={imageProgress} />
+                      </>):
+                      (<></>)
+
+                      }
+
+                      </div>
             <div className="flex flex-col items-start justify-start mt-[18px] pr-1 py-1 w-[97%] md:w-full">
               <div className="flex flex-col items-center justify-start w-auto">
                 <Text
@@ -134,6 +230,7 @@ const PresSettingsPage = ({ userData }) => {
             </Text>
             <Input
                           register={register}
+                          defaultValue={userData?.user?.titel}
                           name="titel"
               placeholder="Store name"
               className="!placeholder:text-blue_gray-300 !text-blue_gray-300 p-0 text-left text-sm w-full"
@@ -164,6 +261,8 @@ const PresSettingsPage = ({ userData }) => {
                 className="!placeholder:text-blue_gray-300 !text-blue_gray-300 p-0 text-left text-sm w-full w-[100%]"
                 wrapClassName="border border-gray-200_01 border-solid rounded-lg md:w-full"
                 type="email"
+                defaultValue={userData?.user?.email?.primary}
+
                 register={register}
                 width={"45%"}    
                 shape="round"
@@ -173,6 +272,8 @@ const PresSettingsPage = ({ userData }) => {
               <Input
                 name="phone.primary"
                 register={register}
+                defaultValue={userData?.user?.phone?.primary}
+
                 width={"45%"} 
                 placeholder="+21635358"
                 className="!placeholder:text-blue_gray-300 !text-blue_gray-300 p-0 text-left text-sm w-full w-[100%]"
@@ -197,6 +298,7 @@ const PresSettingsPage = ({ userData }) => {
             </Text>
             <TextArea
             register={register}
+            defaultValue={userData?.user?.description}
 
               className="bg-gray-50 border border-gray-200_01 border-solid mt-[9px] pb-[35px] pl-4 sm:pr-5 pr-[35px] pt-3 rounded-lg placeholder:text-blue_gray-300 text-blue_gray-300 text-left text-sm w-[99%] sm:w-full"
               name="description"

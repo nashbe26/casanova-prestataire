@@ -77,7 +77,8 @@ const USERSETTINGPage = () => {
     fileInputRef.current.click();
   };
   const onSubmit = async (data) => {
-    if (data.password !== data.confirmPassword) {
+    if (data.password !== data.confirmPassword)  {
+      
       toast.custom(
         (t) => (
           <CustomToast
@@ -90,14 +91,35 @@ const USERSETTINGPage = () => {
           duration: 3000,
         }
       );
+      if(data.password.length < 8){
+        toast.custom(
+          (t) => (
+            <CustomToast
+              data={t}
+              message="password 8 caractères ou plus"
+              title="Error"
+            ></CustomToast>
+          ),
+          {
+            duration: 3000,
+          }
+        );
+      }
     } else {
       if(data.name==""){
         data.name=userData?.user?.name
       }
-      data.email = {
-        primary: userData?.user?.email?.primary,
-      };
-
+      if(data.email==""){
+        data.email = {
+          primary: userData?.user?.email?.primary,
+        };     
+       }else{
+        data.email = {
+          primary: data.email,
+        };  
+       }
+      
+      console.log(data)
       const response = await update(userData.user._id, data);
       if (response.status === 200) {
         window.location.reload();
@@ -167,7 +189,7 @@ const USERSETTINGPage = () => {
                         size="txtCormorantBold31"
                       >
                         {userData.user.name ? (
-                          <>{userData.user.name + " "}</>
+                          <><p>{userData.user.name} {userData?.user?.famillyName}</p></>
                         ) : (
                           <>{userData.user.name}</>
                         )}
@@ -222,9 +244,9 @@ const USERSETTINGPage = () => {
                                 PRÉNOM
                               </Text>
                               <Input
-                              disabled
+                              
                                 name="name"
-                                value={userData?.user?.name}
+                                defaultValue={userData?.user?.name}
 
                                 register={register}
                                 placeholder=""
@@ -244,9 +266,9 @@ const USERSETTINGPage = () => {
                                 NOM DE FAMILLE
                               </Text>
                               <Input
-                              disabled
+                              
                                 name="famillyName"
-                                value={userData?.user?.name}
+                                defaultValue={userData?.user?.famillyName}
                                 register={register}
                                 placeholder=""
                                 className="p-0 w-full"
@@ -265,8 +287,8 @@ const USERSETTINGPage = () => {
                             EMAIL
                           </Text>
                           <Input
-                            disabled
-                            value={userData?.user?.email?.primary}
+                            
+                            defaultValue={userData?.user?.email?.primary}
                             name="email"
                             register={register}
                             placeholder=""

@@ -2,10 +2,18 @@
 import React,{useRef,useState} from "react";
 import { Button, Img,  List, Text } from "components";
 import { useCreateImage } from "../../utils/functions";
+import ProgressBar from "@ramonak/react-progress-bar";
 
 const Media = ({ userData, filesList, setFilesList}) => {
   const [files, setFiles] = useState([]);
   const fileInputRef = useRef(null);  const CreateIamge = useCreateImage();
+  const [imageProgress,setImageProgress] = useState(0)
+  const handleUploadProgress = (progressEvent) => {
+    const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+    setImageProgress(percentCompleted)
+    console.log(`Upload Progress: ${percentCompleted}%`);
+    // You can update progress UI here if needed
+  };
 
   const handleFileChange = async (e) => {
     const formData = new FormData();
@@ -27,7 +35,7 @@ const Media = ({ userData, filesList, setFilesList}) => {
 
     setFiles((prevFiles) => [...prevFiles, ...newFiles]);
     try {
-      const response = await CreateIamge(formData);
+      const response = await CreateIamge(formData,handleUploadProgress);
       if (response && response.file && response.file.filename) {
         setFilesList((prevFilesList) => [
           ...prevFilesList,
@@ -76,6 +84,17 @@ const Media = ({ userData, filesList, setFilesList}) => {
               Used to represent your product during checkout, social sharing and
               more.
             </Text>
+            <div className="w-[10%] pt-[5%]">
+                      {imageProgress!=0 &&  imageProgress!=100 ? 
+                      (<> <ProgressBar  
+                        bgColor={"#a57761d9"}
+                      completed={imageProgress} />
+                      </>):
+                      (<></>)
+
+                      }
+
+                      </div>
             <div className="border border-blue_gray-100_01 border-dashed flex flex-col font-inter gap-[5px] items-center justify-end mt-[25px] p-[19px] rounded-lg w-full">
               <Text
                 className="text-center text-gray-600_03 text-sm"
