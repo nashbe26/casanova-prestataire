@@ -78,38 +78,53 @@ const ProjectRoutes = () => {
         <div>Loading...</div> // Display a loading message while waiting for the state to update
       ) : (
         <Routes>
-          {/* Public routes */}
+          
           <Route path="/" element={<Landingpage />} />
-          {/* <Route path="/PresSignIn" element={<SignIn /> } /> */}
+
           <Route path="/SignIn" element={<SignIn /> } />
+
           <Route path="/PresSignIn" element={<PresSignIn /> } />
 
           <Route path="/PresSignup" element={ <PresSignup />} />
 
           <Route path="/Signup" element={ <Signup />} />
+          
           <Route path="*" element={<Navigate to="/SignIn" />} />
        
           <Route path="/Dashboard" element={loggedIn ? <Dashboard /> : <Navigate to="/Signup" />} />
+
           <Route path="/presphoto/:id" element={<PresPHOTO />} />
+
           <Route path="/landingpagesfour" element={<LandingpagesFour />} />
+
           <Route path="/Landingpage" element={<Landingpage />} />
 
           <Route path="/landingpagesfive" element={<LandingpagesFive />} />
+
           <Route path="/landingpagessix" element={<LandingpagesSix />} />
+          
           <Route path="/landingpagesseven" element={<LandingpagesSeven />} />
+
           <Route path="/landingpagesthree" element={<LandingpagesThree />} />
+
           <Route path="/preslandingpage" element={<Preslandingpage />} />
+
           <Route path="*" element={<NotFound />} />
+
           <Route path="/landingpagesfour" element={<LandingpagesFour />} />
 
           <Route path="/PresorderPage" element={<PresorderPage />} />
+
           <Route path="/Checkout" element={<Checkout />} />
 
-          
           <Route path="/landingpagesfive" element={<LandingpagesFive />} />
+
           <Route path="/landingpagessix" element={<LandingpagesSix />} />
+
           <Route path="/landingpagesseven" element={<LandingpagesSeven />} />
+
           <Route path="/landingpagesthree" element={<LandingpagesThree />} />
+          
           <Route path="/cart" element={<Cart />} /> 
           
           <Route path="/pres" element={<Pres />} /> 

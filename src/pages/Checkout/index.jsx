@@ -85,17 +85,17 @@ export default function ChekoutsurplacePage() {
     <>
       <div className="w-[100vw] h-[100vh] custom-bg-color flex items-center justify-center">
         <div
-          className="w-[60vw] md:w-[100%] "
-          style={{ border: "1px solide black", backgroundColor: "white" }}
+          className="w-[60vw] h-[100%] md:w-[100%] "
+          style={{ border: "1px solide black", backgroundColor: "white",height:"100%" }}
         >
-          <div className="pt-[2%] flex flex-col align-center w-[100%] ">
-            <div className="flex items-center  justify-center ">
+          <div className="pt-[2%] flex flex-col align-center w-[100%] gap-y-15px">
+            <div className="flex items-center  justify-center  mx-4">
               {hasGift ? (
                 <>
                   {" "}
                   <Heading
                     size="s"
-                    as="h1"
+                    as="h2"
                     className="!text-red-300 tracking-[2.72px]"
                   >
                     ENVOYER UN CADEAUX
@@ -106,7 +106,7 @@ export default function ChekoutsurplacePage() {
                   {" "}
                   <Heading
                     size="s"
-                    as="h1"
+                    as="h2"
                     className="!text-red-300 tracking-[2.72px]"
                   >
                     CHECK OUT
@@ -257,25 +257,3 @@ export default function ChekoutsurplacePage() {
     </>
   );
 }
-/* <div className="background-container">
-           
-           
-
-            <div className="flex  center   h-full   ">
-            
-              <div className="flex  center    rounded-sm">
-                <div className="flex flex-col  justify-center w-[25vw] mb-[52px] mr-1 gap-[47px] bg-white-A700">
-                  <div className={'w-[100%] flex flex-center'}>
-                    <div className={'w-[100%] flex flex-center'}>
-
-                 
-                
-                    </div>
-
-                  </div>
-                  
-               
-                </div>
-              </div>
-            </div>
-    </div>*/

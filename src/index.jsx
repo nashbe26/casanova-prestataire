@@ -13,6 +13,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "react-query";
+import Modal from "react-responsive-modal";
 
 const queryClient = new QueryClient();
 
@@ -24,5 +25,6 @@ ReactDOM.render(
       </RecoilRoot>
     </QueryClientProvider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById("root"),
+
 );

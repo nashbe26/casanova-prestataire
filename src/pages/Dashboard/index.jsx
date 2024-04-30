@@ -65,7 +65,7 @@ const Dashboard = () => {
             <div className="h-[1416px] sm:h-[1417px] md:h-[2005px] relative w-full">
               <div className="flex m-auto w-full">
                 <Sidebar userData={userData} onItemClick={handleItemClick} />
-                <div className="bg-white-A700  flex flex-col items-center justify-start ml-[-1px] mt-[0%] my-auto p-[177px] md:px-10 sm:px-5 w-[78%] z-[1]">
+                <div className="bg-white-A700  flex flex-col items-center justify-start ml-[-1px] mt-[0%] my-auto md:px-10 sm:px-5 w-[100%] z-[1]">
                   {renderSelectedComponent()}
                 </div>
               </div>

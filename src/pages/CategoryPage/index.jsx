@@ -133,7 +133,7 @@ const CategoryPagePage = () => {
                 />
                 )}
               </div>
-              <div className="flex md:flex-col flex-row gap-5 relative  items-start justify-start w-[80%] mt-7 mx-auto md:px-5 w-full">
+              <div className="flex flex-row gap-5 relative  items-start justify-start w-[80%] mt-7 w-full">
                 {!isTabletOrMobile ? (
                   <>
                     <div className="border border-red-300 border-solid flex flex-col gap-6 md:h-auto items-start justify-start pt-5 sm:px-5 px-6 rounded-[7px] w-[295px]">

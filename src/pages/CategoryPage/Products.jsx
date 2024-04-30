@@ -45,9 +45,9 @@ const Products = ({ dateRange, priceRange, category, subCategory, searchQuery })
   return (
     <>
       <div className="flex md:flex-1 flex-col items-center justify-start w-3/4 md:w-full">
-        <div className="md:gap-5 gap-[19px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 justify-center min-h-[auto] w-full">
+        <div className="gap-[20px] md:gap-[5px] grid sm:grid-cols-2 md:grid-cols-2 grid-cols-3 justify-center min-h-[auto] w-full">
         {paginatedProducts.map((product, index) => (
-            <div key={index} className="h-[336px] relative w-full" onClick={() => handleProductClick(product)}>
+            <div key={index} className="h-[336px] relative w-[full]" onClick={() => handleProductClick(product)}>
               <div className="absolute h-[336px] inset-[0] justify-center m-auto w-full">
                 <Img
                   className="h-[336px] m-auto object-cover rounded-[14px] w-full"
