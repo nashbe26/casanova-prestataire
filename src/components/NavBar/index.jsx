@@ -84,115 +84,144 @@ const NavBar = () => {
   if(isTabletOrMobile ){
     return (
     <> 
-      <div className={isTabletOrMobile ? "flex justify-between items-center mt-5 mx-3" : "flex justify-around mt-[14%]"}>
-        <div >
-        <Img
-              src="../images/img_sanstitre11.svg"
-              alt="sanstitreEleven"
-              onClick={() => navigate(`/homepage`)}
-            />
-        </div>
-        <div className="flex gap-[11%]  ">
-           
-               <Img
-              className="h-[30px] md:h-auto md:ml-[0]  rounded-[50%] w-[30px]"
-              src="../images/box.svg"
-              alt="bag"
-              onClick={() => navigate(`/category`)}
-            />
-              <Img
-              className="h-[30px] md:h-auto md:ml-[0]  rounded-[50%] w-[30px]"
-              src="../images/cart.svg"
-              alt="bag"
-              onClick={() => navigate(`/cart`)}
-            />
-              <Img
-              className="h-[30px] md:h-auto md:ml-[0]  rounded-[50%] w-[30px]"
-              onClick={handleImageClick}
-              src={
-                userData?.user?.picture
-                  ? process.env.REACT_APP_API_BACK +
-                    "/uploads/" +
-                    userData?.user?.picture
-                  : "../images/defaultProfilePicCopy.jpg"
-              }            alt="bag"
-            />
-        </div>
-      
-      </div>  
-      <div>
-        {userData?.user ? (
-                <div className="flex w-[100%] " hidden={!showSelectList}>
-                  <ul
-                    ref={selectRef}
-                    className="SelectSettingsProfilePhone"
-                    style={{ display: showSelectList ? "block" : "none" }}
-                  >
-                    <li
-                      onClick={() => navigate(`/usersetting`)}
-                      className="text-base text-red-300 lg font-cormorant font-normal flex items-center"
-                    >
-                      <Img
-                        className="mr-2"
-                        src="../images/Settings.svg"
-                        alt="sanstitreEleven"
-                      />{" "}
-                      User Settings
-                    </li>
-                    {userData?.user?.type == "Prestataire" ? (
-                      <>
-                        {" "}
-                        <li
-                          onClick={() => navigate(`/Dashboard`)}
-                          className="text-base text-red-300 lg font-cormorant font-normal flex items-center"
-                        >
-                          <Img
-                            className="mr-2"
-                            src="../images/Settings.svg"
-                            alt="sanstitreEleven"
-                          />{" "}
-                          Dashboard
-                        </li>
-                      </>
-                    ) : (
-                      <></>
-                    )}
-  
-                    <li
-                      onClick={() => {
-                        setUser({});
-                        window.location.reload();
-                      }}
-                      className="text-base text-red-300 lg font-cormorant font-normal flex items-center"
-                    >
-                      <Img
-                        className="mr-2"
-                        src="../images/disconnect.svg"
-                        alt="sanstitreEleven"
-                      />{" "}
-                      Logout
-                    </li>
-                  </ul>
-                </div>
-              ) : (
-                <>
-                  <div className="flex ml-[22%]" hidden={!showSelectList}>
+    <div>
+        <div className={"flex justify-between items-center mt-5 mx-3"}>
+          <div >
+          <Img
+                src="../images/img_sanstitre11.svg"
+                alt="sanstitreEleven"
+                onClick={() => navigate(`/homepage`)}
+              />
+          </div>
+          <div className="flex gap-[11%]  ">
+            
+                <Img
+                className="h-[30px] md:h-auto md:ml-[0]  rounded-[50%] w-[30px]"
+                src="../images/box.svg"
+                alt="bag"
+                onClick={() => navigate(`/category`)}
+              />
+                <Img
+                className="h-[30px] md:h-auto md:ml-[0]  rounded-[50%] w-[30px]"
+                src="../images/cart.svg"
+                alt="bag"
+                onClick={() => navigate(`/cart`)}
+              />
+                <Img
+                className="h-[30px] md:h-auto md:ml-[0]  rounded-[50%] w-[30px]"
+                onClick={handleImageClick}
+                src={
+                  userData?.user?.picture
+                    ? process.env.REACT_APP_API_BACK +
+                      "/uploads/" +
+                      userData?.user?.picture
+                    : "../images/defaultProfilePicCopy.jpg"
+                }            alt="bag"
+              />
+          </div>
+        
+        
+        </div> 
+        <div>
+          {userData?.user ? (
+                  <div className="flex w-[100%] " hidden={!showSelectList}>
                     <ul
                       ref={selectRef}
-                      className="SelectSettingsProfile"
-                      style={{ display: showSelectList ? "block" : "none"  }}
+                      className="SelectSettingsProfilePhone"
+                      style={{ display: showSelectList ? "block" : "none" }}
                     >
                       <li
-                        onClick={() => navigate(`/SignIn`)}
-                        className="text-base text-red-300 lg font-cormorant font-normal flex items-center"
+                        onClick={() => navigate(`/usersetting`)}
+                        className="text-base  py-3 text-red-300 lg font-cormorant font-normal flex items-center"
                       >
-                        <CiSettings className="mr-2" /> Login
+                        <Img
+                          className="mr-2"
+                          src="../images/Settings.svg"
+                          alt="sanstitreEleven"
+                        />{" "}
+                        User Settings
+                      </li>
+                      {userData?.user?.type == "Prestataire" ? (
+                        <>
+                          {" "}
+                          <li
+                            onClick={() => navigate(`/Dashboard`)}
+                            className="text-base  py-3 text-red-300 lg font-cormorant font-normal flex items-center"
+                          >
+                            <Img
+                              className="mr-2"
+                              src="../images/Settings.svg"
+                              alt="sanstitreEleven"
+                            />{" "}
+                            Dashboard
+                          </li>
+                        </>
+                      ) : (
+                        <></>
+                      )}
+    
+                      <li
+                        onClick={() => {
+                          setUser({});
+                          window.location.reload();
+                        }}
+                        className="text-base  py-3 text-red-300 lg font-cormorant font-normal flex items-center"
+                      >
+                        <Img
+                          className="mr-2"
+                          src="../images/disconnect.svg"
+                          alt="sanstitreEleven"
+                        />{" "}
+                        Logout
                       </li>
                     </ul>
                   </div>
-                </>
-              )}
-        </div>
+                ) : (
+                  <>
+                    <div className="flex ml-[22%]" hidden={!showSelectList}>
+                      <ul
+                        ref={selectRef}
+                        className="SelectSettingsProfile"
+                        style={{ display: showSelectList ? "block" : "none"  }}
+                      >
+                        <li
+                          onClick={() => navigate(`/SignIn`)}
+                          className="text-base  py-3 text-red-300 lg font-cormorant font-normal flex items-center"
+                        >
+                          <CiSettings className="mr-2" /> Login
+                        </li>
+                      </ul>
+                    </div>
+                  </>
+                )}
+          </div>
+    </div>
+      <div
+           className="flex flex-row gap-2 items-center justify-center mt-5 md:w-[100%] relative"
+         >
+           <Input
+             style={{ border: "1px solid #C3937C", borderRadius: "8px" ,
+             width:"95%",
+             backgroundRepeat: "no-repeat",
+             backgroundPosition: "calc(100% - 10px) center",
+             paddingRight: "35px" ,
+             margin:"0 auto",
+             display:"flex"
+      }}
+             type="text"
+             onChange={(e) => handleSearchQueryChange(e)}
+             value={search }
+             className="w-[400px]"
+             placeholder="Search products..."
+           />
+            <Img
+           className="h-[24px] absolute right-[5%]"
+           src="../images/search-normal.svg"
+           alt="sanstitreEleven"
+           onClick={searchClick}          />
+
+         </div>
+     
      </>)
   }else{
     return (
@@ -309,7 +338,7 @@ const NavBar = () => {
                   >
                     <li
                       onClick={() => navigate(`/usersetting`)}
-                      className="text-base text-red-300 lg font-cormorant font-normal flex items-center"
+                      className="text-base  py-3 text-red-300 lg font-cormorant font-normal flex items-center"
                     >
                       <Img
                         className="mr-2"
@@ -323,7 +352,7 @@ const NavBar = () => {
                         {" "}
                         <li
                           onClick={() => navigate(`/Dashboard`)}
-                          className="text-base text-red-300 lg font-cormorant font-normal flex items-center"
+                          className="text-base  py-3 text-red-300 lg font-cormorant font-normal flex items-center"
                         >
                           <Img
                             className="mr-2"
@@ -342,7 +371,7 @@ const NavBar = () => {
                         setUser({});
                         window.location.reload();
                       }}
-                      className="text-base text-red-300 lg font-cormorant font-normal flex items-center"
+                      className="text-base  py-3 text-red-300 lg font-cormorant font-normal flex items-center"
                     >
                       <Img
                         className="mr-2"
@@ -363,7 +392,7 @@ const NavBar = () => {
                     >
                       <li
                         onClick={() => navigate(`/SignIn`)}
-                        className="text-base text-red-300 lg font-cormorant font-normal flex items-center"
+                        className="text-base  py-3 text-red-300 lg font-cormorant font-normal flex items-center"
                       >
                         <CiSettings className="mr-2" /> Login
                       </li>

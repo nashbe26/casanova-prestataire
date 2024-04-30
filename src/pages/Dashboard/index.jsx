@@ -60,20 +60,11 @@ const Dashboard = () => {
   if (userData) {
     return (
       <>
-        <div className="bg-white-A700 flex flex-col items-end justify-start mx-auto pb-[62px] md:px-10 sm:px-5 px-[62px] w-full">
-          <div className="flex flex-col font-montserrat items-center max-w-[1240px] mx-auto w-full">
-            <div className="h-[1416px] sm:h-[1417px] md:h-[2005px] relative w-full">
-              <div className="flex m-auto w-full">
-                <Sidebar userData={userData} onItemClick={handleItemClick} />
-                <div className="bg-white-A700  flex flex-col items-center justify-start ml-[-1px] mt-[0%] my-auto md:px-10 sm:px-5 w-[100%] z-[1]">
-                  {renderSelectedComponent()}
-                </div>
-              </div>
-              <div
+             <div
                 onClick={(e) => {
                   navigate("/category");
                 }}
-                className="absolute bg-white-A700 border border-black-900_0f border-solid flex flex-row md:gap-10 inset-x-[0] items-center justify-between mx-auto p-[17px] top-[0] w-full"
+                className="px-[62px] w-[90%] bg-white-A700 border border-black-900_0f border-solid flex flex-row md:gap-10 inset-x-[0] items-center justify-between mx-auto p-[17px] top-[0] w-full"
               >
                 <Button
                   className="common-pointer border border-gray-200_01 border-solid flex h-8 items-center justify-center ml-[3px] rounded-lg w-8"
@@ -89,6 +80,16 @@ const Dashboard = () => {
                 </Button>
                 <div className="flex flex-col items-start justify-start w-auto"></div>
               </div>
+        <div className="bg-white-A700 flex flex-col items-end justify-start mx-auto pb-[62px] md:px-10 sm:px-5 w-full">
+          <div className="flex flex-col font-montserrat items-center w-[90%] mx-auto w-full">
+            <div className=" relative w-full">
+              <div className="flex m-auto w-full justify-between">
+                <Sidebar userData={userData} onItemClick={handleItemClick} />
+                <div className="bg-white-A700  flex flex-col items-center justify-start ml-[-1px] mt-[0%] my-auto  w-[100%] z-[1] w-[73%]">
+                  {renderSelectedComponent()}
+                </div>
+              </div>
+       
             </div>
           </div>
           <Text

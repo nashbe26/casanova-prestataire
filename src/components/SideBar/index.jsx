@@ -10,8 +10,8 @@ const Sidebar = ({ userData, onItemClick }) => {
   };
     return (
     <>
-      <div className="bg-white-A700 border border-black-900_0f border-solid flex flex-col items-center justify-start my-auto p-9 sm:px-5 rounded-[14px] w-[24%]">
-        <div className="flex flex-col items-center justify-start mb-[1001px] mt-[67px] w-full">
+      <div className="bg-white-A700 border border-black-900_0f border-solid flex flex-col items-center justify-start p-9 sm:px-5 w-[24%]">
+        <div className="flex flex-col items-center justify-start mt-[67px] w-full">
           <div className="flex flex-col gap-[19px] justify-start w-full">
             <div className="flex flex-row gap-[11px] items-center justify-start ml-2 md:ml-[0] w-[72%] md:w-full">
               <div className="border border-blue_gray-100_01 border-solid flex flex-col h-[45px] items-center justify-end p-[3px] rounded-[22px] w-[45px]">

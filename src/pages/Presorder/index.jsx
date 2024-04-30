@@ -127,7 +127,7 @@ const PresorderPage = () => {
           </table>
 
           <div>
-    <Modal open={open} onClose={onCloseModal} center>
+    <Modal open={open} onClose={onCloseModal} center >
       <h2>Simple centered modal</h2>
     </Modal>
   </div>

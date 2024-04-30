@@ -64,7 +64,7 @@ const CartPage = () => {
       <div className="bg-white-A700 flex flex-col font-cormorant items-center justify-end mx-auto pt-[37px] w-full">
         
         <div className="flex flex-col md:gap-10 items-center justify-start w-full">
-          <div className="flex flex-col items-start justify-start max-w-[1241px] mx-auto md:px-5 w-full">
+          <div className="flex flex-col items-start justify-start max-w-[1241px] mx-auto md:px-2 w-full">
             <Line className="bg-black-900_19 h-px mt-16 w-full" />
             <Text
               className="mt-10 sm:text-4xl md:text-[38px] text-[40px] text-red-300"
@@ -107,7 +107,7 @@ const CartPage = () => {
                       className="mt-0.5 text-black-900 text-lg text-right"
                       size="txtCalistogaRegular18"
                     >
-                      ${totalCartPrice-deliveryFee}
+                      {totalCartPrice-deliveryFee} TND
                     </Text>
                   </div>
                   <div className="flex flex-row items-start justify-between ml-1 md:ml-[0] mt-[19px] w-full">
@@ -115,13 +115,13 @@ const CartPage = () => {
                       className="text-black-900_99 text-lg"
                       size="txtMontserratRegular18"
                     >
-                      Discount (-0%)
+                      Discount (-0%) TND
                     </Text>
                     <Text
                       className="text-lg text-red-300 text-right"
                       size="txtCalistogaRegular18Red300"
                     >
-                      -$0
+                      -0 TND
                     </Text>
                   </div>
                   <div className="flex flex-row items-start justify-between ml-1 md:ml-[0] mt-[19px] w-full">
@@ -135,7 +135,7 @@ const CartPage = () => {
                       className="text-black-900 text-lg text-right"
                       size="txtCalistogaRegular18"
                     >
-                      ${deliveryFee}
+                      {deliveryFee} TND
                     </Text>
                   </div>
                   <Line className="bg-black-900_19 h-px ml-1 md:ml-[0] mt-[17px] w-[99%]" />
@@ -155,7 +155,7 @@ const CartPage = () => {
                       className="sm:ml-[0] ml-[266px] text-black-900 text-right text-sm"
                       size="txtCalistogaRegular14"
                     >
-                      $0
+                      0 TND
                     </Text>
                   </div>
                   <div className="flex  flex-row sm:gap-5 items-center justify-start ml-2 md:ml-[0] mt-3.5 w-[99%] md:w-full">
@@ -171,10 +171,10 @@ const CartPage = () => {
                       Livraison Cazanova
                     </Text>
                     <Text
-                      className="sm:ml-[0] ml-[267px] text-black-900 text-right text-sm"
+                      className="sm:ml-[0] ml-[260px] text-black-900 text-right text-sm"
                       size="txtCalistogaRegular14"
                     >
-                      $15
+                      15 TND
                     </Text>
                   </div>
                   <Line className="bg-black-900_19 h-px ml-1 md:ml-[0] mt-[13px] w-[99%]" />
@@ -189,7 +189,7 @@ const CartPage = () => {
                       className="sm:text-[17px] md:text-[19px] text-[21px] text-black-900 text-right"
                       size="txtCalistogaRegular21"
                     >
-                      ${totalCartPrice}
+                      {totalCartPrice} TND
                     </Text>
                   </div>
                   <Button

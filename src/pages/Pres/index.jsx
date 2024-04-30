@@ -41,8 +41,8 @@ const PresPage = () => {
               />
             </div>
             <div className="flex md:flex-col flex-row gap-5 items-center justify-between mt-[75px] w-full">
-              <div className="bg-white-A700 border border-gray-300 border-solid flex flex-col items-center justify-end p-[19px] rounded-[12px]">
-                <div className="flex flex-col gap-[37px] items-end justify-start mb-6 mt-10 w-[97%] md:w-full">
+              <div className="bg-white-A700 border md:w-[100%] w-[30%] border-gray-300 border-solid flex flex-col items-center justify-end p-[19px] rounded-[12px]">
+                <div className="flex flex-col gap-[37px] items-end justify-start mb-6 mt-10 w-[100%] md:w-full">
                   <div className="flex flex-row gap-[27px] items-center justify-between w-full">
                     <Img
                       className="h-[97px] md:h-auto rounded-[50%] w-[97px]"
@@ -63,13 +63,7 @@ const PresPage = () => {
                           alt="rectangle301"
                         />
                       </div>
-                      <Text
-                        className="leading-[140.00%] mt-[7px] text-[13px] text-gray-500 w-full"
-                        size="txtMontserratRegular13"
-                      >
-                        Architect with years of experience on various projectsin
-                        BIM and 3D
-                      </Text>
+                  
                       <div className="flex flex-row font-calistoga items-start justify-start mt-[9px] w-[88%] md:w-full">
                         <Img
                           className="h-3.5 w-3.5"
@@ -106,7 +100,7 @@ const PresPage = () => {
                           className="ml-1 text-[13px] text-black-900"
                           size="txtCalistogaRegular13"
                         >
-                          (47 reviews)
+                          (47 avis)
                         </Text>
                       </div>
                     </div>
@@ -176,7 +170,7 @@ const PresPage = () => {
                 </div>
               </div>
               <Img
-                className="h-[352px] md:h-auto object-cover rounded-[12px]"
+                className="h-[352px] w-[68%] md:h-auto object-cover rounded-[12px]"
                 src="images/img_rectangle302.png"
                 alt="rectangle302"
               />

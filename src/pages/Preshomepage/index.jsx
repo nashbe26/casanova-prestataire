@@ -1,4 +1,4 @@
-import React, { useState, useRef,useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { User } from "../../utils/recoil/atoms";
 import { Button, Img, Input, List, Text } from "components";
@@ -6,7 +6,7 @@ import { useCreateImage, useUpdate } from "../../utils/functions";
 import { HiMiniLockClosed } from "react-icons/hi2";
 import { FaCaretSquareRight } from "react-icons/fa";
 import { DateRangePicker } from "react-date-range";
-import "react-date-range/dist/styles.css"; 
+import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { CloseSVG } from "../../assets/images";
 import "./style.css";
@@ -28,7 +28,7 @@ const PreshomepagePage = ({ userData }) => {
   const get = useGet();
   const getById = useGetById();
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [itemonevalue, setItemonevalue] = React.useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const fileInputRef = useRef(null);
@@ -55,10 +55,10 @@ const PreshomepagePage = ({ userData }) => {
     "ccc",
   ];
   const handleBrowseClick = () => {
-    
-    
-   
-    
+
+
+
+
 
     fileInputRef.current.click();
   };
@@ -84,35 +84,35 @@ const PreshomepagePage = ({ userData }) => {
       ), {
         duration: 3000,
       });
-      
+
     } catch (error) {
       console.error("Error creating data:", error);
     }
   };
   const update = useUpdate()
 
-  const onStoreChange =async () => {
-      const data={
-        storeStatus:!userData.user.storeStatus
-      }
-      const response = await update(userData.user._id,data)
-      if(response.status==200){
-        window.location.reload(); 
-      }else{
-        alert("error")
-      }
+  const onStoreChange = async () => {
+    const data = {
+      storeStatus: !userData.user.storeStatus
+    }
+    const response = await update(userData.user._id, data)
+    if (response.status == 200) {
+      window.location.reload();
+    } else {
+      alert("error")
+    }
   };
-  
+
   const handleChangeAvailability = async () => {
-    const data={
-      availibity:{
-        endDate:dateRange[0].endDate,
-        startDate:dateRange[0].startDate
+    const data = {
+      availibity: {
+        endDate: dateRange[0].endDate,
+        startDate: dateRange[0].startDate
       }
     }
-    const response = await update(userData.user._id,data)
-    if(response.status==200){
-    }else{
+    const response = await update(userData.user._id, data)
+    if (response.status == 200) {
+    } else {
       alert("error")
     }
 
@@ -123,26 +123,26 @@ const PreshomepagePage = ({ userData }) => {
       try {
         const response = await GetUser(user);
         const data = await get("Order", { owner: response.user._id });
-  
+
         // Limit the data to three orders
         const limitedOrders = data.slice(0, 3);
-  
+
         const ordersWithCustomerNames = await Promise.all(
           limitedOrders.map(async (order) => {
             const customer = await fetchCustomerName(order.client);
             return { ...order, customerName: customer };
           })
         );
-        
+
         setOrders(ordersWithCustomerNames);
       } catch (error) {
         console.error("Error prefetching product data:", error);
       }
     };
-  
+
     fetchOrders();
   }, []);
-  
+
 
   const fetchCustomerName = async (customerId) => {
     try {
@@ -255,16 +255,16 @@ const PreshomepagePage = ({ userData }) => {
       }),
     ];
   }, []);
-  
+
   return (
     <>
       <div className="flex m-auto w-full">
-        <div className="absolute top-0 left-[20%] flex m-auto w-full justify-center">
-          <div className="bg-white-A700   border-solid flex flex-col items-start justify-end my-auto p-7 sm:px-5 z-[1]">
-            <div className="flex md:flex-col flex-row md:gap-5 items-center justify-evenly w-full">
-              <div className="flex md:flex-1 md:flex-col flex-row gap-[17px] items-start justify-between  md:w-full">
-                <div className="bg-white-A700 border border-gray-200_01 border-solid flex flex-col pl-[5%] ml-[2%] mr-[2%] items-center justify-start p-3 rounded-lg">
-                  <div className="flex flex-col gap-3 items-center justify-start mb-[22px] w-[98%] md:w-full">
+        <div className="flex m-auto w-full justify-center w-[100%]">
+          <div className="bg-white-A700  w-[100%] border-solid flex flex-col items-start justify-end my-auto p-2 py-5 z-[1]">
+            <div className="flex  flex-row  w-[100%] items-center justify-between w-full mb-6">
+              <div className="flex md:flex-1 md:flex-col flex-row gap-[17px] h-[170px] w-[65%] items-start justify-between  md:w-full">
+                <div className="bg-white-A700 border border-gray-200_01 border-solid w-[100%] flex flex-col pl-[5%] mr-[2%] items-center justify-start p-3 rounded-lg">
+                  <div className="flex flex-col gap-3 items-center justify-start w-[100%] md:w-full">
                     <div className="flex flex-row sm:gap-10 items-end justify-between w-full">
                       <Text
                         className="mb-[3px] mt-1.5 text-gray-900_02 text-lg"
@@ -275,11 +275,10 @@ const PreshomepagePage = ({ userData }) => {
                       <div className="flex flex-row gap-2 items-center justify-end w-auto">
                         <div className="bg-white-A700 border border-gray-200_01 border-solid flex flex-row gap-2 items-center justify-start px-3 py-1.5 rounded-lg w-auto">
                           <div
-                            className={`bg-${
-                              userData.user.storeStatus === true
+                            className={`bg-${userData.user.storeStatus === true
                                 ? "teal"
                                 : "red"
-                            }-400 h-1.5 rounded-[50%] w-1.5`}
+                              }-400 h-1.5 rounded-[50%] w-1.5`}
                           ></div>
                           <Text
                             className="text-[13px] text-blue_gray-700 w-auto"
@@ -307,7 +306,7 @@ const PreshomepagePage = ({ userData }) => {
                       </div>
                     </div>
                     <Text
-                      className="leading-[24.00px] text-gray-600_04 text-xs w-full"
+                      className="leading-[24.00px] text-gray-600_04 text-xs w-full h-[100px] "
                       size="txtMontserratRomanRegular12"
                     >
                       The unisex Classic Bathrobe is designed to elevate the
@@ -319,14 +318,10 @@ const PreshomepagePage = ({ userData }) => {
                     </Text>
                   </div>
                 </div>
-                <br></br>
-                <br></br>
-                <br></br>
-                <br></br>
               </div>
 
-              <div className="bg-white-A700 border border-gray-200_01 border-solid flex md:flex-1 flex-col  items-end justify-start ml-[2%] p-[5px] rounded-lg  md:w-full">
-                <div className="flex flex-col items-start justify-start pl-[2%] ml-[2%] my-2 w-[100%] md:w-full">
+              <div className="bg-white-A700 border border-gray-200_01  w-[30%] h-[170px] border-solid flex md:flex-1 flex-col  items-end justify-start p-[5px] rounded-lg  md:w-full">
+                <div className="flex flex-col items-start justify-start pl-[2%] my-2 w-[100%] md:w-full">
                   <div className="flex flex-row gap-[52px] items-start justify-start w-[95%] md:w-full">
                     <Text
                       className="mt-1 text-gray-900_02 text-lg"
@@ -372,7 +367,7 @@ const PreshomepagePage = ({ userData }) => {
                   </div>
                   <div className="bg-white-A700 flex flex-col items-start justify-end pr-[3px] py-[3px] rounded-lg w-full">
                     <Img
-                      className="h-[65px] md:h-auto mt-[9px] object-cover rounded-lg w-[96%]"
+                      className="h-[100%] object-contain rounded-lg w-[100%]"
                       src={
                         image
                           ? `${process.env.REACT_APP_API_BACK}/uploads/${image}`
@@ -384,9 +379,8 @@ const PreshomepagePage = ({ userData }) => {
                 </div>
               </div>
             </div>
-            <br></br>
-            <div className="bg-white-A700 border border-gray-200_01 border-solid flex flex-col items-start justify-start max-w-[925px] pb-[72px] pl-[18px] sm:pr-5 pr-8 pt-6 rounded-lg w-full">
-              <div className="flex flex-col gap-10 items-start justify-start max-w-4xl w-full">
+            <div className="bg-white-A700  border border-gray-200_01 border-solid flex flex-col items-start justify-start w-[100%] pb-[72px] pl-[18px] sm:pr-5 pr-8 pt-6 rounded-lg w-full">
+              <div className="flex flex-col gap-10 items-start justify-start  w-full">
                 <div className="flex flex-row sm:gap-10 items-end justify-between w-full">
                   <Text
                     className="mb-[3px] mt-1.5 text-gray-900_02 text-lg"
@@ -406,40 +400,54 @@ const PreshomepagePage = ({ userData }) => {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col items-start justify-start max-w-4xl w-full">
-  {orders.length === 0 ? (
-    <Text
-      className="bg-white-A700 justify-center pt-1 sm:px-5 px-[35px] rounded-lg text-blue_gray-300 text-center text-sm w-auto"
-      size="txtMontserratRomanRegular14Bluegray300"
-    >
-      No payments have been captured yet.
-    </Text>
-  ) : (
-    <ReactTable
-      columns={table2Columns}
-      data={orders}
-      rowClass=""
-      headerClass=""
-    />
-  )}
-</div>
+                <div className="flex flex-col items-start justify-start  w-full">
+                  {orders.length === 0 ? (
+                    <Text
+                      className="bg-white-A700 justify-center pt-1 sm:px-5 px-[35px] rounded-lg text-blue_gray-300 text-center text-sm w-auto"
+                      size="txtMontserratRomanRegular14Bluegray300"
+                    >
+                      No payments have been captured yet.
+                    </Text>
+                  ) : (
+                    <ReactTable
+                      columns={table2Columns}
+                      data={orders}
+                      rowClass=""
+                      headerClass=""
+                    />
+                  )}
+                </div>
 
               </div>
             </div>
             <br></br>
             <br></br>
-            <div className="bg-white-A700 border border-gray-200_01 border-solid flex flex-col items-start justify-start max-w-[925px] pb-5 pl-[19px] sm:pr-5 pr-8 pt-[27px] rounded-lg w-full">
-              <div className="flex flex-col h-[135px] md:h-auto items-start justify-start max-w-[890px] pb-8 sm:px-5 px-8 w-full">
+            <div className="bg-white-A700 border border-gray-200_01 border-solid flex flex-col items-start justify-start w-[100%] pb-5 pl-[19px] sm:pr-5 pr-8 pt-[27px] rounded-lg w-full">
+              <div className="flex flex-col h-[135px] md:h-auto items-start justify-start w-full">
                 <div className="flex flex-col gap-3 items-start justify-start w-full">
-                  <div className="font-montserrat md:h-[187px] h-[89px] relative w-full">
-                    <Text
-                      className="absolute left-[0] text-gray-900_02 text-lg top-[6%]"
-                      size="txtMontserratRomanSemiBold18"
-                    >
-                      Availibity
-                    </Text>
-                    <div className="absolute flex md:flex-col flex-row md:gap-5 h-full inset-[0] pt-[4%] pl-[60%] items-center justify-center m-auto w-full">
-                      <div className="border border-gray-200_01 border-solid flex flex-col h-10 items-center justify-start md:mt-0 mt-[20px] p-1 rounded-lg w-10">
+                  <div className="font-montserrat md:h-[187px] h-[100%] relative w-full">
+                    <div className="w-[100%] flex justify-between my-2">
+
+                      <Text
+                        className="left-[0] text-gray-900_02 text-lg top-[6%]"
+                        size="txtMontserratRomanSemiBold18"
+                      >
+                        Availibity
+                      </Text>
+                      <div className="w-[20%]">
+                          <Button
+                            className="border border-gray-200_01 border-solid cursor-pointer font-medium rounded-lg text-[13px] text-center w-[100%]"
+                            color="white_A700"
+                            size="sm"
+                            variant="fill"
+                            onClick={handleChangeAvailability} 
+                          >
+                            Change availability
+                          </Button>
+                        </div>
+                    </div>
+                    <div className="flex md:flex-col flex-row md:gap-5 inset-[0] items-center justify-start m-auto w-full">
+                      <div className="border border-gray-200_01 border-solid flex flex-col h-10 items-center justify-start md:mt-0 p-1 rounded-lg w-10">
                         <Button
                           className="flex h-8 items-center justify-center rounded w-8"
                           color="gray_100_02"
@@ -453,7 +461,7 @@ const PreshomepagePage = ({ userData }) => {
                           />
                         </Button>
                       </div>
-                      <div className="flex mt-[11%] flex-col items-start justify-start ml-4 md:ml-[0] w-auto">
+                      <div className="flex flex-col items-start justify-start ml-4 md:ml-[0] w-auto">
                         <Text
                           className="text-gray-900_02 text-sm w-auto"
                           size="txtMontserratRomanRegular14Gray90002"
@@ -461,54 +469,44 @@ const PreshomepagePage = ({ userData }) => {
                           Date of availibilty
                         </Text>
                       </div>
-                      <div className="position-absolute pr-[150%]">
-                        <Button
-                          className="border border-gray-200_01 border-solid cursor-pointer font-medium mb-[57px] min-w-[150px] md:ml-[0] ml-[400px] rounded-lg text-[13px] text-center"
-                          color="white_A700"
-                          size="sm"
-                          variant="fill"
-                          onClick={handleChangeAvailability} 
-                        >
-                          Change availability
-                        </Button>
-                      </div>
-                      
+
+
                     </div>
                   </div>
                   {isDatePickerVisible && (
-              <div className="position-absolute top-20 right-20 z-[1]">
-                <DateRangePicker
-          ranges={dateRange}
-          onChange={(ranges) => setDateRange([ranges.selection])}
-        />
-              </div>
-            )}
+                    <div className="z-[1]">
+                      <DateRangePicker
+                        ranges={dateRange}
+                        onChange={(ranges) => setDateRange([ranges.selection])}
+                      />
+                    </div>
+                  )}
                   <Text
-        className="text-gray-600_03 text-sm"
-        size="txtInterRegular14"
-      >
-        <span className="text-gray-600_03 font-montserrat text-left font-normal">
-          Available from{" "}
-        </span>
-        <span className="text-gray-900_02 font-montserrat text-left font-medium">
-          {dateRange[0].startDate.toLocaleDateString()}
-        </span>
-        <span className="text-gray-600_03 font-montserrat text-left font-normal">
-          {" "}
-          to{" "}
-        </span>
-        <span className="text-gray-900_02 font-montserrat text-left font-medium">
-          {dateRange[0].endDate.toLocaleDateString()}
-        </span>
-        <span className="text-gray-600_03 font-montserrat text-left font-normal">
-          {" "}
-        </span>
-      </Text>
+                    className="text-gray-600_03 text-sm"
+                    size="txtInterRegular14"
+                  >
+                    <span className="text-gray-600_03 font-montserrat text-left font-normal">
+                      Available from{" "}
+                    </span>
+                    <span className="text-gray-900_02 font-montserrat text-left font-medium">
+                      {dateRange[0].startDate.toLocaleDateString()}
+                    </span>
+                    <span className="text-gray-600_03 font-montserrat text-left font-normal">
+                      {" "}
+                      to{" "}
+                    </span>
+                    <span className="text-gray-900_02 font-montserrat text-left font-medium">
+                      {dateRange[0].endDate.toLocaleDateString()}
+                    </span>
+                    <span className="text-gray-600_03 font-montserrat text-left font-normal">
+                      {" "}
+                    </span>
+                  </Text>
                 </div>
               </div>
             </div>
             <br></br>
-            <div className="bg-white-A700 border border-gray-200_01 border-solid flex flex-col gap-4 items-start justify-start max-w-[925px] pb-8 pl-[19px] sm:pr-5 pr-8 pt-6 rounded-lg w-full">
+            <div className="bg-white-A700 border border-gray-200_01 border-solid flex flex-col gap-4 items-start justify-start w-[100%] pb-8 pl-[19px] sm:pr-5 pr-8 pt-6 rounded-lg w-full">
               <div className="flex flex-col items-start justify-end pr-1 py-1">
                 <Text
                   className="text-gray-900_02 text-lg"
@@ -517,10 +515,10 @@ const PreshomepagePage = ({ userData }) => {
                   Rating
                 </Text>
               </div>
-              <div className="bg-gray-50 border border-gray-200_01 border-solid flex flex-col font-inter h-10 md:h-auto items-center justify-start max-w-[887px] pb-6 rounded-lg w-full">
-                <div className="flex flex-col items-start justify-start max-w-[887px] rounded-lg w-full">
+              <div className="bg-gray-50 border border-gray-200_01 border-solid flex flex-col font-inter h-10 md:h-auto items-center justify-start w-[100%] pb-6 rounded-lg w-full">
+                <div className="flex flex-col items-start justify-start w-[100%] rounded-lg w-full">
                   <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-[98%] md:w-full">
-                    <div className="bg-gray-50 flex flex-col items-start justify-start p-2 rounded-tl-lg rounded-tr-lg w-[90%] md:w-full">
+                    <div className="bg-gray-50 flex flex-col items-start justify-start p-2 rounded-tl-lg rounded-tr-lg w-[100%] md:w-full">
                       <div className="flex flex-col items-center justify-center ml-2 md:ml-[0] w-auto">
                         <Button
                           className="!text-blue_gray-700 border border-gray-200_01 border-solid cursor-pointer font-medium min-w-[74px] text-[13px] text-center"

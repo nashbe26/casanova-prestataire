@@ -13,12 +13,37 @@ const PresproduitOnePage = () => {
 
   return (
     <>
-      <div className="bg-white-A700 flex flex-col items-end justify-start mx-auto pb-[62px] md:px-10 sm:px-5 px-[62px] w-full">
-        <div className="flex flex-col font-montserrat items-center max-w-[1240px] mx-auto w-full">
-          <div className="h-[1416px] sm:h-[1417px] md:h-[2005px] relative w-full">
+       <div className="px-[62px] w-[90%] bg-white-A700 border border-black-900_0f border-solid flex flex-row md:gap-10 inset-x-[0] items-center justify-between mx-auto p-[17px] top-[0] w-full">
+              <Button
+                className="common-pointer border border-gray-200_01 border-solid flex h-8 items-center justify-center ml-[3px] rounded-lg w-8"
+                onClick={() => navigate(-1)}
+                color="white_A700"
+                size="sm"
+                variant="fill"
+              >
+                <Img
+                  className="h-3"
+                  src="images/img_close_gray_600_03.svg"
+                  alt="close"
+                />
+              </Button>
+              <div className="flex flex-col items-start justify-start w-auto">
+                <Button
+                  className="border border-gray-200_01 border-solid cursor-pointer font-medium min-w-[115px] rounded-lg text-[13px] text-center"
+                  color="white_A700"
+                  size="sm"
+                  variant="fill"
+                >
+                  Save changes
+                </Button>
+              </div>
+            </div>
+      <div className="bg-white-A700 flex flex-col items-end justify-start mx-auto pb-[62px] md:px-10 sm:px-5 w-full">
+        <div className="flex flex-col font-montserrat items-center w-[90%] mx-auto w-full">
+          <div className=" relative w-full">
             <div className="flex m-auto w-full">
-              <div className="bg-white-A700 border border-black-900_0f border-solid flex flex-col items-center justify-start my-auto p-9 sm:px-5 rounded-[14px] w-[24%]">
-                <div className="flex flex-col items-center justify-start mb-[1001px] mt-[67px] w-full">
+              <div className="bg-white-A700 border border-black-900_0f border-solid flex flex-col items-center justify-start p-9 sm:px-5 w-[24%]">
+                <div className="flex flex-col items-center justify-start  mt-[67px] w-full">
                   <div className="flex flex-col gap-[19px] justify-start w-full">
                     <div className="flex flex-row gap-[11px] items-center justify-start ml-2 md:ml-[0] w-[72%] md:w-full">
                       <div className="border border-blue_gray-100_01 border-solid flex flex-col h-[45px] items-center justify-end p-[3px] rounded-[22px] w-[45px]">
@@ -520,31 +545,7 @@ const PresproduitOnePage = () => {
                 </div>
               </div>
             </div>
-            <div className="absolute bg-white-A700 border border-black-900_0f border-solid flex flex-row md:gap-10 inset-x-[0] items-center justify-between mx-auto p-[17px] top-[0] w-full">
-              <Button
-                className="common-pointer border border-gray-200_01 border-solid flex h-8 items-center justify-center ml-[3px] rounded-lg w-8"
-                onClick={() => navigate(-1)}
-                color="white_A700"
-                size="sm"
-                variant="fill"
-              >
-                <Img
-                  className="h-3"
-                  src="images/img_close_gray_600_03.svg"
-                  alt="close"
-                />
-              </Button>
-              <div className="flex flex-col items-start justify-start w-auto">
-                <Button
-                  className="border border-gray-200_01 border-solid cursor-pointer font-medium min-w-[115px] rounded-lg text-[13px] text-center"
-                  color="white_A700"
-                  size="sm"
-                  variant="fill"
-                >
-                  Save changes
-                </Button>
-              </div>
-            </div>
+         
           </div>
         </div>
         <Text

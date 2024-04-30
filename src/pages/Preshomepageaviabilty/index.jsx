@@ -12,7 +12,7 @@ const PreshomepageaviabiltyPage = () => {
       <div className="bg-white-A700 flex flex-col items-end justify-start mx-auto pb-[53px] md:px-10 sm:px-5 px-[53px] w-full">
         <div className="flex flex-col font-montserrat items-center max-w-[1241px] mx-auto w-full">
           <div className="flex relative w-full">
-            <div className="bg-white-A700 border border-black-900_0f border-solid flex flex-col items-center justify-start my-auto p-7 sm:px-5 rounded-[14px] w-[24%]">
+            <div className="bg-white-A700 border border-black-900_0f border-solid flex flex-col items-center justify-start my-auto p-2 rounded-[14px] w-[24%]">
               <div className="flex flex-col items-center justify-start mb-[493px] w-[94%] md:w-full">
                 <div className="flex flex-col gap-[19px] justify-start w-full">
                   <div className="flex flex-row gap-[11px] items-center justify-start ml-2 md:ml-[0] w-[72%] md:w-full">

@@ -5,7 +5,7 @@ import "./style.css"
 const Footer = (props) => {
   return (
     <>
-       <div className="font-cormorant sm:h-[427px] h-[599px] md:h-[659px] mt-[54px] md:px-5 relative w-full">
+       <div className="font-cormorant sm:h-[427px] h-[599px] md:h-[659px] md:px-5 relative w-full">
             <div className="sm:h-[373px] h-[599px] md:h-[605px] m-auto w-full">
               <div className="absolute bg-gray-100 bottom-[0] flex flex-col inset-x-[0] items-center justify-end mx-auto p-[34px] sm:px-5 w-[100%]">
                 <div className="flex flex-col items-start justify-start md:mt-[9%] mt-[103px] w-[91%] md:w-full">

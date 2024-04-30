@@ -5,8 +5,14 @@ import { List, RatingBar, Text } from "components";
 const ClientsFeedBacks = () => {
   return (
     <>
+     <Text
+                    className="sm:text-2xl md:text-[26px] text-[28px] text-left text-red-300 mt-[65px] mb-[40px] w-[100%]"
+                    size="txtCormorantBold28"
+                  >
+                    CLIENT FEED BACK
+                  </Text>
       <List
-        className="sm:flex-col flex-row gap-5 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 justify-center mt-[55px] w-full"
+        className="sm:flex-col flex-row gap-5 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 justify-center w-full"
         orientation="horizontal"
       >
         <div className="border border-black-900_19 border-solid flex flex-1 flex-col items-center justify-end p-[22px] sm:px-5 rounded-[10px] w-full">

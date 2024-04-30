@@ -133,9 +133,9 @@ const CategoryPagePage = () => {
                 />
                 )}
               </div>
-              <div className="flex flex-row gap-5 relative  items-start justify-start w-[80%] mt-7 w-full">
+              <div className="flex flex-row gap-5 relative  items-start justify-start w-[80%] md:w-[95%] mt-7 w-full">
                 {!isTabletOrMobile ? (
-                  <>
+                  
                     <div className="border border-red-300 border-solid flex flex-col gap-6 md:h-auto items-start justify-start pt-5 sm:px-5 px-6 rounded-[7px] w-[295px]">
                       <div className="flex flex-row font-cormorant gap-5 items-center justify-between w-full">
                         <Text
@@ -292,180 +292,178 @@ const CategoryPagePage = () => {
                       </Button>
                       <br></br>
                     </div>
-                  </>
+                  
                 ) : (
-                  <>
-                    <div>
-                      <Modal open={open} onClose={onCloseModal} center>
-                        <br></br><br></br>
+                 
+                  <Modal open={open} onClose={onCloseModal} center>
+                  <br></br><br></br>
 
-                        <div className="border border-red-300 border-solid flex flex-col gap-6 md:h-auto items-start justify-start pt-5 sm:px-5 px-6 rounded-[7px] w-[295px]">
-                          <div className="flex flex-row font-cormorant gap-5 items-center justify-between w-full">
-                            <Text
-                              className="text-red-300 text-xl w-auto"
-                              size="txtCormorantBold20Red300"
-                            >
-                              FILTERS
-                            </Text>
-                            <Img
-                              className="h-6 w-6"
-                              src="images/img_frame_red_300.svg"
-                              alt="frame"
-                            />
-                          </div>
-                          <Line className="bg-red-300_47 h-px w-full" />
-                          <div className="flex flex-col gap-[11px] items-start justify-start w-[251px]">
-                            <Text
-                              className="text-black-900 text-sm w-[100%]"
-                              size="txtCormorantRegular14"
-                            >
-                              SELECT YOUR WEEDING DATE :
-                            </Text>
-                            <div className="flex flex-col font-montserrat items-center justify-start w-[98%] md:w-full">
-                              <div className="h-[244px] md:h-[248px] mt-1 relative w-[125%]">
-                                <LocalizationProvider
-                                  dateAdapter={AdapterDayjs}
-                                >
-                                  <DateCalendar
-                                    value={dayjs(date)}
-                                    onChange={(e) => {
-                                      const dateObject = new Date(
-                                        e.$d
-                                      ).toISOString();
-                                      setDate(dateObject);
-                                      console.log(dateObject);
-                                    }}
-                                  />
-                                </LocalizationProvider>
-                              </div>
-                            </div>
-                          </div>
-                          <br></br>
-                          <br></br>
-                          <br></br>
-                          <div className="flex flex-col font-montserrat gap-5 items-start justify-start w-full">
-                            <Text
-                              className="text-red-300 text-xl w-auto"
-                              size="txtCormorantBold20Red300"
-                            >
-                              CATEGORIES
-                            </Text>
-                            {categories?.map((category, index) => (
-                              <div
-                                key={category._id}
-                                className={`flex flex-col gap-5  justify-between w-full cursor-pointer ${
-                                  selectedCategory === category._id
-                                    ? "text-red-300"
-                                    : "text-black-900"
-                                }`}
-                                onClick={() =>
-                                  handleCategorySelection(category._id)
-                                }
-                              >
-                                <Text
-                                  className="text-base w-auto"
-                                  size="txtMontserratRegular16"
-                                >
-                                  {category.title}
-                                </Text>
-                                {selectedCategory === category._id &&
-                                  subcategories && (
-                                    <div className="pl-5">
-                                      {subcategories.map(
-                                        (subcategory, subIndex) =>
-                                          subcategory.categorieId ===
-                                            selectedCategory && (
-                                            <div
-                                              onClick={(e) =>
-                                                setSelectedSubcategory(
-                                                  subcategory._id
-                                                )
-                                              }
-                                              key={subIndex}
-                                              className={`flex flex-row gap-5 items-center justify-between w-full cursor-pointer ${
-                                                selectedSubcategory ===
-                                                subcategory._id
-                                                  ? "text-red-300"
-                                                  : "text-black-900"
-                                              }`}
-                                            >
-                                              <Text
-                                                className="text-base w-auto"
-                                                size="txtMontserratRegular16"
-                                              >
-                                                {subcategory.title}
-                                              </Text>
-                                            </div>
-                                          )
-                                      )}
-                                    </div>
-                                  )}
-                              </div>
-                            ))}
-                          </div>
-
-                          <Line className="bg-red-300_47 h-px w-full" />
-                          <div className="flex flex-col font-cormorant gap-5 items-start justify-start w-full">
-                            <div className="flex flex-row gap-5 items-center justify-between w-full">
-                              <Text
-                                className="text-red-300 text-xl w-auto"
-                                size="txtCormorantBold20Red300"
-                              >
-                                PRICE
-                              </Text>
-                              <Img
-                                className="h-4 w-4"
-                                src="images/img_arrowup.svg"
-                                alt="arrowup"
-                              />
-                            </div>
-                            <div className="flex flex-col font-calistoga items-center justify-start w-full">
-                              <div className="flex flex-col items-start justify-start w-full">
-                                <SeekBar
-                                  min={50}
-                                  max={9999}
-                                  inputValue={priceRange}
-                                  onChange={handlePriceChange}
-                                  trackColors={[
-                                    "#f0f0f0",
-                                    "#c3937c",
-                                    "#f0f0f0",
-                                  ]}
-                                  thumbClassName="h-5 bg-red-300 w-5 flex justify-center items-center rounded-[50%] outline-none"
-                                  className="flex h-5 rounded-[3px] w-full"
-                                  trackClassName="h-[5px] flex rounded-[3px] w-full"
-                                />{" "}
-                                <div className="flex flex-row items-center justify-between mt-[3px] w-[87%] md:w-full">
-                                  <Text
-                                    className="text-red-300 text-sm"
-                                    size="txtCalistogaRegular14Red300"
-                                  >
-                                    50TND
-                                  </Text>
-                                  <Text
-                                    className="text-center text-red-300 text-sm"
-                                    size="txtCalistogaRegular14Red300"
-                                  >
-                                    9999TND
-                                  </Text>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <Line className="bg-red-300_47 h-px w-full" />
-                          <Button
-                            className="cursor-pointer font-montserrat min-w-[247px] rounded-[5px] text-center text-sm"
-                            color="red_300"
-                            size="md"
-                            variant="fill"
-                          >
-                            Apply Filter
-                          </Button>
-                          <br></br>
-                        </div>
-                      </Modal>
+                  <div className="border border-red-300 border-solid flex flex-col gap-6 md:h-auto items-start justify-start pt-5 sm:px-5 px-6 rounded-[7px] w-[295px]">
+                    <div className="flex flex-row font-cormorant gap-5 items-center justify-between w-full">
+                      <Text
+                        className="text-red-300 text-xl w-auto"
+                        size="txtCormorantBold20Red300"
+                      >
+                        FILTERS
+                      </Text>
+                      <Img
+                        className="h-6 w-6"
+                        src="images/img_frame_red_300.svg"
+                        alt="frame"
+                      />
                     </div>
-                  </>
+                    <Line className="bg-red-300_47 h-px w-full" />
+                    <div className="flex flex-col gap-[11px] items-start justify-start w-[251px]">
+                      <Text
+                        className="text-black-900 text-sm w-[100%]"
+                        size="txtCormorantRegular14"
+                      >
+                        SELECT YOUR WEEDING DATE :
+                      </Text>
+                      <div className="flex flex-col font-montserrat items-center justify-start w-[98%] md:w-full">
+                        <div className="h-[244px] md:h-[100%] mt-1 relative w-[125%]">
+                          <LocalizationProvider
+                            dateAdapter={AdapterDayjs}
+                          >
+                            <DateCalendar
+                              value={dayjs(date)}
+                              onChange={(e) => {
+                                const dateObject = new Date(
+                                  e.$d
+                                ).toISOString();
+                                setDate(dateObject);
+                                console.log(dateObject);
+                              }}
+                            />
+                          </LocalizationProvider>
+                        </div>
+                      </div>
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <div className="flex flex-col font-montserrat gap-5 items-start justify-start w-full">
+                      <Text
+                        className="text-red-300 text-xl w-auto"
+                        size="txtCormorantBold20Red300"
+                      >
+                        CATEGORIES
+                      </Text>
+                      {categories?.map((category, index) => (
+                        <div
+                          key={category._id}
+                          className={`flex flex-col gap-5  justify-between w-full cursor-pointer ${
+                            selectedCategory === category._id
+                              ? "text-red-300"
+                              : "text-black-900"
+                          }`}
+                          onClick={() =>
+                            handleCategorySelection(category._id)
+                          }
+                        >
+                          <Text
+                            className="text-base w-auto"
+                            size="txtMontserratRegular16"
+                          >
+                            {category.title}
+                          </Text>
+                          {selectedCategory === category._id &&
+                            subcategories && (
+                              <div className="pl-5">
+                                {subcategories.map(
+                                  (subcategory, subIndex) =>
+                                    subcategory.categorieId ===
+                                      selectedCategory && (
+                                      <div
+                                        onClick={(e) =>
+                                          setSelectedSubcategory(
+                                            subcategory._id
+                                          )
+                                        }
+                                        key={subIndex}
+                                        className={`flex flex-row gap-5 items-center justify-between w-full cursor-pointer ${
+                                          selectedSubcategory ===
+                                          subcategory._id
+                                            ? "text-red-300"
+                                            : "text-black-900"
+                                        }`}
+                                      >
+                                        <Text
+                                          className="text-base w-auto"
+                                          size="txtMontserratRegular16"
+                                        >
+                                          {subcategory.title}
+                                        </Text>
+                                      </div>
+                                    )
+                                )}
+                              </div>
+                            )}
+                        </div>
+                      ))}
+                    </div>
+
+                    <Line className="bg-red-300_47 h-px w-full" />
+                    <div className="flex flex-col font-cormorant gap-5 items-start justify-start w-full">
+                      <div className="flex flex-row gap-5 items-center justify-between w-full">
+                        <Text
+                          className="text-red-300 text-xl w-auto"
+                          size="txtCormorantBold20Red300"
+                        >
+                          PRICE
+                        </Text>
+                        <Img
+                          className="h-4 w-4"
+                          src="images/img_arrowup.svg"
+                          alt="arrowup"
+                        />
+                      </div>
+                      <div className="flex flex-col font-calistoga items-center justify-start w-full">
+                        <div className="flex flex-col items-start justify-start w-full">
+                          <SeekBar
+                            min={50}
+                            max={9999}
+                            inputValue={priceRange}
+                            onChange={handlePriceChange}
+                            trackColors={[
+                              "#f0f0f0",
+                              "#c3937c",
+                              "#f0f0f0",
+                            ]}
+                            thumbClassName="h-5 bg-red-300 w-5 flex justify-center items-center rounded-[50%] outline-none"
+                            className="flex h-5 rounded-[3px] w-full"
+                            trackClassName="h-[5px] flex rounded-[3px] w-full"
+                          />{" "}
+                          <div className="flex flex-row items-center justify-between mt-[3px] w-[87%] md:w-full">
+                            <Text
+                              className="text-red-300 text-sm"
+                              size="txtCalistogaRegular14Red300"
+                            >
+                              50TND
+                            </Text>
+                            <Text
+                              className="text-center text-red-300 text-sm"
+                              size="txtCalistogaRegular14Red300"
+                            >
+                              9999TND
+                            </Text>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <Line className="bg-red-300_47 h-px w-full" />
+                    <Button
+                      className="cursor-pointer font-montserrat min-w-[247px] rounded-[5px] text-center text-sm"
+                      color="red_300"
+                      size="md"
+                      variant="fill"
+                    >
+                      Apply Filter
+                    </Button>
+                    <br></br>
+                  </div>
+                </Modal>
+                  
                 )}
 
                 <Products

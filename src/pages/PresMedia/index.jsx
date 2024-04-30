@@ -27,8 +27,8 @@ const PresMediaPage = () => {
     return (
       <>
         <div className="flex m-auto w-full">
-          <div className="absolute top-0 left-[30%] flex m-auto w-full justify-center">
-            <div className="bg-white-A700   border-solid flex flex-col items-start justify-end w-[100%]  my-auto p-7 sm:px-5 z-[1]">
+          <div className="flex m-auto w-full justify-center  w-[100%]">
+            <div className="bg-white-A700   border-solid flex flex-col items-start justify-end w-[100%]  my-auto p-2 py-7 z-[1]">
               <Text
                 className="md:ml-[0] ml-[102px] mt-[30px] text-2xl md:text-[22px] text-gray-900_02 sm:text-xl"
                 size="txtMontserratRomanSemiBold24"

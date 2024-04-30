@@ -101,7 +101,7 @@ const ProductDetails = () => {
           >
             {product.title}
           </Text>
-          <div onClick={(e)=>navigate(`/presphoto/${product.owner._id}`)} className="flex md:flex-col flex-row font-montserrat items-start justify-start mt-[9px] w-[64%] md:w-full">
+          <div onClick={(e)=>navigate(`/presphoto/${product.owner._id}`)} className="flex flex-col font-montserrat items-start justify-start mt-[9px] w-[70%] md:w-full gap-[10px]">
           <div className="flex gap-[5px]">
 
             <Img
@@ -162,7 +162,7 @@ const ProductDetails = () => {
               className="text-black-900 text-xl"
               size="txtCalistogaRegular20"
             >
-              ${product.price}
+              {product.price} TND
             </Text>
           </div>
           <Text

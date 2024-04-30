@@ -42,7 +42,7 @@ const PresPHOTOOnePage = () => {
             </div>
             <div className="flex md:flex-col flex-row gap-5 items-center justify-between mt-[75px] w-full">
               <div className="bg-white-A700 border border-gray-300 border-solid flex flex-col items-center justify-end p-[19px] rounded-[12px]">
-                <div className="flex flex-col gap-[37px] items-end justify-start mb-6 mt-10 w-[97%] md:w-full">
+                <div className="flex flex-col gap-[37px] items-end justify-start mb-6 mt-10 w-[100%] md:w-full">
                   <div className="flex flex-row gap-[27px] items-center justify-between w-full">
                     <Img
                       className="h-[97px] md:h-auto rounded-[50%] w-[97px]"
@@ -63,13 +63,7 @@ const PresPHOTOOnePage = () => {
                           alt="rectangle301"
                         />
                       </div>
-                      <Text
-                        className="leading-[140.00%] mt-[7px] text-[13px] text-gray-500 w-full"
-                        size="txtMontserratRegular13"
-                      >
-                        Architect with years of experience on various projectsin
-                        BIM and 3D
-                      </Text>
+                  
                       <div className="flex flex-row font-calistoga items-start justify-start mt-[9px] w-[88%] md:w-full">
                         <Img
                           className="h-3.5 w-3.5"
@@ -106,7 +100,7 @@ const PresPHOTOOnePage = () => {
                           className="ml-1 text-[13px] text-black-900"
                           size="txtCalistogaRegular13"
                         >
-                          (47 reviews)
+                          (47 avis)
                         </Text>
                       </div>
                     </div>
@@ -114,23 +108,27 @@ const PresPHOTOOnePage = () => {
                   <div className="flex flex-col items-center justify-start w-[96%] md:w-full">
                     <Line className="bg-gray-300 h-px w-full" />
                     <div className="flex flex-row items-start justify-start mt-[21px] w-full">
-                      <Img
-                        className="h-[15px]"
-                        src="images/img_linkedin.svg"
-                        alt="linkedin"
-                      />
+                      <div className="flex">
+      
+                        <Img
+                          className="h-[15px]"
+                          src="images/img_linkedin.svg"
+                          alt="linkedin"
+                        />
+                        <Text
+                          className="ml-3 mt-0.5 text-[13px] text-gray-500"
+                          size="txtGothamBook13"
+                        >
+                          From
+                        </Text>
+                        
+                      </div>
                       <Text
-                        className="ml-3 mt-0.5 text-[13px] text-gray-500"
-                        size="txtGothamBook13"
-                      >
-                        From
-                      </Text>
-                      <Text
-                        className="ml-[215px] text-black-900 text-right text-sm"
-                        size="txtMontserratRomanMedium14Black900"
-                      >
-                        TUNISIE
-                      </Text>
+                          className="text-black-900 text-right text-sm"
+                          size="txtMontserratRomanMedium14Black900"
+                        >
+                          TUNISIE
+                        </Text>
                     </div>
                     <div className="flex flex-row items-start justify-start mt-4 w-full">
                       <Img
@@ -145,31 +143,10 @@ const PresPHOTOOnePage = () => {
                         Member since
                       </Text>
                       <Text
-                        className="ml-[154px] text-[13px] text-black-900 text-right"
-                        size="txtMontserratRomanMedium13"
-                      >
-                        Feb 2017
-                      </Text>
-                    </div>
-                    <div className="flex flex-row items-start justify-between mt-[23px] w-full">
-                      <div className="flex flex-row font-gotham gap-[13px] items-start justify-start">
-                        <Img
-                          className="h-3 w-[13px]"
-                          src="images/img_save_red_300.svg"
-                          alt="save"
-                        />
-                        <Text
-                          className="text-gray-500 text-sm"
-                          size="txtGothamBook14"
-                        >
-                          Last Delivery
-                        </Text>
-                      </div>
-                      <Text
                         className="text-[13px] text-black-900 text-right"
                         size="txtMontserratRomanMedium13"
                       >
-                        1 DAY
+                        Feb 2017
                       </Text>
                     </div>
                   </div>
@@ -239,7 +216,7 @@ const PresPHOTOOnePage = () => {
                 </Text>
               </div>
               <div className="flex md:flex-1 flex-col gap-[35px] items-center justify-start md:mt-0 mt-[27px] w-[67%] md:w-full">
-                <div className="flex md:flex-col flex-row md:gap-10 items-start justify-between w-full">
+                <div className="flex  flex-row md:gap-10 items-start justify-between w-full">
                   <div className="flex flex-col gap-1.5 items-start justify-start md:mt-0 mt-0.5">
                     <div className="flex flex-row gap-[23px] items-center justify-start w-[53%] md:w-full">
                       <Text

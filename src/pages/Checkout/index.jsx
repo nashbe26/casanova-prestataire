@@ -13,6 +13,8 @@ import toast from "react-hot-toast";
 import { Cart } from "../../utils/recoil/atoms";
 import { useRecoilState } from "recoil";
 import { style } from "motion";
+import NavBar from "components/NavBar";
+import Footer from "components/Footer";
 
 export default function ChekoutsurplacePage() {
   const [cart, setCart] = useRecoilState(Cart);
@@ -83,10 +85,11 @@ export default function ChekoutsurplacePage() {
 
   return (
     <>
-      <div className="w-[100vw] h-[100vh] custom-bg-color flex items-center justify-center">
+    <NavBar></NavBar>
+      <div className=" mt-7 md:mt-5 py-7 md:py-5 w-[100vw] h-[100%] md:h-[100%]  flex items-center justify-center">
         <div
-          className="w-[60vw] h-[100%] md:w-[100%] "
-          style={{ border: "1px solide black", backgroundColor: "white",height:"100%" }}
+          className="w-[60vw] h-[100%] md:w-[100%] shadow-box"
+          style={{ border: "1px solide black", backgroundColor: "white",height:"100%",borderRadius:"8px" }}
         >
           <div className="pt-[2%] flex flex-col align-center w-[100%] gap-y-15px">
             <div className="flex items-center  justify-center  mx-4">
@@ -254,6 +257,7 @@ export default function ChekoutsurplacePage() {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 }

@@ -35,7 +35,7 @@ const ProductDetailPagePage = () => {
                 className="mt-[3px] text-black-900 text-center text-xl"
                 size="txtCormorantBold20"
               >
-                Rating & Reviews
+                Rating & avis
               </Text>
             </div>
             <div className="flex flex-col mt-4 relative w-full">
@@ -47,7 +47,7 @@ const ProductDetailPagePage = () => {
                 className="text-2xl md:text-[22px] text-black-900 sm:text-xl"
                 size="txtCormorantBold24"
               >
-                All Reviews
+                All avis
               </Text>
               <Text
                 className="ml-2 md:ml-[0] text-base text-red-300_93"
