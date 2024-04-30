@@ -120,38 +120,37 @@ const USERSETTINGPage = () => {
         <NavBar></NavBar>
 
         <div className="bg-white-A700 flex flex-col font-cormorant items-center justify-end mx-auto pt-[37px] w-full">
-          <div className="flex flex-col md:gap-10 gap-[151px] items-center justify-start w-full">
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="flex flex-col items-start justify-start max-w-[1241px] mx-auto md:px-5 w-full">
+          <div className="flex flex-col md:gap-10 md:gap-[20px] gap-[20px] items-center justify-start w-full ">
+            <form className="w-[75%] md:w-[100%] md:mt-6 " onSubmit={handleSubmit(onSubmit)}>
+              <div className="flex flex-col items-start justify-start max-w-[1241px] mx-auto md:px-5 w-full ">
                 <Text
                   className="mt-16 md:hideden sm:text-[23.38px] md:hidden md:text-[25.38px] text-[27.38px] text-red-300"
                   size="txtCormorantSemiBold2738"
                 >
                   PARAMÈTRES
                 </Text>
-                <div className="bg-gray-600_01 flex md:flex-col md:hidden flex-row md:gap-5 items-center justify-start mt-8 sm:px-5 px-[30px] w-full">
+                <div className="bg-gray-600_01 flex md:flex-col md:hidden flex-row md:gap-5 h-[50px] items-center justify-start mt-8 sm:px-5 px-[30px] w-full">
                   <Text
-                    className="text-lg text-white-A700"
+                    className="text-lg text-white-A700 w-[35%]"
                     size="txtCormorantBold18WhiteA700"
                   >
                     IMAGE DE PROFILE{" "}
                   </Text>
-                  <Line className="bg-white-A700 h-[61px] md:h-px md:ml-[0] ml-[271px] md:w-full w-px" />
                   <Text
-                    className="md:ml-[0] ml-[42px] text-lg text-white-A700"
+                    className="md:ml-[0] ml-[42px] text-lg text-white-A700  w-[65%]"
                     size="txtCormorantBold18WhiteA700"
                   >
                     INFORMATIONS DE BASE
                   </Text>
                 </div>
-                <div className="flex md:flex-col flex-row md:gap-5 items-start justify-start w-full">
-                  <Line className="bg-gray-400_03 h-[671px] md:hidden md:h-px md:w-full w-px" />
-                  <div className="flex md:flex-1 flex-col gap-[19px] items-center justify-start md:ml-[0] ml-[86px] md:mt-0 mt-44 w-[28%] md:w-full">
-                    <div className="flex flex-col gap-8 items-center justify-start w-[51%] md:w-full">
+                <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start w-full  border-solid-grey">
+
+                  <div className="flex flex-col gap-[19px] items-center justify-start w-[35%] md:w-[100%] md:w-full">
+                    <div className="flex flex-col gap-8 items-center justify-start w-[30%] md:w-full py-6">
                       <div className="h-[151px] relative w-[151px]">
                         <div className="bg-white-A700 gray_600_01_blue_gray_900_63_border h-[150px] m-auto outline outline-[3px] rounded-[50%] w-[150px]"></div>
                         <Img
-                          className="absolute h-[151px] inset-[0] justify-center m-auto rounded-[50%] w-[151px]"
+                          className="absolute h-[151px] inset-[0] justify-center m-auto rounded-[70%] w-[151px]"
                           src={
                             userData?.user?.picture && !newImage
                               ? `${process.env.REACT_APP_API_BACK}/uploads/${userData?.user?.picture}`
@@ -209,7 +208,7 @@ const USERSETTINGPage = () => {
                       ></input>
                     </div>
                   </div>
-                  <div className="flex flex-col pl-[10%] pt-[3%] md:pl-[0%] ">
+                  <div className="flex flex-col md:pl-[0%] w-[65%] md:w-[100%]  border-solid-grey-2 py-6">
                     <div className=" relative w-[100%] md:w-full">
                       <div className=" flex flex-col inset-x-[0] items-center justify-start mx-auto top-[4%] w-[83%]">
                         <div className="flex flex-col items-start justify-start w-full gap-[0.5em]">
@@ -278,16 +277,16 @@ const USERSETTINGPage = () => {
                           ></Input>
                         </div>
                       </div>
-                      <Line className=" bg-gray-400_03  inset-y-[0] left-[0] my-auto w-px" />
                     </div>
                     <div>
-                      <div className=" bottom-[7%] flex flex-col inset-x-[0] items-start justify-start md:pt-[2%] mx-auto w-[83%] pt-[4%]">
+                      <div className=" bottom-[7%] flex flex-col inset-x-[0] items-start justify-start md:pt-[4%] mx-auto w-[83%] pt-[4%]">
                         <Text
                           className="text-black-900 text-sm"
                           size="txtCormorantRegular14"
                         >
                           NOUVEAU MOT DE PASSE
                         </Text>
+
                         <Input
                           register={register}
                           name="password"
@@ -347,9 +346,7 @@ const USERSETTINGPage = () => {
                     </div>
                   </div>
 
-                  <Line className="bg-gray-400_03 h-[671px] md:h-px md:w-full w-px" />
                 </div>
-                <Line className="bg-gray-400_03 h-px w-full" />
                 
               </div>
             </form>

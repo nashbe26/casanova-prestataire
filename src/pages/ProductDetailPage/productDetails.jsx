@@ -77,7 +77,7 @@ const ProductDetails = () => {
           />
           <div className="absolute h-[530px] inset-[0] justify-center m-auto w-full">
             <Img
-              className="h-[530px] m-auto object-cover rounded-[14px] w-full"
+              className="h-[530px] m-auto object-cover md:object-fill rounded-[14px] w-full"
               src={
                 process.env.REACT_APP_API_BACK + "/uploads/" + product.image[0]
               }
@@ -93,7 +93,7 @@ const ProductDetails = () => {
             </Button>
           </div>
         </div>
-        <div  className="flex md:flex-1 flex-col items-start justify-start ml-10 md:ml-[0] w-[48%] md:w-full">
+        <div  className="flex md:flex-1 flex-col items-start justify-center ml-10 md:ml-[0] w-[48%] md:w-full">
         
           <Text
             className="sm:text-4xl md:text-[38px] text-[40px] text-black-900"
@@ -101,26 +101,29 @@ const ProductDetails = () => {
           >
             {product.title}
           </Text>
-          <div onClick={(e)=>navigate(`/presphoto/${product.owner._id}`)} className="flex flex-row font-montserrat items-start justify-start mt-[9px] w-[64%] md:w-full">
-          <Img
-                className="h-[40px]  md:h-auto md:ml-[0] mr-[3%] rounded-[50%] w-[40px]"
-                src={
-                  product.owner?.picture
-                    ? process.env.REACT_APP_API_BACK +
-                      "/uploads/" +
-                      product.owner?.picture
-                    : "../images/defaultProfilePic.jpg"
-                }
-                alt="femaleSixteen"
-              />
-           <Text
-  className="sm:text-[17px] pt-[2%] md:text-[19px] text-[20px] text-black-900 tracking-[1.05px] uppercase"
-  size="txtMontserratRegular21"
->
-  {product.owner.businessName}
-</Text>
+          <div onClick={(e)=>navigate(`/presphoto/${product.owner._id}`)} className="flex md:flex-col flex-row font-montserrat items-start justify-start mt-[9px] w-[64%] md:w-full">
+          <div className="flex gap-[5px]">
 
             <Img
+                  className="h-[40px]  md:h-auto md:ml-[0] mr-[3%] rounded-[50%] w-[40px]"
+                  src={
+                    product.owner?.picture
+                      ? process.env.REACT_APP_API_BACK +
+                        "/uploads/" +
+                        product.owner?.picture
+                      : "../images/defaultProfilePic.jpg"
+                  }
+                  alt="femaleSixteen"
+                />
+            <Text
+    className="sm:text-[17px] pt-[2%] md:text-[19px] text-[20px] text-black-900 tracking-[1.05px] uppercase"
+    size="txtMontserratRegular21"
+  >
+    {product.owner.businessName}
+  </Text>
+          </div>
+<div className="flex gap-[2px]">
+<Img
               className="h-7 pt-[3%] ml-1.5 rounded-sm w-6"
               src="../images/Star.svg"
               alt="starOne"
@@ -151,6 +154,8 @@ const ProductDetails = () => {
                 5
               </span>
             </Text>
+</div>
+            
           </div>
           <div className="flex flex-row font-calistoga gap-2.5 items-center justify-start mt-4 w-[19%] md:w-full">
             <Text
