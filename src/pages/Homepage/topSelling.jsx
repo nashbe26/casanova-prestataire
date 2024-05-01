@@ -39,8 +39,8 @@ const TopSelling = () => {
 
   return (
     <>
-      <div className="md:gap-5 gap-[19px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-4 justify-center min-h-[auto] w-full">
-      {productList.slice(0,3).map((product, index) => (
+      <div className="md:gap-5 gap-[19px] grid sm:grid-cols-1 md:grid-cols-2 grid-cols-6 justify-center min-h-[auto] w-full">
+      {productList.slice(0,7).map((product, index) => (
                    <div key={index} className="h-[336px] relative w-full" >
                    <div className="absolute h-[336px] inset-[0] justify-center m-auto w-full">
                      <Img

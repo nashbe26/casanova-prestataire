@@ -309,12 +309,7 @@ const PreshomepagePage = ({ userData }) => {
                       className="leading-[24.00px] text-gray-600_04 text-xs w-full h-[100px] "
                       size="txtMontserratRomanRegular12"
                     >
-                      The unisex Classic Bathrobe is designed to elevate the
-                      <br></br>
-                      joy of feeling comfortable at home or when relaxing in
-                      <br></br>
-                      nature. The robes are designed in a traditional and unisex
-                      fit.sqdzvghfreerqsaz
+                      {userData?.user?.description}
                     </Text>
                   </div>
                 </div>
@@ -505,6 +500,8 @@ const PreshomepagePage = ({ userData }) => {
                 </div>
               </div>
             </div>
+           
+           
             <br></br>
             <div className="bg-white-A700 border border-gray-200_01 border-solid flex flex-col gap-4 items-start justify-start w-[100%] pb-8 pl-[19px] sm:pr-5 pr-8 pt-6 rounded-lg w-full">
               <div className="flex flex-col items-start justify-end pr-1 py-1">
