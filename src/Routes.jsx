@@ -4,6 +4,7 @@ import { User } from "./utils/recoil/atoms";
 import { useRecoilState } from "recoil";
 import { useGetUser } from "utils/functions";
 import NotFound from "pages/NotFound";
+import { useMediaQuery } from "react-responsive";
 const PresMedia = React.lazy(() => import("pages/PresMedia"));
 const PresproduitOne = React.lazy(() => import("pages/PresproduitOne"));
 const Presbalance = React.lazy(() => import("pages/Presbalance"));
@@ -71,21 +72,50 @@ const ProjectRoutes = () => {
 
     fetchUserFromToken();
   }, [token]);
+
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' })
+
+
   return (
     <React.Suspense fallback={<>Loading...</>}>
       <Router>
       {loggedIn === null ? ( // Check if loggedIn state is null (initial state)
         <div>Loading...</div> // Display a loading message while waiting for the state to update
       ) : (
-        <Routes>
+     <Routes>
+
+        <Route path="/preslandingpage" element={<Preslandingpage />} />
+        <Route path="*" element={<Navigate to="/preslandingpage" />} />
+
+        <Route path="/PresSignIn" element={<PresSignIn /> } />
+        <Route path="/PresSignup" element={ <PresSignup />} />
+        <Route path="/pres" element={<Pres />} /> 
+        <Route path="/Dashboard" element={loggedIn ? <Dashboard /> : <Navigate to="/Signup" />} />
+
+        {loggedIn && (
+            <>
+            <Route path="/presphotoone" element={<PresPHOTOOne />} />  
+            <Route path="/presphoto" element={<PresPHOTO />} /> 
+            <Route path="/preslandingpage" element={<Preslandingpage />} /> 
+            <Route path="/prescreatproduit" element={<Prescreatproduit />} /> 
+            <Route path="/preshomepage" element={<Preshomepage />} />
+            <Route path="/preshomepageaviabilty" element={<Preshomepageaviabilty />}/>
+            <Route path="/presproduit" element={<Presproduit />} />
+            <Route path="/pressettings" element={<PresSettings />} />
+            <Route path="/presbalance" element={<Presbalance />} />
+            <Route path="/presmedia" element={<PresMedia />} />
+            </>
+        
+        ) }
+     </Routes>
+      )}
+      </Router>
+    </React.Suspense>
+    /**    <Routes>
           
-          <Route path="/" element={<Landingpage />} />
+          <Route path="/" element={isTabletOrMobile ? <Homepage /> : <Landingpage />} />
 
           <Route path="/SignIn" element={<SignIn /> } />
-
-          <Route path="/PresSignIn" element={<PresSignIn /> } />
-
-          <Route path="/PresSignup" element={ <PresSignup />} />
 
           <Route path="/Signup" element={ <Signup />} />
           
@@ -107,7 +137,6 @@ const ProjectRoutes = () => {
 
           <Route path="/landingpagesthree" element={<LandingpagesThree />} />
 
-          <Route path="/preslandingpage" element={<Preslandingpage />} />
 
           <Route path="*" element={<NotFound />} />
 
@@ -127,27 +156,13 @@ const ProjectRoutes = () => {
           
           <Route path="/cart" element={<Cart />} /> 
           
-          <Route path="/pres" element={<Pres />} /> 
          
           <Route path="/homepage" element={<Homepage />} /> 
-           
-          <Route path="/presphotoone" element={<PresPHOTOOne />} />  
-          <Route path="/presphoto" element={<PresPHOTO />} /> 
-          <Route path="/preslandingpage" element={<Preslandingpage />} /> 
-          <Route path="/PresSignIn" element={<PresSignIn />} /> 
-          
-          <Route path="/prescreatproduit" element={<Prescreatproduit />} /> 
-          <Route path="/preshomepage" element={<Preshomepage />} />
-          <Route path="/preshomepageaviabilty" element={<Preshomepageaviabilty />}/>
-          <Route path="/presproduit" element={<Presproduit />} />
-          <Route path="/pressettings" element={<PresSettings />} />
-          <Route path="/presbalance" element={<Presbalance />} />
-          <Route path="/presmedia" element={<PresMedia />} />
-          {/* Private routes */}
+          <Route path="/category" element={ <CategoryPage />   } />
+   
+          <Route path="/homepage" element={ <Homepage />} />
           {loggedIn && (
             <>
-                 <Route path="/homepage" element={ loggedIn ? <Homepage />  : <Navigate to="/Signup"  />} />
-          <Route path="/category" element={loggedIn ? <CategoryPage />  : <Navigate to="/Signup" /> } />
           <Route path="/Checkout" element={ loggedIn ? <Checkout /> : <Navigate to="/Signup"  />} />
           <Route path="/cart" element={loggedIn ?  <Cart />  : <Navigate to="/Signup"  />} /> 
           <Route path="/productdetailpage/:id" element={loggedIn ?  <ProductDetailPage />  : <Navigate to="/Signup"  />} />
@@ -157,10 +172,7 @@ const ProjectRoutes = () => {
 
             </>
           )}
-        </Routes>
-      )}
-      </Router>
-    </React.Suspense>
+        </Routes> */
     /*
     <React.Suspense fallback={<>Loading...</>}>
       <Router>
@@ -199,6 +211,26 @@ const ProjectRoutes = () => {
         </Routes>
       </Router>
     </React.Suspense>
- */ );
+ */
+       /*
+          <Route path="/preslandingpage" element={<Preslandingpage />} />
+
+          <Route path="/PresSignIn" element={<PresSignIn /> } />
+          <Route path="/PresSignup" element={ <PresSignup />} />
+          <Route path="/pres" element={<Pres />} /> 
+          <Route path="/presphotoone" element={<PresPHOTOOne />} />  
+          <Route path="/presphoto" element={<PresPHOTO />} /> 
+          <Route path="/preslandingpage" element={<Preslandingpage />} /> 
+          <Route path="/PresSignIn" element={<PresSignIn />} /> 
+          
+          <Route path="/prescreatproduit" element={<Prescreatproduit />} /> 
+          <Route path="/preshomepage" element={<Preshomepage />} />
+          <Route path="/preshomepageaviabilty" element={<Preshomepageaviabilty />}/>
+          <Route path="/presproduit" element={<Presproduit />} />
+          <Route path="/pressettings" element={<PresSettings />} />
+          <Route path="/presbalance" element={<Presbalance />} />
+          <Route path="/presmedia" element={<PresMedia />} />
+          */
+    );
 };
 export default ProjectRoutes;
