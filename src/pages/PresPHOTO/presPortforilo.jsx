@@ -7,7 +7,7 @@ const PresPortfolio = ({ user }) => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const navigate = useNavigate()
   const handleVideoClick = (videoUrl) => {
-    setSelectedVideo(process.env.REACT_APP_API_BACK + "/uploads/" + videoUrl);
+    setSelectedVideo(process.env.REACT_APP_API_BACK_IMG + "/uploads/" + videoUrl);
   };
   const handleProductClick = (product) => {
     navigate(`/productdetailpage/${product._id}`);
@@ -54,7 +54,7 @@ const PresPortfolio = ({ user }) => {
             <Img
               key={index}
               className="flex-1 h-72 md:h-auto object-cover rounded-[14px] w-full"
-              src={process.env.REACT_APP_API_BACK + "/uploads/" + imageName}
+              src={process.env.REACT_APP_API_BACK_IMG + "/uploads/" + imageName}
               alt={imageName}
             />
           ))}
@@ -89,7 +89,7 @@ const PresPortfolio = ({ user }) => {
                <div className="absolute h-[336px] inset-[0] justify-center m-auto w-full">
                  <Img
                    className="h-[336px] m-auto object-cover rounded-[14px] w-full"
-                   src={process.env.REACT_APP_API_BACK+"/uploads/"+product.image[0]}
+                   src={process.env.REACT_APP_API_BACK_IMG+"/uploads/"+product.image[0]}
                    alt="product Image"
                  />
                  <Button

@@ -142,14 +142,14 @@ const PresSettingsPage = ({ userData }) => {
                   {image ? (
                     <Img
                       className="h-[53px] md:h-auto rounded-[50%] w-[53px]"
-                      src={process.env.REACT_APP_API_BACK + "/uploads/" + image}
+                      src={process.env.REACT_APP_API_BACK_IMG + "/uploads/" + image}
                       alt={image}
                     />
                   ) : (
                     userData.user.picture && (
                       <Img
                         className="h-[53px] md:h-auto rounded-[50%] w-[53px]"
-                        src={`${process.env.REACT_APP_API_BACK}/uploads/${userData.user.picture}`}
+                        src={`${process.env.REACT_APP_API_BACK_IMG}/uploads/${userData.user.picture}`}
 
                         alt={userData.user.picture}
                       />
