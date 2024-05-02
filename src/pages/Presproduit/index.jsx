@@ -109,7 +109,6 @@ const PresproduitPage = ({ onItemClick }) => {
                           <th className=" w-[20%] text-gray-600_03 text-xs">Description</th>
                           <th className="w-[20%] text-[13px] text-gray-600_03">Prix</th>
                           <th className=" w-[10%] text-[13px] text-gray-600_03">Supprimé</th>
-                          <th className=" w-[10%] text-[13px] text-gray-600_03">Modifier</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -126,17 +125,6 @@ const PresproduitPage = ({ onItemClick }) => {
                               <td className="text-center w-[20%] text-[13px] text-gray-900_02  md:text-[18px]">{product.title}</td>
                               <td className="text-center w-[20%] text-[13px] text-gray-900_02">{product.description}</td>
                               <td className="text-center w-[20%]  text-[13px] text-gray-900_02">{product.price}</td>
-                              <td>
-                                <img
-                                  onClick={(e) => {
-                                    Delete("Product", product._id);
-                                    window.location.reload();
-                                  }}
-                                  className="h-6 text-center w-[20%] w-6 mx-auto"
-                                  src="../images/img_thumbsup_red_300_24x24.svg"
-                                  alt="thumbsup"
-                                />
-                              </td>
                               <td>
                                 <img
                                   onClick={(e) => {
