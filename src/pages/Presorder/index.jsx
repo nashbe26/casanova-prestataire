@@ -114,7 +114,7 @@ const PresorderPage = () => {
       <div className="w-[100%] flex m-auto w-full justify-end">
         <div className="bg-white-A700 w-[100%]  border-solid flex flex-col items-start justify-end ">
           <Text
-            className="text-2xl md:text-[22px] mb-5 pb-5 sm:text-xl text-gray-900_02"
+            className="text-2xl md:text-[22px] my-5 py-5 sm:text-xl text-gray-900_02"
             style={{ textAlign: "center", justifyContent: "center" }}
             size="txtInterSemiBold24"
           >
@@ -124,21 +124,21 @@ const PresorderPage = () => {
           <table>
             <thead>
               <tr>
-                <th style={{ width: "20%", height: "50px" }} className="text-center  text-[15px] text-gray-900_02">Order</th>
-                <th style={{ width: "30%", height: "50px" }} className="text-center  text-[15px] text-gray-900_02">Date / Time</th>
-                <th style={{ width: "15%", height: "50px" }} className="text-center  text-[15px] text-gray-900_02">Livraision</th>
-                <th style={{ width: "20%", height: "50px" }} className="text-center  text-[15px] text-gray-900_02">Total Price</th>
-                <th style={{ width: "15%", height: "50px" }} className="text-center  text-[15px] text-gray-900_02">More Details</th>
+                <th style={{ width: "20%", height: "50px" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">Order</th>
+                <th style={{ width: "30%", height: "50px" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">Date / Time</th>
+                <th style={{ width: "15%", height: "50px" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">Livraision</th>
+                <th style={{ width: "20%", height: "50px" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">Total Price</th>
+                <th style={{ width: "15%", height: "50px" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">More Details</th>
               </tr>
             </thead>
             <tbody>
               {orders.map(x => (
                 <tr key={x?._id}>
-                  <td style={{ width: "20%", height: "35px", borderBottom: "1px solid black" }} className="text-center  text-[15px] text-gray-900_02">#{shortenOrderId(x?._id)}</td>
-                  <td style={{ width: "30%", height: "35px", borderBottom: "1px solid black" }} className="text-center  text-[15px] text-gray-900_02">{moment(x?.date).format('YYYY/MM/DD')}</td>
-                  <td style={{ width: "15%", height: "35px", borderBottom: "1px solid black" }} className="text-center  text-[15px] text-gray-900_02">{x?.livraision}</td>
-                  <td style={{ width: "20%", height: "35px", borderBottom: "1px solid black" }} className="text-center  text-[15px] text-gray-900_02">{x?.totalPrice} TND</td>
-                  <td style={{ width: "15%", height: "35px", borderBottom: "1px solid black" }} className="text-center  text-[15px] text-gray-900_02">
+                  <td style={{ width: "20%",borderBottom: "1px solid black" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">#{shortenOrderId(x?._id)}</td>
+                  <td style={{ width: "30%",borderBottom: "1px solid black" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">{moment(x?.date).format('YYYY/MM/DD')}</td>
+                  <td style={{ width: "15%",borderBottom: "1px solid black" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">{x?.livraision}</td>
+                  <td style={{ width: "20%",borderBottom: "1px solid black" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">{x?.totalPrice} TND</td>
+                  <td style={{ width: "15%",borderBottom: "1px solid black" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">
                     <span className="more-details" onClick={() => onOpenModal(x)}>More</span>
                   </td>
                 </tr>
