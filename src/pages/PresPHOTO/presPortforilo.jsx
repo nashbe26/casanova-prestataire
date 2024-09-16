@@ -50,7 +50,7 @@ const PresPortfolio = ({ user }) => {
     <div className="gap-5 grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 justify-center ml-[2%] mt-[3%] min-h-[auto] w-full">
       {selectedTab === "PHOTOS" ? (
         <>
-          {user.files.images.map((imageName, index) => (
+          {user.files?.images?.map((imageName, index) => (
             <Img
               key={index}
               className="flex-1 h-72 md:h-auto object-cover rounded-[14px] w-full"

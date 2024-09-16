@@ -8,9 +8,12 @@ import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import Media from "./media";
 import { useNavigate } from "react-router-dom";
+import { Checkbox } from "@mui/material";
+import { useField } from "@mui/x-date-pickers/internals";
+import moment from "moment";
 
-const PrescreatproduitPage = ({ userData ,onItemClick }) => {
-  const navigate=useNavigate()
+const PrescreatproduitPage = ({ userData, onItemClick }) => {
+  const navigate = useNavigate()
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [Description, setDescription] = useState("");
@@ -18,7 +21,7 @@ const PrescreatproduitPage = ({ userData ,onItemClick }) => {
   const [categories, setCategories] = useState([]);
   const [subcategories, setSubcategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
-  const[productSubCat,setProductSubCat] = useState();
+  const [productSubCat, setProductSubCat] = useState();
   const Create = useCreate();
   const Get = useGet();
   const [filesList, setFilesList] = useState([]);
@@ -26,20 +29,23 @@ const PrescreatproduitPage = ({ userData ,onItemClick }) => {
   const updateFilesList = (newFilesList) => {
     setFilesList(newFilesList);
   };
+  const [isDispo, setIsdispo] = useState(false)
 
   const handleSubmit = async () => {
-    const data = {
+    
+    let data = {
       modelName: "Product",
       title,
       price,
-      categorie:selectedCategory,
-      subCategorie:productSubCat,
-      availibity:availability,
+      categorie: selectedCategory,
+      subCategorie: productSubCat,
       owner: userData.user._id,
       description: Description,
       image: filesList,
+      availibity: availability 
     };
-    console.log("ddata",data);
+   
+    console.log("ddata", data);
     try {
       const response = await Create(data);
       toast.custom(
@@ -62,12 +68,22 @@ const PrescreatproduitPage = ({ userData ,onItemClick }) => {
   };
 
   const handleDateChanger = (e) => {
-  
+
     setAvailability({
-      endDate: e[1].toISOString(),
-      startDate: e[0].toISOString(),
+      endDate: moment(e[1].toISOString()).format('YYYY-MM-DD HH:mm:ss'),
+      startDate: moment( e[0].toISOString()).format('YYYY-MM-DD HH:mm:ss'),
     });
   };
+
+  useEffect(()=>{
+    if(!isDispo)
+    setAvailability({
+      endDate: moment("2040-1-1").format('YYYY-MM-DD HH:mm:ss'),
+      startDate: moment("1900-1-1").format('YYYY-MM-DD HH:mm:ss'),
+    });
+  
+  
+  },[isDispo])
 
   const handleCategoryChange = async (e) => {
     const selectedCategory = e.target.value;
@@ -95,6 +111,7 @@ const PrescreatproduitPage = ({ userData ,onItemClick }) => {
 
     fetchCategories();
   }, []);
+
 
   return (
     <>
@@ -165,13 +182,18 @@ const PrescreatproduitPage = ({ userData ,onItemClick }) => {
 
               <div id="div2">
                 {" "}
-                <Text
-                  className="text-gray-600_03 text-xs w-auto"
-                  size="txtMontserratRomanSemiBold12"
-                >
-                  Disponibility :
-                </Text>
+                <div className="flex gap-[15px]">
+
+                  <Text
+                    className="text-gray-600_03 text-xs w-auto"
+                    size="txtMontserratRomanSemiBold12"
+                  >
+                    Disponibility :
+                  </Text>
+                  <Checkbox onClick={e => setIsdispo(!isDispo)} />
+                </div>
               </div>
+
               <div id="div3">
                 {" "}
                 <Input
@@ -186,16 +208,19 @@ const PrescreatproduitPage = ({ userData ,onItemClick }) => {
                   size="lg"
                 ></Input>
               </div>
-              <div id="div4">
-                {" "}
-                <Calendar
-                  onChange={(e) => handleDateChanger(e)}
-                  selectRange={true}
-                />
-              </div>
+              {isDispo &&
+                <div id="div4">
+                  {" "}
+                  <Calendar
+                    onChange={(e) => handleDateChanger(e)}
+                    selectRange={true}
+                  />
+                </div>
+              }
+
             </div>
 
-         
+
             <div className="flex sm:flex-col flex-row font-inter gap-6 items-center justify-between mt-2 w-full"></div>
             <Text
               className="mt-[35px] text-gray-600_03 text-xs"
@@ -213,7 +238,7 @@ const PrescreatproduitPage = ({ userData ,onItemClick }) => {
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Gateaux"
               rows={4}
-              style={{resize:"none",background:"rgb(249 250 251 / var(--tw-bg-opacity))",padding:"11px"}}
+              style={{ resize: "none", background: "rgb(249 250 251 / var(--tw-bg-opacity))", padding: "11px" }}
               className="round round font-inter border border-gray-200_01 border-solid mt-[9px] rounded-lg w-full p-0 placeholder:text-gray-900_02 text-left text-sm w-full"
             ></textarea>
             <Text
@@ -235,28 +260,28 @@ const PrescreatproduitPage = ({ userData ,onItemClick }) => {
                   Categories :
                 </Text>
                 <div className="pt-4" >
-                {" "}
-                <select
-                  onChange={handleCategoryChange}
-                  placeholder="Categories"
-                  value={selectedCategory}
-                  style={{width:"100%",resize:"none",background:"rgb(249 250 251 / var(--tw-bg-opacity))",padding:"11px"}}
-              className="round round font-inter border border-gray-200_01 border-solid mt-[9px] rounded-lg w-full p-0 placeholder:text-gray-900_02 text-left text-sm w-full"
-                >
-                  <option disabled value="">
-                    Select Category
-                  </option>
-                  {categories.map((cat) => ( 
-                    <option  key={cat._id} value={cat._id}>
-                      {cat.title}
+                  {" "}
+                  <select
+                    onChange={handleCategoryChange}
+                    placeholder="Categories"
+                    value={selectedCategory}
+                    style={{ width: "100%", resize: "none", background: "rgb(249 250 251 / var(--tw-bg-opacity))", padding: "11px" }}
+                    className="round round font-inter border border-gray-200_01 border-solid mt-[9px] rounded-lg w-full p-0 placeholder:text-gray-900_02 text-left text-sm w-full"
+                  >
+                    <option disabled value="">
+                      Select Category
                     </option>
-                  ))}
-                </select>
-              </div>
+                    {categories.map((cat) => (
+                      <option key={cat._id} value={cat._id}>
+                        {cat.title}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
 
               <div className="w-[48%]">
-                
+
                 <Text
                   className="text-gray-600_03 text-xs w-auto"
                   size="txtMontserratRomanSemiBold12"
@@ -264,24 +289,24 @@ const PrescreatproduitPage = ({ userData ,onItemClick }) => {
                   SubCategorie :
                 </Text>
                 <div className="pt-4" >
-                
-                <select 
-                style={{width:"100%",resize:"none",background:"rgb(249 250 251 / var(--tw-bg-opacity))",padding:"11px"}}
-                className="round round font-inter border border-gray-200_01 border-solid mt-[9px] rounded-lg w-full p-0 placeholder:text-gray-900_02 text-left text-sm w-full"
 
-                onChange={(e) => setProductSubCat(e.target.value)} placeholder="Subcategories">
-                  <option selected disabled>Select sub Categorie</option>
-                  {subcategories.map((subcat) => (
-                    <option value={subcat._id} key={subcat._id} >
-                      {subcat.title}
-                    </option>
-                  ))}
-                </select>
-              </div>
+                  <select
+                    style={{ width: "100%", resize: "none", background: "rgb(249 250 251 / var(--tw-bg-opacity))", padding: "11px" }}
+                    className="round round font-inter border border-gray-200_01 border-solid mt-[9px] rounded-lg w-full p-0 placeholder:text-gray-900_02 text-left text-sm w-full"
+
+                    onChange={(e) => setProductSubCat(e.target.value)} placeholder="Subcategories">
+                    <option selected disabled>Select sub Categorie</option>
+                    {subcategories.map((subcat) => (
+                      <option value={subcat._id} key={subcat._id} >
+                        {subcat.title}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
 
-              
-             
+
+
             </div>
 
             <br></br>

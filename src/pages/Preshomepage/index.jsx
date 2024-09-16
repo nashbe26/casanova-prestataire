@@ -262,8 +262,8 @@ const PreshomepagePage = ({ userData }) => {
         <div className="flex m-auto w-full justify-center w-[100%]">
           <div className="bg-white-A700  w-[100%] border-solid flex flex-col items-start justify-end my-auto p-2 py-5 z-[1]">
             <div className="flex  flex-row  w-[100%] items-center justify-between w-full mb-6">
-              <div className="flex md:flex-1 md:flex-col flex-row gap-[17px] h-[170px] w-[65%] items-start justify-between  md:w-full">
-                <div className="bg-white-A700 border border-gray-200_01 border-solid w-[100%] flex flex-col pl-[5%] mr-[2%] items-center justify-start p-3 rounded-lg">
+              <div className="flex md:flex-1 md:flex-col flex-row gap-[17px] h-[220px] w-[30%] items-start justify-between  md:w-full">
+                <div className="bg-white-A700 border border-gray-200_01 border-solid h-[220px] w-[100%] flex flex-col pl-[5%] mr-[2%] items-center justify-start p-3 rounded-lg">
                   <div className="flex flex-col gap-3 items-center justify-start w-[100%] md:w-full">
                     <div className="flex flex-row sm:gap-10 items-end justify-between w-full">
                       <Text
@@ -276,8 +276,8 @@ const PreshomepagePage = ({ userData }) => {
                         <div className="bg-white-A700 border border-gray-200_01 border-solid flex flex-row gap-2 items-center justify-start px-3 py-1.5 rounded-lg w-auto">
                           <div
                             className={`bg-${userData.user.storeStatus === true
-                                ? "teal"
-                                : "red"
+                              ? "teal"
+                              : "red"
                               }-400 h-1.5 rounded-[50%] w-1.5`}
                           ></div>
                           <Text
@@ -314,17 +314,16 @@ const PreshomepagePage = ({ userData }) => {
                   </div>
                 </div>
               </div>
-
-              <div className="bg-white-A700 border border-gray-200_01  w-[30%] h-[170px] border-solid flex md:flex-1 flex-col  items-end justify-start p-[5px] rounded-lg  md:w-full">
-                <div className="flex flex-col items-start justify-start pl-[2%] my-2 w-[100%] md:w-full">
-                  <div className="flex flex-row gap-[52px] items-start justify-start w-[95%] md:w-full">
+              <div className="bg-white-A700 border border-gray-200_01  w-[65%] h-[220px] border-solid flex md:flex-1 flex-col  items-end justify-between p-[5px] rounded-lg  md:w-full">
+                <div className="flex flex-col items-start justify-start h-full pl-[2%] my-2 w-[100%] md:w-full">
+                  <div className="flex flex-row gap-[52px] items-start h-full justify-start w-[95%] md:w-full">
                     <Text
                       className="mt-1 text-gray-900_02 text-lg"
                       size="txtMontserratRomanSemiBold18"
                     >
                       Thumbnail
                     </Text>
-                    <div className="flex flex-row font-inter gap-2 items-center justify-end w-auto">
+                    <div className="flex flex-row font-inter gap-2 items-center justify-end w-auto h-full">
                       <Button
                         className="border border-gray-200_01 border-solid cursor-pointer font-medium min-w-[65px] rounded-lg text-center text-xs"
                         color="white_A700"
@@ -360,9 +359,9 @@ const PreshomepagePage = ({ userData }) => {
                       ></input>
                     </div>
                   </div>
-                  <div className="bg-white-A700 flex flex-col items-start justify-end pr-[3px] py-[3px] rounded-lg w-full">
+                  <div className="bg-white-A700 flex flex-col items-start justify-end pr-[3px] py-[3px] rounded-lg w-full  h-[160px]">
                     <Img
-                      className="h-[100%] object-contain rounded-lg w-[100%]"
+                      className="h-[100%] object-cover rounded-lg w-[100%] h-full"
                       src={
                         image
                           ? `${process.env.REACT_APP_API_BACK_IMG}/uploads/${image}`
@@ -373,6 +372,9 @@ const PreshomepagePage = ({ userData }) => {
                   </div>
                 </div>
               </div>
+
+
+
             </div>
             <div className="bg-white-A700  border border-gray-200_01 border-solid flex flex-col items-start justify-start w-[100%] pb-[72px] pl-[18px] sm:pr-5 pr-8 pt-6 rounded-lg w-full">
               <div className="flex flex-col gap-10 items-start justify-start  w-full">
@@ -430,16 +432,16 @@ const PreshomepagePage = ({ userData }) => {
                         Availibity
                       </Text>
                       <div className="w-[20%]">
-                          <Button
-                            className="border border-gray-200_01 border-solid cursor-pointer font-medium rounded-lg text-[13px] text-center w-[100%]"
-                            color="white_A700"
-                            size="sm"
-                            variant="fill"
-                            onClick={handleChangeAvailability} 
-                          >
-                            Change availability
-                          </Button>
-                        </div>
+                        <Button
+                          className="border border-gray-200_01 border-solid cursor-pointer font-medium rounded-lg text-[13px] text-center w-[100%]"
+                          color="white_A700"
+                          size="sm"
+                          variant="fill"
+                          onClick={handleChangeAvailability}
+                        >
+                          Change availability
+                        </Button>
+                      </div>
                     </div>
                     <div className="flex md:flex-col flex-row md:gap-5 inset-[0] items-center justify-start m-auto w-full">
                       <div className="border border-gray-200_01 border-solid flex flex-col h-10 items-center justify-start md:mt-0 p-1 rounded-lg w-10">
@@ -500,8 +502,8 @@ const PreshomepagePage = ({ userData }) => {
                 </div>
               </div>
             </div>
-           
-           
+
+
             <br></br>
             <div className="bg-white-A700 border border-gray-200_01 border-solid flex flex-col gap-4 items-start justify-start w-[100%] pb-8 pl-[19px] sm:pr-5 pr-8 pt-6 rounded-lg w-full">
               <div className="flex flex-col items-start justify-end pr-1 py-1">

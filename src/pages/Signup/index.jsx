@@ -187,7 +187,7 @@ const Signup = () => {
                   ></Input>
                   
                   <Button
-                    className="cursor-pointer font-montserrat font-semibold min-w-[510px] sm:min-w-full md:ml-[0] mt-7 rounded-[5px] text-base text-center tracking-[1.28px]"
+                    className="ursor-pointer font-montserrat font-semibold min-w-[510px] w-[100%] sm:min-w-full md:ml-[0] mt-7 rounded-[5px] text-base text-center tracking-[1.28px]"
                     color="red_300"
                     size="md"
                     variant="fill"

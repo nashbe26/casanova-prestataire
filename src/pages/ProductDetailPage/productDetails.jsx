@@ -47,12 +47,13 @@ const ProductDetails = () => {
     }
     navigate(`/cart/`);
   };
+
   if (product) {
     return (
       <div className="flex md:flex-col flex-row font-montserrat md:gap-5 items-start justify-start mt-[46px] w-full">
         {product.image.length > 1 ? (
           <div className="flex md:flex-1 flex-col gap-3.5 items-start justify-start w-[13%] md:w-full">
-            {product.image.slice(1).map((image, index) => (
+            {product.image?.slice(1).map((image, index) => (
               <div key={index} className="h-[168px] relative w-full">
                 <Img
                   className="h-[167px] object-cover rounded-[20px] w-full"

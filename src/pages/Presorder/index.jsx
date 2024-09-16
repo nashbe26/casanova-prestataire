@@ -90,7 +90,7 @@ const PresorderPage = () => {
                     return(
                   <div className="flex justify-between items-center gap-[10px] my-4 py-2" style={{borderBottom:'1px solid #000'}}>
                     <div className="w-[22.5%]">
-                        <img src={'https://www.casanova-event.com/uploads/'+x.id_product?.image[0]} alt="" width={'100%'} />
+                        <img src={'http://localhost:3001/uploads/'+x.id_product?.image[0]} alt="" width={'100%'} />
                     </div>
                     <div className="w-[22.5%]">
                       <p className="text-center"> {x.id_product?.title}</p>
