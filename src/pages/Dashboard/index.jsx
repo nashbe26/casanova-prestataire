@@ -11,6 +11,8 @@ import PreshomepagePage from "pages/Preshomepage";
 import PresbalancePage from "pages/Presbalance";
 import PresproduitPage from "pages/Presproduit";
 import { useNavigate } from "react-router-dom";
+import PrescreatPackPage from "pages/PrescreatePack";
+import PrespackPage from "pages/PresPack";
 
 const Dashboard = () => {
   const [selectedItem, setSelectedItem] = useState("Homepage");
@@ -42,7 +44,11 @@ const Dashboard = () => {
         return <PresproduitPage onItemClick={handleItemClick} />;
       case "PresCreateProduitPage":
         return <PrescreatproduitPage onItemClick={handleItemClick} userData={userData} />;
-      case "PresorderPage":
+        case "presPack":
+          return <PrespackPage onItemClick={handleItemClick} userData={userData} />;
+          case "presCreatePack":
+            return <PrescreatPackPage onItemClick={handleItemClick} userData={userData} />;
+        case "PresorderPage":
         return <PresorderPage />;
       case "PresMediaPage":
         return <PresMediaPage />;

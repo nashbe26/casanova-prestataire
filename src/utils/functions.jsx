@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Get ,Register,Login,Create,CreateImage,getUser,GetId,DeleteFile,Update,Delete} from "../service/api";
+import { Get ,Register,Login,Create,CreateImage,getUser,GetId,DeleteFile,Update,Delete, CreatePack} from "../service/api";
 import { ProductListState ,User} from "./recoil/atoms";
 import { useRecoilState } from "recoil";
 import { useQueryClient } from "react-query";
@@ -57,6 +57,7 @@ export function useLoginUser() {
     try {
       const response = await Login({ body: userData });
       setUser(response.token);
+      localStorage.setItem('token',response.token)
     } catch (error) {
       console.error("Error Logging user:", error.response.data.error);
       return error.response.data.error;
@@ -123,9 +124,27 @@ export function useCreate() {
 
   return useCreate;
 }
+
+export function useCreatePack() {
+  async function useCreatePack(data) {
+    console.log(data);
+    try {
+      const response = await CreatePack(data);
+      return response; 
+    } catch (error) {
+      console.log(error);
+      console.error("Error :", error.response.data.error);
+    return error.response.data.error; 
+    }
+  }
+
+  return useCreatePack;
+}
 export function useGetUser() {
   async function useGetUser(token) {
     try {
+      console.log(token);
+      
       const response = await getUser(token);
       return response; 
     } catch (error) {

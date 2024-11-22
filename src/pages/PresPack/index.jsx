@@ -5,8 +5,9 @@ import { useGetUser, useGetById } from "../../utils/functions";
 import { useRecoilState } from "recoil";
 import { User } from "../../utils/recoil/atoms";
 import NavBar from "components/NavBar";
+import customAxios from "../../axios/custom";
 
-const PresproduitPage = ({ onItemClick }) => {
+const PrespackPage = ({ onItemClick }) => {
 
   const get = useGet();
   const GetUser = useGetUser();
@@ -23,8 +24,10 @@ const PresproduitPage = ({ onItemClick }) => {
     const fetchProducts = async () => {
       try {
         const response = await GetUser(user);
-        const data = await get("Product", { owner: response.user._id });
-        setProducts(data);
+        const data = await customAxios.get("/pack");
+        console.log(data);
+        
+        setProducts(data.data.gigs);
       } catch (error) {
         console.error("Error prefetching product data:", error);
       }
@@ -50,9 +53,9 @@ const PresproduitPage = ({ onItemClick }) => {
                     </Text>
                     <div className="w-[50%] flex justify-end gap-[5px]">
 
-               
+                   
                       <div
-                        onClick={() => handleItemClick("PresCreateProduitPage")}
+                        onClick={() => handleItemClick("presCreatePack")}
                         className="bg-gray-50 flex flex-col items-start justify-start md:ml-[0] ml-[7px] pl-1 pr-4 py-1 rounded-lg w-auto w-[35%]"
                       >
                         <div className="flex flex-row gap-4 items-center justify-start w-auto">
@@ -62,7 +65,7 @@ const PresproduitPage = ({ onItemClick }) => {
                                 className="h-6 rounded w-6"
                                 src="../images/img_editaddplus.svg"
                                 alt="editaddplus"
-                             />
+                              />
                             </div>
                           </div>
                           <div className="flex flex-col items-center justify-start w-auto">
@@ -70,7 +73,7 @@ const PresproduitPage = ({ onItemClick }) => {
                               className="text-[13px] text-gray-900_02 w-auto"
                               size="txtInterMedium13"
                             >
-                              Ajouter produit
+                              Ajouter un pack
                             </Text>
                           </div>
                         </div>
@@ -84,7 +87,7 @@ const PresproduitPage = ({ onItemClick }) => {
                           <th className="w-[10%] text-[13px] text-left text-gray-600_03">Item</th>
                           <th className=" w-[20%] text-gray-600_03 text-xs">Titre</th>
                           <th className=" w-[20%] text-gray-600_03 text-xs">Description</th>
-                          <th className="w-[20%] text-[13px] text-gray-600_03">Prix</th>
+                          <th className="w-[20%] text-[13px] text-gray-600_03">NB service</th>
                           <th className=" w-[10%] text-[13px] text-gray-600_03">Supprimé</th>
                         </tr>
                       </thead>
@@ -93,18 +96,15 @@ const PresproduitPage = ({ onItemClick }) => {
                           <React.Fragment key={index}>
                             <tr style={{ borderBottom: "1px solid black",height:"50px" }}>
                               <td  className="text-left w-[20%] text-[13px] text-gray-900_02">
-                                {
-                               <img
+                                <img
                                   className="w-[100%] h-[55px] sm:h-auto object-contain md:object-contain rounded text-left"
-                                  src={process.env.REACT_APP_API_BACK_IMG + "/uploads/" + product?.images[0] || ""} 
+                                  src={process.env.REACT_APP_API_BACK_IMG + "/uploads/" + product.images[0]}
                                   alt="rectangle1665"
-                                /> 
-                                }
-                                
+                                />
                               </td>
                               <td className="text-center w-[20%] text-[13px] text-gray-900_02  md:text-[18px]">{product.title}</td>
                               <td className="text-center w-[20%] text-[13px] text-gray-900_02">{product.description}</td>
-                              <td className="text-center w-[20%]  text-[13px] text-gray-900_02">{product.price}</td>
+                              <td className="text-center w-[20%]  text-[13px] text-gray-900_02">{product.packs?.length || 0}</td>
                               <td>
                                 <img
                                   onClick={(e) => {
@@ -136,4 +136,4 @@ const PresproduitPage = ({ onItemClick }) => {
   }
 };
 
-export default PresproduitPage;
+export default PrespackPage;

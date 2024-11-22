@@ -53,6 +53,18 @@ export async function Create(data) {
     throw error;
   }
 }
+
+export async function CreatePack(data) {
+  try {
+
+    
+    const res = await customAxios.post("pack/", data);
+    return res.data;
+  } catch (error) {
+    console.error("Error in Create function:", error);
+    throw error;
+  }
+}
 export async function GetId(modelName,id) {
   let requestId = id;
   if (id && id._id) {

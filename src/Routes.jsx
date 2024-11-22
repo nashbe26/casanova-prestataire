@@ -5,6 +5,8 @@ import { useRecoilState } from "recoil";
 import { useGetUser } from "utils/functions";
 import NotFound from "pages/NotFound";
 import { useMediaQuery } from "react-responsive";
+import PrescreatPackPage from "pages/PrescreatePack";
+import PrespackPage from "pages/PresPack";
 const PresMedia = React.lazy(() => import("pages/PresMedia"));
 const PresproduitOne = React.lazy(() => import("pages/PresproduitOne"));
 const Presbalance = React.lazy(() => import("pages/Presbalance"));
@@ -93,6 +95,7 @@ const ProjectRoutes = () => {
         <Route path="/Dashboard" element={loggedIn ? <Dashboard /> : <Navigate to="/Signup" />} />
 
         {loggedIn && (
+
             <>
             <Route path="/presphotoone" element={<PresPHOTOOne />} />  
             <Route path="/presphoto" element={<PresPHOTO />} /> 
@@ -104,6 +107,7 @@ const ProjectRoutes = () => {
             <Route path="/pressettings" element={<PresSettings />} />
             <Route path="/presbalance" element={<Presbalance />} />
             <Route path="/presmedia" element={<PresMedia />} />
+            <Route path="/presPack" element={<PrespackPage />} />
             </>
         
         ) }

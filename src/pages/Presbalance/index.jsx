@@ -66,7 +66,7 @@ const PresbalancePage = () => {
                       className="text-3xl sm:text-[26px] md:text-[28px] text-red-300 tracking-[-0.80px] w-full"
                       size="txtInterSemiBold30"
                     >
-                      ${totalPrice}
+                      {totalPrice} TND
                     </Text>
                   </div>
                   <Button

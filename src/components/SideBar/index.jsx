@@ -50,7 +50,7 @@ const Sidebar = ({ userData, onItemClick }) => {
                     alt="home"
                   />
                   <Text
-                    className="mt-[3px] text-[13px] text-gray-900_02"
+                    className="mt-[3px] text-[16px] cursor-pointer text-gray-900_02"
                     size="txtMontserratRomanMedium13Gray60003"
                   >
                     Homepage
@@ -68,10 +68,28 @@ const Sidebar = ({ userData, onItemClick }) => {
                     alt="20pxtag"
                   />
                   <Text
-                    className="text-[13px] text-gray-900_02 w-auto"
+                    className="text-[16px] cursor-pointer text-gray-900_02 w-auto"
                     size="txtMontserratRomanMedium13Gray90002"
                   >
                     Products
+                  </Text>
+                </div>
+                <div
+                  onClick={() => handleItemClick("presPack")}
+                  className={` flex flex-row gap-[19px] items-center justify-start p-1.5 rounded-lg w-full ${
+                    itemvalue === "presPack" ? "bg-red-300_2b" : ""
+                  }`}
+                >
+                  <Img
+                    className="h-5 w-5"
+                    src="../images/img_20pxtag.svg"
+                    alt="20pxtag"
+                  />
+                  <Text
+                    className="text-[16px] cursor-pointer text-gray-900_02 w-auto"
+                    size="txtMontserratRomanMedium13Gray90002"
+                  >
+                    Packs
                   </Text>
                 </div>
                 <div
@@ -86,7 +104,7 @@ const Sidebar = ({ userData, onItemClick }) => {
                     alt="20pxcart"
                   />
                   <Text
-                    className="text-[13px] text-gray-900_02 w-auto"
+                    className="text-[16px] cursor-pointer text-gray-900_02 w-auto"
                     size="txtMontserratRomanMedium13Gray60003"
                   >
                     Orders
@@ -101,7 +119,7 @@ const Sidebar = ({ userData, onItemClick }) => {
                     alt="grid"
                   />
                   <Text
-                    className="text-[13px] text-gray-900_02 w-auto"
+                    className="text-[16px] cursor-pointer text-gray-900_02 w-auto"
                     size="txtMontserratRomanMedium13Gray60003"
                   >
                     Media
@@ -116,7 +134,7 @@ const Sidebar = ({ userData, onItemClick }) => {
                     alt="thumbsup"
                   />
                   <Text
-                    className="text-[13px] text-gray-900_02 w-auto"
+                    className="text-[16px] cursor-pointer text-gray-900_02 w-auto"
                     size="txtMontserratRomanMedium13Gray60003"
                   >
                     Balance
@@ -131,7 +149,7 @@ const Sidebar = ({ userData, onItemClick }) => {
                       alt="search"
                     />
                   <Text
-                    className="text-[13px] pl-[0%] text-gray-900_02 w-auto"
+                    className="text-613p cursor-pointerx] pl-[0%] text-gray-900_02 w-auto"
                     size="txtMontserratRomanMedium13Gray60003"
                   >
                     Settings
