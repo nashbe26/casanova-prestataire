@@ -50,13 +50,22 @@ const Landingpage = React.lazy(() => import("pages/LandingPage"));
 const Dashboard = React.lazy(() => import("pages/Dashboard"));
 const PresorderPage = React.lazy(() => import("pages/Presorder"));
 
+const ProtectedRoute = ({ isLoggedIn, children }) => {
+  if (!isLoggedIn) {
+    // Redirect to the login page if not logged in
+    return <Navigate to="/PresSignIn" />;
+  }
+  return children;
+};
+
 const ProjectRoutes = () => {
   const [loggedIn,setLoggedIn] = useState(null)
   const checkvalidUser= useGetUser()
   const [token,setToken] = useRecoilState(User);
-  React.useEffect(() => {
-   
-  }, [token]);
+  React.useEffect(() => { 
+    console.log(loggedIn);
+    
+  }, [loggedIn]);
   React.useEffect(() => {
     const fetchUserFromToken = async () => {
      if(!token){
@@ -105,30 +114,53 @@ const ProjectRoutes = () => {
         <div>Loading...</div> // Display a loading message while waiting for the state to update
       ) : (
      <Routes>
-
-        <Route path="*" element={<Navigate to="/Dashboard" />} />
-
-        <Route path="/PresSignIn" element={<PresSignIn /> } />
-        <Route path="/PresSignup" element={ <PresSignup />} />
-
-        {loggedIn && (
-          
-          <>
-            <Route path="/Dashboard" element={loggedIn ? <Dashboard /> : <Navigate to="/PresSignIn" />} />
-            <Route path="/presphotoone" element={<PresPHOTOOne />} />  
-            <Route path="/presphoto" element={<PresPHOTO />} /> 
-            <Route path="/preslandingpage" element={<Preslandingpage />} /> 
-            <Route path="/prescreatproduit" element={<Prescreatproduit />} /> 
-            <Route path="/preshomepage" element={<Preshomepage />} />
-            <Route path="/preshomepageaviabilty" element={<Preshomepageaviabilty />}/>
-            <Route path="/presproduit" element={<Presproduit />} />
-            <Route path="/pressettings" element={<PresSettings />} />
-            <Route path="/presbalance" element={<Presbalance />} />
-            <Route path="/presmedia" element={<PresMedia />} />
-            <Route path="/presPack" element={<PrespackPage />} />
-            </>
         
-        ) }
+        {/* Public Routes */}
+        <Route path="/PresSignIn" element={<PresSignIn />} />
+          <Route path="/PresSignup" element={<PresSignup />} />
+          <Route path="*" element={<NotFound />} />
+
+          {/* Protected Routes */}
+          <Route
+            path="/Dashboard"
+            element={
+              <ProtectedRoute isLoggedIn={loggedIn}>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/presphotoone"
+            element={
+              <ProtectedRoute isLoggedIn={loggedIn}>
+                <PresPHOTOOne />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/presphoto"
+            element={
+              <ProtectedRoute isLoggedIn={loggedIn}>
+                <PresPHOTO />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/preslandingpage"
+            element={
+              <ProtectedRoute isLoggedIn={loggedIn}>
+                <Preslandingpage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/prescreatproduit"
+            element={
+              <ProtectedRoute isLoggedIn={loggedIn}>
+                <Prescreatproduit />
+              </ProtectedRoute>
+            }
+          />
      </Routes>
       )}
       </Router>
