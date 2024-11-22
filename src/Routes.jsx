@@ -110,10 +110,7 @@ const ProjectRoutes = () => {
   return (
     <React.Suspense fallback={<>Loading...</>}>
       <Router>
-      {loggedIn === null ? ( // Check if loggedIn state is null (initial state)
-        <div>Loading...</div> // Display a loading message while waiting for the state to update
-      ) : (
-     <Routes>
+      <Routes>
         
         {/* Public Routes */}
         <Route path="/PresSignIn" element={<PresSignIn />} />
@@ -162,7 +159,6 @@ const ProjectRoutes = () => {
             }
           />
      </Routes>
-      )}
       </Router>
     </React.Suspense>
     /**    <Routes>
