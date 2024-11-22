@@ -49,7 +49,7 @@ const PrespackPage = ({ onItemClick }) => {
                       className="text-gray-900_02 text-xl w-[50%]"
                       size="txtInterSemiBold20"
                     >
-                      Product list
+                      Liste des packs
                     </Text>
                     <div className="w-[50%] flex justify-end gap-[5px]">
 

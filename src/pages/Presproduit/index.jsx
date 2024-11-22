@@ -46,7 +46,7 @@ const PresproduitPage = ({ onItemClick }) => {
                       className="text-gray-900_02 text-xl w-[50%]"
                       size="txtInterSemiBold20"
                     >
-                      Product list
+                      Liste des produits
                     </Text>
                     <div className="w-[50%] flex justify-end gap-[5px]">
 

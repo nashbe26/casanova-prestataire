@@ -53,7 +53,7 @@ const Sidebar = ({ userData, onItemClick }) => {
                     className="mt-[3px] text-[16px] cursor-pointer text-gray-900_02"
                     size="txtMontserratRomanMedium13Gray60003"
                   >
-                    Homepage
+                    Page d'accueil
                   </Text>
                 </div>
                 <div
@@ -71,7 +71,7 @@ const Sidebar = ({ userData, onItemClick }) => {
                     className="text-[16px] cursor-pointer text-gray-900_02 w-auto"
                     size="txtMontserratRomanMedium13Gray90002"
                   >
-                    Products
+                    Produits
                   </Text>
                 </div>
                 <div
@@ -107,7 +107,7 @@ const Sidebar = ({ userData, onItemClick }) => {
                     className="text-[16px] cursor-pointer text-gray-900_02 w-auto"
                     size="txtMontserratRomanMedium13Gray60003"
                   >
-                    Orders
+                    Ordres
                   </Text>
                 </div>
                 <div onClick={() => handleItemClick("PresMediaPage")} className={` flex flex-row gap-[19px] items-center justify-start p-1.5 rounded-lg w-full ${
@@ -122,7 +122,7 @@ const Sidebar = ({ userData, onItemClick }) => {
                     className="text-[16px] cursor-pointer text-gray-900_02 w-auto"
                     size="txtMontserratRomanMedium13Gray60003"
                   >
-                    Media
+                    Média
                   </Text>
                 </div>
                 <div onClick={() => handleItemClick("Balence")}  className={` flex flex-row gap-[19px] items-center justify-start p-1.5 rounded-lg w-full ${
@@ -152,7 +152,7 @@ const Sidebar = ({ userData, onItemClick }) => {
                     className="text-613p cursor-pointerx] pl-[0%] text-gray-900_02 w-auto"
                     size="txtMontserratRomanMedium13Gray60003"
                   >
-                    Settings
+                    Paramétres
                   </Text>
                 </div>
               

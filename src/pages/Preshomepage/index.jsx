@@ -392,7 +392,7 @@ const PreshomepagePage = ({ userData }) => {
                         className="text-[13px] text-blue_gray-700 w-auto"
                         size="txtMontserratRomanMedium13Bluegray700"
                       >
-                        Awaits payment
+                        Paiement en attente
                       </Text>
                     </div>
                   </div>
@@ -403,7 +403,7 @@ const PreshomepagePage = ({ userData }) => {
                       className="bg-white-A700 justify-center pt-1 sm:px-5 px-[35px] rounded-lg text-blue_gray-300 text-center text-sm w-auto"
                       size="txtMontserratRomanRegular14Bluegray300"
                     >
-                      No payments have been captured yet.
+                      Aucun paiement n'a encore été effectué.
                     </Text>
                   ) : (
                     <ReactTable
@@ -417,188 +417,7 @@ const PreshomepagePage = ({ userData }) => {
 
               </div>
             </div>
-            <br></br>
-            <br></br>
-            <div className="bg-white-A700 border border-gray-200_01 border-solid flex flex-col items-start justify-start w-[100%] pb-5 pl-[19px] sm:pr-5 pr-8 pt-[27px] rounded-lg w-full">
-              <div className="flex flex-col h-[135px] md:h-auto items-start justify-start w-full">
-                <div className="flex flex-col gap-3 items-start justify-start w-full">
-                  <div className="font-montserrat md:h-[187px] h-[100%] relative w-full">
-                    <div className="w-[100%] flex justify-between my-2">
-
-                      <Text
-                        className="left-[0] text-gray-900_02 text-lg top-[6%]"
-                        size="txtMontserratRomanSemiBold18"
-                      >
-                        Availibity
-                      </Text>
-                      <div className="w-[20%]">
-                        <Button
-                          className="border border-gray-200_01 border-solid cursor-pointer font-medium rounded-lg text-[13px] text-center w-[100%]"
-                          color="white_A700"
-                          size="sm"
-                          variant="fill"
-                          onClick={handleChangeAvailability}
-                        >
-                          Change availability
-                        </Button>
-                      </div>
-                    </div>
-                    <div className="flex md:flex-col flex-row md:gap-5 inset-[0] items-center justify-start m-auto w-full">
-                      <div className="border border-gray-200_01 border-solid flex flex-col h-10 items-center justify-start md:mt-0 p-1 rounded-lg w-10">
-                        <Button
-                          className="flex h-8 items-center justify-center rounded w-8"
-                          color="gray_100_02"
-                          size="xs"
-                          variant="fill"
-                        >
-                          <Img
-                            className="h-6"
-                            src="../images/img_calendarcalendardays.svg"
-                            alt="calendarcalenda"
-                          />
-                        </Button>
-                      </div>
-                      <div className="flex flex-col items-start justify-start ml-4 md:ml-[0] w-auto">
-                        <Text
-                          className="text-gray-900_02 text-sm w-auto"
-                          size="txtMontserratRomanRegular14Gray90002"
-                        >
-                          Date of availibilty
-                        </Text>
-                      </div>
-
-
-                    </div>
-                  </div>
-                  {isDatePickerVisible && (
-                    <div className="z-[1]">
-                      <DateRangePicker
-                        ranges={dateRange}
-                        onChange={(ranges) => setDateRange([ranges.selection])}
-                      />
-                    </div>
-                  )}
-                  <Text
-                    className="text-gray-600_03 text-sm"
-                    size="txtInterRegular14"
-                  >
-                    <span className="text-gray-600_03 font-montserrat text-left font-normal">
-                      Available from{" "}
-                    </span>
-                    <span className="text-gray-900_02 font-montserrat text-left font-medium">
-                      {dateRange[0].startDate.toLocaleDateString()}
-                    </span>
-                    <span className="text-gray-600_03 font-montserrat text-left font-normal">
-                      {" "}
-                      to{" "}
-                    </span>
-                    <span className="text-gray-900_02 font-montserrat text-left font-medium">
-                      {dateRange[0].endDate.toLocaleDateString()}
-                    </span>
-                    <span className="text-gray-600_03 font-montserrat text-left font-normal">
-                      {" "}
-                    </span>
-                  </Text>
-                </div>
-              </div>
-            </div>
-
-
-            <br></br>
-            <div className="bg-white-A700 border border-gray-200_01 border-solid flex flex-col gap-4 items-start justify-start w-[100%] pb-8 pl-[19px] sm:pr-5 pr-8 pt-6 rounded-lg w-full">
-              <div className="flex flex-col items-start justify-end pr-1 py-1">
-                <Text
-                  className="text-gray-900_02 text-lg"
-                  size="txtMontserratRomanSemiBold18"
-                >
-                  Rating
-                </Text>
-              </div>
-              <div className="bg-gray-50 border border-gray-200_01 border-solid flex flex-col font-inter h-10 md:h-auto items-center justify-start w-[100%] pb-6 rounded-lg w-full">
-                <div className="flex flex-col items-start justify-start w-[100%] rounded-lg w-full">
-                  <div className="flex md:flex-col flex-row md:gap-10 items-center justify-between w-[98%] md:w-full">
-                    <div className="bg-gray-50 flex flex-col items-start justify-start p-2 rounded-tl-lg rounded-tr-lg w-[100%] md:w-full">
-                      <div className="flex flex-col items-center justify-center ml-2 md:ml-[0] w-auto">
-                        <Button
-                          className="!text-blue_gray-700 border border-gray-200_01 border-solid cursor-pointer font-medium min-w-[74px] text-[13px] text-center"
-                          shape="round"
-                          color="white_A700"
-                          size="xs"
-                          variant="fill"
-                          onClick={toggleDropdown}
-                        >
-                          {Ratings.length} rates
-                        </Button>
-                      </div>
-                    </div>
-                    <div className="flex flex-col items-start justify-start w-auto">
-                      <div className="flex flex-col items-end justify-start pl-0.5 py-0.5 w-full">
-                        <Img
-                          className="h-5 cursor-pointer"
-                          src="../images/img_arrowdown_gray_600_03.svg"
-                          alt="arrowdown"
-                          onClick={toggleDropdown}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* Dropdown list */}
-              {isDropdownOpen && (
-                <div className="">
-                  {/* Dropdown items */}
-                  <div className="p-2">
-                    <List>
-                      {Ratings.map((rating, index) => (
-                        <div
-                          key={index}
-                          className="bg-white-A700 flex flex-col items-center justify-start px-2 rounded-lg w-full"
-                        >
-                          <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start w-[99%] md:w-full">
-                            <Button
-                              className="flex h-8 items-center justify-center rounded-lg w-8"
-                              size="xs"
-                            >
-                              <Img
-                                className="h-5"
-                                src="../images/img_20pxgrip.svg"
-                                alt="20pxgrip"
-                              />
-                            </Button>
-                            <div className="flex flex-col h-16 items-center justify-start ml-2 md:ml-[0] px-2 w-16">
-                              <Img
-                                className="h-16 md:h-auto object-cover rounded w-full"
-                                src="../images/img_rectangle1655.png"
-                                alt={"image"}
-                              />
-                            </div>
-                            <div className="flex flex-col gap-[5px] items-start justify-start ml-6 md:ml-[0]">
-                              <Text
-                                className="text-gray-900_02 text-sm"
-                                size="txtInterRegular14Gray90002"
-                              >
-                                {rating}
-                              </Text>
-                            </div>
-                            <Button
-                              className="flex h-8 items-center justify-center md:ml-[0] ml-[150px] rounded-lg w-8"
-                              size="xs"
-                            >
-                              <Img
-                                className="h-5"
-                                src="../images/img_arrowright_gray_600_03.svg"
-                                alt="arrowright"
-                              />
-                            </Button>
-                          </div>
-                        </div>
-                      ))}
-                    </List>
-                  </div>
-                </div>
-              )}
-            </div>
+          
           </div>
         </div>
       </div>

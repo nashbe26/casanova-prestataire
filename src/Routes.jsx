@@ -75,9 +75,29 @@ const ProjectRoutes = () => {
     fetchUserFromToken();
   }, [token]);
 
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' })
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 770px)' })
 
-
+  if (isTabletOrMobile) {
+    // Render a restriction message for mobile users
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          textAlign: "center",
+          backgroundColor: "#f8d7da",
+          color: "#721c24",
+        }}
+      >
+        <div>
+          <h1>Access Restricted</h1>
+          <p>This application is not available on mobile devices. Please use a desktop device to access it.</p>
+        </div>
+      </div>
+    );
+  }
   return (
     <React.Suspense fallback={<>Loading...</>}>
       <Router>
@@ -86,17 +106,15 @@ const ProjectRoutes = () => {
       ) : (
      <Routes>
 
-        <Route path="/preslandingpage" element={<Preslandingpage />} />
-        <Route path="*" element={<Navigate to="/preslandingpage" />} />
+        <Route path="*" element={<Navigate to="/Dashboard" />} />
 
         <Route path="/PresSignIn" element={<PresSignIn /> } />
         <Route path="/PresSignup" element={ <PresSignup />} />
-        <Route path="/pres" element={<Pres />} /> 
-        <Route path="/Dashboard" element={loggedIn ? <Dashboard /> : <Navigate to="/Signup" />} />
 
         {loggedIn && (
-
-            <>
+          
+          <>
+            <Route path="/Dashboard" element={loggedIn ? <Dashboard /> : <Navigate to="/PresSignIn" />} />
             <Route path="/presphotoone" element={<PresPHOTOOne />} />  
             <Route path="/presphoto" element={<PresPHOTO />} /> 
             <Route path="/preslandingpage" element={<Preslandingpage />} /> 

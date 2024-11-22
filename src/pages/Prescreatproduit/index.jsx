@@ -233,8 +233,8 @@ const PrescreatproduitPage = ({ userData, onItemClick }) => {
               className="mt-4 text-gray-600_03 text-sm"
               size="txtMontserratRomanRegular14Gray60003"
             >
-              To start selling, all you need is a name and a price.
-            </Text>
+  Pour commencer à vendre, tout ce dont vous avez besoin est un nom et un prix.
+</Text>
             <div className="flex justify-between mt-5">
             <div className="w-[45%]">
               <Text
@@ -242,7 +242,7 @@ const PrescreatproduitPage = ({ userData, onItemClick }) => {
                 size="txtInterSemiBold12"
               >
                 <span className="text-gray-600_03 font-montserrat text-left font-semibold">
-                  Title
+                  Titre
                 </span>
                 <span className="text-red-400 font-montserrat text-left font-semibold">
                   *
@@ -262,10 +262,9 @@ const PrescreatproduitPage = ({ userData, onItemClick }) => {
                 className="leading-[24.00px] mt-3 text-gray-600_03 text-sm"
                 size="txtMontserratRomanRegular14Gray60003"
               >
-                <>
-                  Give your product a short and clear title.
-                  50-60 characters is the recommended length for search engines.
-                </>
+                
+                Donnez à votre produit un titre court et clair.
+                50 à 60 caractères sont la longueur recommandée pour les moteurs de recherche.
               </Text>
             </div>
             <div  className="w-[45%]">
@@ -332,9 +331,9 @@ const PrescreatproduitPage = ({ userData, onItemClick }) => {
               size="txtMontserratRomanRegular14Gray60003"
             >
               <>
-                Give your product a short and clear description.
+                Petite description pour le produit
                 <br />
-                120-160 characters is the recommended length for search engines.
+                120-160 characters est recommandée.
               </>
             </Text>
             <div className="w-[100%] flex justify-between pt-5">
@@ -355,7 +354,7 @@ const PrescreatproduitPage = ({ userData, onItemClick }) => {
                     className="round round font-inter border border-gray-200_01 border-solid mt-[9px] rounded-lg w-full p-0 placeholder:text-gray-900_02 text-left text-sm w-full"
                   >
                     <option disabled value="">
-                      Select Category
+                      Choisir catégories
                     </option>
                     {categories.map((cat) => (
                       <option key={cat._id} value={cat._id}>
@@ -372,7 +371,7 @@ const PrescreatproduitPage = ({ userData, onItemClick }) => {
                   className="text-gray-600_03 text-xs w-auto"
                   size="txtMontserratRomanSemiBold12"
                 >
-                  SubCategorie :
+                  Choisir sous catégories :
                 </Text>
                 <div className="pt-4" >
 
@@ -770,7 +769,7 @@ const PrescreatproduitPage = ({ userData, onItemClick }) => {
               size="sm"
               variant="fill"
             >
-              Save changes
+              Enregistrer
             </Button>
           </div>
         </div>

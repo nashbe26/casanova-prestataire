@@ -134,7 +134,7 @@ const PresSettingsPage = ({ userData }) => {
               className="text-2xl md:text-[22px] text-gray-900_02 sm:text-xl"
               size="txtInterSemiBold24"
             >
-              Store information
+              Information sur le profile
             </Text>
             <div className="flex flex-row gap-3.5 items-center justify-start mt-[35px] w-[26%] md:w-full">
               <div className="md:h-[53px] h-[60px] relative w-[30%]">
@@ -223,10 +223,10 @@ const PresSettingsPage = ({ userData }) => {
               className="mt-1 text-gray-600_03 text-sm"
               size="txtInterRegular14"
             >
-              Change your details
+              Changer les Informations
             </Text>
             <Text className="mt-7  text-xs" size="txtInterSemiBold12Red400">
-              Store title*
+              Nom Store*
             </Text>
             <Input
                           register={register}
@@ -294,7 +294,7 @@ const PresSettingsPage = ({ userData }) => {
               className="mt-[27px]  text-xs"
               size="txtInterSemiBold12Red400"
             >
-              Store Description*
+              Description de Store *
             </Text>
             <TextArea
             register={register}
@@ -371,7 +371,7 @@ const PresSettingsPage = ({ userData }) => {
                 size="sm"
                 variant="fill"
               >
-                No, cancel
+                Non
               </Button>
               <Button
                 className="cursor-pointer font-medium min-w-[87px] rounded-lg text-[13px] text-center"
