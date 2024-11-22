@@ -12,8 +12,8 @@ import {
 
 const NotFound = () => {
   return (
-    <div>
-      <h1>Opps! We ran out of code</h1>
+    <div className="flex justify-center" style={{margin:"250px 0",fontSize:"120px"}}>
+      <h1>404 | Page not found</h1>
     </div>
   );
 };
