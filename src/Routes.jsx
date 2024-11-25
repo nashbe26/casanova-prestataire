@@ -5,6 +5,7 @@ import { useMediaQuery } from "react-responsive";
 import { User } from "./utils/recoil/atoms";
 import { useGetUser } from "utils/functions";
 import NotFound from "pages/NotFound";
+import PresSignup from "pages/PresSignup";
 
 // Lazy-loaded components
 const Dashboard = React.lazy(() => import("pages/Dashboard"));
@@ -78,6 +79,7 @@ const ProjectRoutes = () => {
 
           {/* Public Routes */}
           <Route path="/PresSignIn" element={loggedIn ?  <Navigate to={"/Dashboard"} /> : <PresSignIn /> }  />
+          <Route path="/PresSignUp" element={loggedIn ?  <Navigate to={"/Dashboard"} /> : <PresSignup /> }  />
 
           {/* Protected Routes */}
           <Route

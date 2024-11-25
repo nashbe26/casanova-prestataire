@@ -31,6 +31,7 @@ const PresorderPage = () => {
       try {
         const response = await GetUser(user);
         const data = await get("Order", { owner: response.user._id });
+        console.log(data, "ddddddddd");
 
         const ordersWithCustomerNames = await Promise.all(
           data.map(async (order) => {
@@ -90,17 +91,55 @@ const PresorderPage = () => {
               return (
                 <div className="flex justify-between items-center gap-[10px] my-4 py-2" style={{ borderBottom: '1px solid #000' }}>
                   <div className="w-[22.5%]">
-                    <img src={'https://www.casanova-event.com/uploads/' + x.id_product?.image[0]} alt="" width={'100%'} />
+                    <img src={'http://localhost:3001/uploads/' + x.id_product?.images[0]} alt="" width={'100%'} />
                   </div>
-                  <div className="w-[22.5%]">
-                    <p className="text-center"> {x.id_product?.title}</p>
+                  <div className="w-[75.5%] ">
+                    <div className="flex jsutify-between">
 
-                  </div>
-                  <div className="w-[22.5%]">
-                    <p className="text-center">{x.id_product?.price} TND</p>
-                  </div>
-                  <div className="w-[22.5%]">
-                    <p className="text-center">{x.quantity}</p>
+                      <div className="w-[30%]">
+                        <p className="text-center"> {x.id_product?.title}</p>
+                      </div>
+                      <div className="w-[30%]">
+                        <p className="text-center">{x.id_product?.price} TND</p>
+                      </div>
+                      <div className="w-[30%]">
+                        <p className="text-center">{x.quantity}</p>
+                      </div>
+                    </div>
+                    <div className="w-[100%] my-3">
+                      <p style={{fontWeight:"600",fontSize:"18px"}}>Service Extra : </p>
+                      <div className="w-[100%] my-3" style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+                        
+                          <p style={{ width:"30%"}}>saison : {x.addons.seasonPrice}</p>
+                        
+                        
+                          <p style={{ width:"30%"}}>hors saison : {x.addons.offSeasonPrice}</p>
+                        
+                        
+                          <p style={{ width:"30%"}}>soirée : {x.addons.nightPrice}</p>
+                        
+                        
+                          <p style={{ width:"30%"}}>matinée : {x.addons.morningPrice}</p>
+                        
+                        
+                          <p style={{ width:"30%"}}>(VDS) : {x.addons.weekendPrice}</p>
+                        
+                       
+                          <p style={{ width:"30%"}}>Semaine : {x.addons.holidayPrice}</p>
+                        
+                      </div>
+
+                    <hr className="mb-2"></hr>
+                      {x.extra?.map(x => {
+                        return (
+                          <div className="flex gap-[10px]">
+                            <p>{x.extra} : {x.price}</p>
+
+                          </div>
+                        )
+                      })
+                      }
+                    </div>
                   </div>
                 </div>
               )
@@ -113,7 +152,7 @@ const PresorderPage = () => {
       </div>
       <div className="w-[100%] flex m-auto w-full justify-end">
         <div className="bg-white-A700 w-[100%]  border-solid flex flex-col items-start justify-end ">
-          
+
           <Text
             className="text-2xl md:text-[22px] my-5 py-5 sm:text-xl text-gray-900_02"
             style={{ textAlign: "center", justifyContent: "center" }}
@@ -125,25 +164,35 @@ const PresorderPage = () => {
           <table>
             <thead>
               <tr>
-                <th style={{ width: "20%", height: "50px" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">Order</th>
+                <th style={{ width: "20%", height: "50px" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">Ordre</th>
                 <th style={{ width: "30%", height: "50px" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">Date / Time</th>
-                <th style={{ width: "15%", height: "50px" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">Livraision</th>
-                <th style={{ width: "20%", height: "50px" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">Total Price</th>
-                <th style={{ width: "15%", height: "50px" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">More Details</th>
+                <th style={{ width: "15%", height: "50px" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">Quantité</th>
+                <th style={{ width: "20%", height: "50px" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">Prix Totale</th>
+                <th style={{ width: "15%", height: "50px" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">Plus de détails</th>
               </tr>
             </thead>
             <tbody>
-              {orders.map(x => (
-                <tr key={x?._id}>
-                  <td style={{ width: "20%", borderBottom: "1px solid black" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">#{shortenOrderId(x?._id)}</td>
-                  <td style={{ width: "30%", borderBottom: "1px solid black" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">{moment(x?.date).format('YYYY/MM/DD')}</td>
-                  <td style={{ width: "15%", borderBottom: "1px solid black" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">{x?.livraision}</td>
-                  <td style={{ width: "20%", borderBottom: "1px solid black" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">{x?.totalPrice} TND</td>
-                  <td style={{ width: "15%", borderBottom: "1px solid black" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">
-                    <span className="more-details" onClick={() => onOpenModal(x)}>More</span>
-                  </td>
-                </tr>
-              ))}
+              {
+                orders.map((v, index) => {
+                  return (
+                    <>
+                      <p style={{ fontSize: "14px", fontWeight: "600" }}>Ordre Numero  {index + 1}</p>
+                      {v.products.map(x => (
+                        <tr key={x?._id}>
+                          <td style={{ width: "20%", borderBottom: "1px solid black" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">#{shortenOrderId(x?._id)}</td>
+                          <td style={{ width: "30%", borderBottom: "1px solid black" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">{moment(x?.date).format('YYYY/MM/DD')}</td>
+                          <td style={{ width: "15%", borderBottom: "1px solid black" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">{x?.quantity}</td>
+                          <td style={{ width: "20%", borderBottom: "1px solid black" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">{x?.price} TND</td>
+                          <td style={{ width: "15%", borderBottom: "1px solid black" }} className="text-center h-[55px]  text-[15px] text-gray-900_02">
+                            <span className="more-details" onClick={() => onOpenModal(v)}>Plus de détails</span>
+                          </td>
+                        </tr>
+                      ))}
+                    </>
+
+                  )
+                })
+              }
             </tbody>
           </table>
         </div>
